@@ -5,7 +5,7 @@
 <table class="uk-table uk-table-striped">
     <thead>
         <tr>
-            <th>Name</th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -13,23 +13,15 @@
 
             foreach($requete->fetchAll() as $director){ 
         ?>
-            <tr>
-                <td><?= $director["person_surname"],$director["person_name"] ?></td>
-            
+                <tr>
+                    <td><img class="portrait" src=" <?=$director["portrait"]?>" alt=""></td>
+                    <td><?= $director["person_surname"],$director["person_name"] ?></td>
+                </tr>
+            <?php
+            }
+            ?>
 
-                <?php
-                for($i=0;$i<1;$i++){
-                ?>
-                    <td class="portrait"><img src="public/img/<?php
-                    $img[$i]
-                    ?>
-                    "></td>   
-                <?php
-                }
-                ?>
-
-            </tr>
-        <?php } ?>
+      
     </tbody>
 </table>
 

@@ -114,5 +114,9 @@ td{
 }
 
 .portrait{
-    border:none;
+    width:150px;
+    height:150px;
+    border-radius:100px;
+    object-fit: cover;
+    filter:grayscale(100%);
 }
