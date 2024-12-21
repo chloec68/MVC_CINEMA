@@ -2,9 +2,6 @@
 
 <table class="uk-table uk-table-striped">
     <thead>
-        <tr>
-            <th>ACTEUR</th>
-        </tr>
     </thead>
 
     <tbody>
@@ -12,7 +9,7 @@
             foreach($requete->fetchAll() as $acteur){ 
         ?>
             <tr>
-                <td><?= $acteur["person_name"] ?></td>
+                <td><?= $acteur["person_surname"],$acteur["person_name"] ?></td>
             </tr>
         <?php } ?>
     </tbody>
@@ -20,9 +17,9 @@
 
 <?php
 
-$titre = "Liste des acteurs";
+$titre = "Actors";
 $contenu = ob_get_clean();
-$titre_secondaire = "liste des acteurs";
+$titre_secondaire = "Search by Actor";
 require "view/template.php";
 
 

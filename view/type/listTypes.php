@@ -2,11 +2,11 @@
 
 <?php ob_start();?>
 
-<p class="uk-label uk-label-warning">There is <?= $requete->rowCount() ?> categories </p>
+<!-- <p class="uk-label uk-label-warning">There is <?= $requete->rowCount() ?> categories </p> -->
 <table class="uk-table uk-table-striped">
     <thead>
         <tr>
-            <th>CATEGORY</th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -24,8 +24,8 @@
 
 <?php
 
-$titre = "Types list";
-$titre_secondaire = "Movie types";
+$titre = "Categories";
+$titre_secondaire = "Category";
 $contenu = ob_get_clean();
 require "view/template.php";
 

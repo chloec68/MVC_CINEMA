@@ -9,7 +9,7 @@ class PersonController {
 
         $pdo = Connect :: seConnecter();
         $requete = $pdo->query(
-            "SELECT person_name FROM actor 
+            "SELECT person_surname,person_name FROM actor 
             INNER JOIN person ON actor.id_person = person.id_person"
            );
 

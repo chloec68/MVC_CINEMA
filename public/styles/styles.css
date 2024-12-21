@@ -66,8 +66,8 @@ i{
 
 .searchBar{
     border-radius: 20px;
-    width:350px;
-    height:25px;
+    width:700px;
+    height:30px;
     padding-left:10px;
     border:1px white solid;
 }
@@ -76,7 +76,7 @@ i{
 
 #wrapper{
     display: flex;
-    justify-content: center;
+    justify-content:center;
     padding-top : 100px;
 
 }
@@ -84,12 +84,23 @@ i{
 h2{
     font-family: "Blinker", serif;
     font-weight: 800;
-    font-size:3em;
+    font-size:2.5em;
+    border-bottom: white 1px solid;
+    width: fit-content;
+
+}
+
+.uk-label{
+    text-align: center;
+    margin:20px;
+   
 }
 
 table{
     height:100px;
     width:400px;
+    position : relative;
+    left : -350px;
 }
 
 th{
@@ -98,14 +109,10 @@ th{
 
 td{
     height:100px;
-    font-size:1.5em;
-}
-
-td{
+    font-size:1.2em;
     border-bottom: solid 1px white;
 }
 
-.dob{
-    font-size:1em;
-    text-align: center;
+.portrait{
+    border:none;
 }

@@ -1,26 +1,26 @@
 <?php ob_start();
 ?>
 
-<p class="uk-label uk-label-warning"><?= $requete->rowCount() ?> directors </p>
+<!-- <p class="uk-label uk-label-warning"> <?= $requete->rowCount() ?> directors </p> -->
 <table class="uk-table uk-table-striped">
     <thead>
         <tr>
             <th>Name</th>
-            <th>Date of Birth</th>
         </tr>
     </thead>
     <tbody>
-        <?php 
+        <?php
+
             foreach($requete->fetchAll() as $director){ 
         ?>
             <tr>
                 <td><?= $director["person_surname"],$director["person_name"] ?></td>
-                <td class="dob"><?= $director["dateOfBirth"] ?></td>
+            
 
                 <?php
                 for($i=0;$i<1;$i++){
                 ?>
-                    <td><img src="public/img/<?php
+                    <td class="portrait"><img src="public/img/<?php
                     $img[$i]
                     ?>
                     "></td>   
@@ -37,7 +37,7 @@
 <?php
 
 $titre = "Directors";
-$titre_secondaire = "Directors";
+$titre_secondaire = "Directors List";
 $contenu = ob_get_clean();
 require "view/template.php";
 $img[1]="public/img/CNolan.jpg";
