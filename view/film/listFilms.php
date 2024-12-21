@@ -2,12 +2,12 @@
 ?>
 
 <p class="uk-label uk-label-warning">Il y a <?= $requete->rowCount() ?> films </p>
-<table class="uk-table uk-table-striped">
+<table class="movieTable">
     <thead>
         <tr>
             <th class="tableHeadMovie">TITLE</th>
             <th class="tableHeadMovie">RELEASE</th>
-            <th></th>
+            <th class="tableHeadMovie"></th>
         </tr>
     </thead>
     <tbody>
@@ -15,9 +15,9 @@
             foreach($requete->fetchAll() as $film){ 
         ?>
             <tr>
-                <td class="tableDataMovie"><?= $film["movie_title"] ?></td>
-                <td class="tableDataMovie"><?= $film["releaseYear"] ?></td>
-                <td class="tableDataMovie"><img class="poster" src="<?=$film["poster"] ?>" alt=""></td>
+                <td class="tableDataMovie titleMovie"><?= $film["movie_title"] ?></td>
+                <td class="tableDataMovie padding"><?= $film["releaseYear"] ?></td>
+                <td class="tableDataMovie padding"><img class="poster" src="<?=$film["poster"] ?>" alt=""></td>
             </tr>
         <?php } ?>
     </tbody>
