@@ -3,18 +3,19 @@
 <?php ob_start();?>
 
 <!-- <p class="uk-label uk-label-warning">There is <?= $requete->rowCount() ?> categories </p> -->
-<table class="uk-table uk-table-striped">
+<table class="typeTable">
     <thead>
         <tr>
             <th></th>
         </tr>
     </thead>
-    <tbody>
+    <tbody class="flexTBody">
         <?php 
+             
             foreach($requete->fetchAll() as $genre){ 
         ?>
             <tr>
-                <td><?= $genre["type_name"] ?></td>
+                <td><div class="typeButton"><?= $genre["type_name"] ?></div></td>
             </tr>
         <?php } ?>
     </tbody>

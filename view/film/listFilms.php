@@ -5,8 +5,9 @@
 <table class="uk-table uk-table-striped">
     <thead>
         <tr>
-            <th>TITRE</th>
-            <th>ANNEE SORTIE</th>
+            <th class="tableHeadMovie">TITLE</th>
+            <th class="tableHeadMovie">RELEASE</th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -14,8 +15,9 @@
             foreach($requete->fetchAll() as $film){ 
         ?>
             <tr>
-                <td><?= $film["movie_title"] ?></td>
-                <td><?= $film["releaseYear"] ?></td>
+                <td class="tableDataMovie"><?= $film["movie_title"] ?></td>
+                <td class="tableDataMovie"><?= $film["releaseYear"] ?></td>
+                <td class="tableDataMovie"><img class="poster" src="<?=$film["poster"] ?>" alt=""></td>
             </tr>
         <?php } ?>
     </tbody>
@@ -24,8 +26,8 @@
  <!-- *************************** LE RENVOI AU TEMPLATE ("squelette") -->
 <?php
 
-$titre = "Your Movie Library";
-$titre_secondaire = "Liste des films";
+$titre = "All Movies";
+$titre_secondaire = "Movies";
 $contenu = ob_get_clean();
 require "view/template.php";
 

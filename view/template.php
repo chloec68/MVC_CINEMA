@@ -29,7 +29,7 @@
 
     <nav>
         <div>RELEASE YEAR <i class="fa-solid fa-play"></i></div>
-        <div>TYPE <i class="fa-solid fa-play"></i></div>
+        <div>CATEGORY <i class="fa-solid fa-play"></i></div>
         <div>DIRECTOR <i class="fa-solid fa-play"></i></div>
         <div>ACTOR <i class="fa-solid fa-play"></i></div>
         <div>DURATION <i class="fa-solid fa-play"></i></div>
