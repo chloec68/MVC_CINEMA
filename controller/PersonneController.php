@@ -8,10 +8,10 @@ class PersonneController {
     public function listActeurs(){
 
         $pdo = Connect :: seConnecter();
-        $requete = $pdo->query("
-            SELECT id_actor,ACTOR.id_person,person_name FROM actor 
-            INNER JOIN person ON actor.id_person = person.id_person
-           ");
+        $requete = $pdo->query(
+            "SELECT id_actor,ACTOR.id_person,person_name FROM actor 
+            INNER JOIN person ON actor.id_person = person.id_person"
+           );
 
         require "view/acteur/listActors.php";
     }

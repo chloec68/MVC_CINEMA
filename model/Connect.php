@@ -4,16 +4,17 @@ namespace Model;
 // la classe est abstraite car on n'instanciera jamais la classe Connect -> on a seulement besoin d'accéder à la méthode seConnecter()
 abstract class Connect {
     const HOST = "localhost";
-    const DB = "cinema_chloe"; 
+    const DB = "cinema"; 
     const USER = "root";
-    const PASS ="";
+    const PASS ="root";
 
     public static function seConnecter(){
         try{
             return new \PDO(
                 "mysql:host=".self::HOST.";dbname=".self::DB.";charset=utf8", self::USER, self::PASS);
         }catch(\PDOException $ex){
-            return $ex->getMessage();
+            // return $ex->getMessage();
+            return null;
         }
     }
 }
