@@ -41,10 +41,11 @@
     </div>
     
 
-    <div id="wrapper"></div>
+    <div id="wrapper">
         <div id="contenu">
             <h2> <?= $titre_secondaire ?> </h2>
             <?= $contenu ?>
+        </div>
     </div>
 
     <div>

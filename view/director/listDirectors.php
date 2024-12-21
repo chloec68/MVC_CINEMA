@@ -1,19 +1,33 @@
 <?php ob_start();
 ?>
 
-<p class="uk-label uk-label-warning">There are <?= $requete->rowCount() ?> directors </p>
+<p class="uk-label uk-label-warning"><?= $requete->rowCount() ?> directors </p>
 <table class="uk-table uk-table-striped">
     <thead>
         <tr>
-            <th>DIRECTORS</th>
+            <th>Name</th>
+            <th>Date of Birth</th>
         </tr>
     </thead>
     <tbody>
         <?php 
-            foreach($requete->fetchAll() as $film){ 
+            foreach($requete->fetchAll() as $director){ 
         ?>
             <tr>
-                <td><?= $film["person_surname"],$film["person_name"] ?></td>
+                <td><?= $director["person_surname"],$director["person_name"] ?></td>
+                <td class="dob"><?= $director["dateOfBirth"] ?></td>
+
+                <?php
+                for($i=0;$i<1;$i++){
+                ?>
+                    <td><img src="public/img/<?php
+                    $img[$i]
+                    ?>
+                    "></td>   
+                <?php
+                }
+                ?>
+
             </tr>
         <?php } ?>
     </tbody>
@@ -22,10 +36,11 @@
  <!-- *************************** LE RENVOI AU TEMPLATE ("squelette") -->
 <?php
 
-$titre = "Liste des films";
+$titre = "Directors";
 $titre_secondaire = "Directors";
 $contenu = ob_get_clean();
 require "view/template.php";
+$img[1]="public/img/CNolan.jpg";
 
 
 // Tout ce qui se trouve entre la fonction ob_start() et la fonction ob_clean() est temporairement stocké dans la variable $contenu
