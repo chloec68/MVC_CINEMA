@@ -1,31 +1,29 @@
-<!--*************************************************** STRUCTURE D'UNE VUE -->
+<?php ob_start();
+?>
 
-<?php ob_start();?>
-
-<p class="uk-label uk-label-warning">There is <?= $requete->rowCount() ?> categories </p>
+<p class="uk-label uk-label-warning">There are <?= $requete->rowCount() ?> directors </p>
 <table class="uk-table uk-table-striped">
     <thead>
         <tr>
-            <th>CATEGORY</th>
+            <th>DIRECTORS</th>
         </tr>
     </thead>
     <tbody>
         <?php 
-            foreach($requete->fetchAll() as $genre){ 
+            foreach($requete->fetchAll() as $film){ 
         ?>
             <tr>
-                <td><?= $genre["type_name"] ?></td>
+                <td><?= $film["person_surname"],$film["person_name"] ?></td>
             </tr>
         <?php } ?>
     </tbody>
 </table>
 
  <!-- *************************** LE RENVOI AU TEMPLATE ("squelette") -->
-
 <?php
 
-$titre = "Types list";
-$titre_secondaire = "Movie types";
+$titre = "Liste des films";
+$titre_secondaire = "Directors";
 $contenu = ob_get_clean();
 require "view/template.php";
 

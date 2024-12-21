@@ -5,7 +5,7 @@ use Model\Connect;
 
 
 
-class GenreController {
+class TypeController {
 
 public function listTypes(){
 
@@ -15,7 +15,6 @@ public function listTypes(){
         FROM type
     ");
 
-    
     require "view/type/listTypes.php";
 }
 

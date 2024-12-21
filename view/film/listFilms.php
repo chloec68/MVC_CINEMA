@@ -1,7 +1,3 @@
-<!--*************************************************** STRUCTURE D'UNE VUE -->
-
-<!-- *************************** LE CONTENU -->
-
 <?php ob_start();
 ?>
 
@@ -28,7 +24,7 @@
  <!-- *************************** LE RENVOI AU TEMPLATE ("squelette") -->
 <?php
 
-$titre = "Liste des films";
+$titre = "Your Movie Library";
 $titre_secondaire = "Liste des films";
 $contenu = ob_get_clean();
 require "view/template.php";

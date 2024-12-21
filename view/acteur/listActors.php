@@ -1,6 +1,5 @@
 <?php ob_start();?>
 
-
 <table class="uk-table uk-table-striped">
     <thead>
         <tr>
@@ -13,7 +12,7 @@
             foreach($requete->fetchAll() as $acteur){ 
         ?>
             <tr>
-                <td><?= $acteur["id_actor"] ?></td>
+                <td><?= $acteur["person_name"] ?></td>
             </tr>
         <?php } ?>
     </tbody>

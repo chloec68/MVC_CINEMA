@@ -6,8 +6,8 @@
 // sans use : $personneController = new \Controller\PersonneController();
 // But : simplification 
 use Controller\CinemaController;
-use Controller\GenreController;
-use Controller\PersonneController;
+use Controller\TypeController;
+use Controller\PersonController;
 
 //autochargement des classes du projet 
 spl_autoload_register(function ($class_name){
@@ -17,8 +17,8 @@ spl_autoload_register(function ($class_name){
 
 //instancie Controller
 $ctrlCinema = new CinemaController();
-$ctrlGenre = new GenreController();
-$ctrlPersonne = new PersonneController();
+$ctrlType = new TypeController();
+$ctrlPerson = new PersonController();
 
 
 // utilisation de l'OPERATEUR TERNAIRE pour affecter une valeur à $id
@@ -31,9 +31,10 @@ $id = (isset($_GET["id"])) ? $_GET["id"] : null;
 if(isset($_GET["action"])){
     switch ($_GET["action"]){
         case "listFilms" : $ctrlCinema->listFilms();break;
-        case "detailFilm":$ctrlCinema->detailFilm($id);break;
-        case "listeGenres" : $ctrlGenre->listTypes(); break;
-        case "listActeurs":$ctrlPersonne->listActeurs();break;
+        // case "detailFilm":$ctrlCinema->detailFilm($id);break;
+        case "listTypes" : $ctrlType->listTypes(); break;
+        case "listActors":$ctrlPerson->listActors();break;
+        case "listDirectors":$ctrlPerson->listDirectors();break;
     }
 }
 
