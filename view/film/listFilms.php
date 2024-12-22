@@ -1,28 +1,16 @@
 <?php ob_start();
 ?>
-
+<div id="overlay" onclick="off()"></div>
 <p class="uk-label uk-label-warning">Il y a <?= $requete->rowCount() ?> films </p>
-<table class="movieTable">
-    <thead>
-        <tr>
-            <th class="tableHeadMovie">TITLE</th>
-            <th class="tableHeadMovie">RELEASE</th>
-            <th class="tableHeadMovie"></th>
-        </tr>
-    </thead>
-    <tbody>
+<div class="movieDisplay">
         <?php 
             foreach($requete->fetchAll() as $film){ 
         ?>
-            <tr>
-                <td class="tableDataMovie titleMovie"><?= $film["movie_title"] ?></td>
-                <td class="tableDataMovie padding"><?= $film["releaseYear"] ?></td>
-                <td class="tableDataMovie padding"><img class="poster" src="<?=$film["poster"] ?>" alt=""></td>
-            </tr>
+                <div class="titleMovie"><?= $film["movie_title"] ?></div>
+                <div class="releaseMovie"><?= $film["releaseYear"] ?></div>
+                <div class="poster" onclick="on()"><img class="poster" src="<?=$film["poster"] ?>" alt=""></div>
         <?php } ?>
-    </tbody>
-</table>
-
+</div>
  <!-- *************************** LE RENVOI AU TEMPLATE ("squelette") -->
 <?php
 
