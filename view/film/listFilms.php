@@ -1,17 +1,18 @@
 <?php ob_start();
 ?>
 <div id="overlay" onclick="off()"></div>
-<p class="uk-label uk-label-warning">Il y a <?= $requete->rowCount() ?> films </p>
+<p class="count">There are <?= $requete->rowCount() ?> films </p>
 <div class="movieDisplay">
         <?php 
             foreach($requete->fetchAll() as $film){ 
         ?>
                 <div class="poster" onclick="on()"><img class="poster" src="<?=$film["poster"] ?>" alt=""></div>
                 <div id="movieInfo">
-                        <p class="movieTitle"> : <?= $film["movie_title"]?></p>
-                        <p><?= $film["synopsis"]?></p>
-                        <p>Release : <?= $film["releaseYear"]?></p>
-                        <p>Duration : <?= $film["duration"]?></p>
+                        <p class="movieTitle"><?= $film["movie_title"]?></p>
+                        <p class="otherInfo"><?= $film["synopsis"]?></p>
+                        <p class="otherInfo">Release : <?= $film["releaseYear"]?></p>
+                        <p class="otherInfo">Duration : <?= $film["CONVERT(duration,TIME)"]?></p>
+                        <p class="otherInfo">Director : <?= $film["person_surname"],$film["person_name"]?></p>
                 </div>
         <?php } ?>
 </div>

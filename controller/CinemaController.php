@@ -15,8 +15,10 @@ class CinemaController {
         // le résultat (=L'OBJET PDO RENVOYE) est affecté à la variable $pdo
         // l'objet PDO est nécessaire pour exécuter la requête qui suit (il sert de passerelle entre la BDD et l'application PHP) : 
         $requete = $pdo->query("
-            SELECT movie_title,poster, releaseYear,synopsis,duration
+           SELECT movie_title,poster, releaseYear,synopsis,CONVERT(duration,TIME),person_surname,person_name
             FROM movie
+            INNER JOIN DIRECTOR ON MOVIE.id_director = DIRECTOR.id_director 
+            INNER JOIN PERSON ON DIRECTOR.id_person=PERSON.id_person
         ");
         // la méthode $requete = $pdo->query est utilisée pour exécuter la requête SQL directement sur la base de donnée 
         // la méthode renvoie un objet de type PDOStatement 

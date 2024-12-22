@@ -24,7 +24,7 @@
     <body>
 
     <header>
-        <img class ="logo" src="public/img/WikiMovieSVG.svg" alt="Wiki Movie Logo">
+        <img class ="logo" src="public/img/WikiMovieSVG-svg.svg" alt="Wiki Movie Logo">
         <h1 id="slogan">Your Movie Library</h1>
     </header>
 

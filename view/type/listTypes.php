@@ -26,7 +26,7 @@
 <?php
 
 $titre = "Categories";
-$titre_secondaire = "Category";
+$titre_secondaire = "Pick a category :";
 $contenu = ob_get_clean();
 require "view/template.php";
 
