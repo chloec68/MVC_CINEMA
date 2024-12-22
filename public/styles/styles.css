@@ -41,6 +41,17 @@ nav{
 .flexBoxNav{
     display: flex;
     align-items: baseline;
+    background-image:linear-gradient(to bottom, #de607d, #7b1515,#5a0e0e);
+    /* background-image: linear-gradient(to right top, #370505, #610512, #8e0317, #bc0518, #eb1212); */
+    border-radius: 40px;
+    width:7%;
+    justify-content: center;
+
+    /*BOX SHADOW*/
+
+    -webkit-box-shadow: 0px 10px 23px 0px rgb(44, 7, 7);
+    -moz-box-shadow: 0px 10px 23px 0px rgb(44, 7, 7);
+    box-shadow: 0px 10px 23px 0px rgb(44, 7, 7);
 }
 
 .fa-play{
@@ -48,14 +59,15 @@ nav{
     margin:5px;
 }
 
-.navHover{
+.flexBoxNav:hover{
     cursor: pointer;
 }
 
 /* **************** SEARCH ************** */
 
 .searchButton{
-    background-image: linear-gradient(to bottom, #ffffff, #e7cfec, #e499c1, #de607d, #c22a29);
+    /* background-image: linear-gradient(to bottom, #ffffff, #e7cfec, #e499c1, #de607d, #c22a29); */
+    background-image:linear-gradient(to bottom, #de607d, #7b1515,#380a0a);
     height:40px;
     width:45px;
     display: flex;
@@ -74,6 +86,7 @@ nav{
 
 i{
     font-size:2em;
+    font-weight:200;
 }
 
 .searchBarContainer{
@@ -164,16 +177,17 @@ td{
     margin-bottom:400px; /*A SUPPRIMER + TARD*/
 }
 
-.typeButton{ 
+.typeTd{ 
     width:150px;
     height:40px;
-    background-image: linear-gradient(to right bottom, #620606, #690506, #700505, #780404, #7f0303);
     text-align: center;
-    border-radius: 30px;
-    /* border:solid white 1px; */
     font-size:1.5em;
     font-weight: 300;
+    border: 2px solid;
+    border-radius: 10px;
+
 }
+
 
 /* **************** MOVIES TABLE ************** */
 .movieDisplay{
@@ -188,6 +202,7 @@ td{
     width:150px;
     height:200px;
     object-fit: cover;
+    
 }
 
 .poster:hover{
@@ -196,16 +211,20 @@ td{
     cursor: pointer;
 }
 
-.posteractive, .poster:focus{
-    height:10em;
-}
-
-.titleMovie,.releaseMovie{display: none;}
-
-.titleMovie:hover{
-    display:flex;
-    position:relative; 
-    top:10px;
+#movieInfo{
+    display: none;
+    position: absolute;
+    top:100vh;
+    left:0;
+    right:0;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgb(20, 10, 10);
+    z-index: 100;
+    width:50vh;
+    height:50vh;
+    margin:auto;
+    opacity:80%;
 }
 
 #overlay{
@@ -217,11 +236,10 @@ td{
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0,0,0,0.5); /* Black background with opacity */
-    z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+    background-color: rgba(0,0,0,0.7); /* Black background with opacity */
+    z-index: 50; /* Specify a stack order in case you're using a different order for other elements */
     cursor: pointer; /* Add a pointer on hover */
 }
-
 
 /* **************** FOOTER ************** */
 footer{

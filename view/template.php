@@ -29,11 +29,11 @@
     </header>
 
     <nav>
-        <div class="flexBoxNav navHover"><p>RELEASE YEAR</p><i class="fa-solid fa-play"></i></div>
-        <div class="flexBoxNav navHover"><p>CATEGORY</p><i class="fa-solid fa-play"></i></div>
-        <div class="flexBoxNav navHover"><p>DIRECTOR</p><i class="fa-solid fa-play"></i></div>
-        <div class="flexBoxNav navHover"><p>ACTOR</p><i class="fa-solid fa-play"></i></div>
-        <div class="flexBoxNav navHover"><p>DURATION</p><i class="fa-solid fa-play"></i></i></div>
+        <div class="flexBoxNav"><p>RELEASE</p><i class="fa-solid fa-play"></i></div>
+        <div class="flexBoxNav"><p>CATEGORY</p><i class="fa-solid fa-play"></i></div>
+        <div class="flexBoxNav"><p>DIRECTOR</p><i class="fa-solid fa-play"></i></div>
+        <div class="flexBoxNav"><p>ACTOR</p><i class="fa-solid fa-play"></i></div>
+        <div class="flexBoxNav"><p>DURATION</p><i class="fa-solid fa-play"></i></i></div>
     </nav>
 
     <div class="searchBarContainer">

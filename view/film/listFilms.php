@@ -6,9 +6,13 @@
         <?php 
             foreach($requete->fetchAll() as $film){ 
         ?>
-                <div class="titleMovie"><?= $film["movie_title"] ?></div>
-                <div class="releaseMovie"><?= $film["releaseYear"] ?></div>
                 <div class="poster" onclick="on()"><img class="poster" src="<?=$film["poster"] ?>" alt=""></div>
+                <div id="movieInfo">
+                        <p class="movieTitle"> : <?= $film["movie_title"]?></p>
+                        <p><?= $film["synopsis"]?></p>
+                        <p>Release : <?= $film["releaseYear"]?></p>
+                        <p>Duration : <?= $film["duration"]?></p>
+                </div>
         <?php } ?>
 </div>
  <!-- *************************** LE RENVOI AU TEMPLATE ("squelette") -->

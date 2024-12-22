@@ -15,7 +15,7 @@
             foreach($requete->fetchAll() as $genre){ 
         ?>
             <tr>
-                <td><div class="typeButton"><?= $genre["type_name"] ?></div></td>
+                <td class="typeTd"><p><?= $genre["type_name"]?></p></td>
             </tr>
         <?php } ?>
     </tbody>
