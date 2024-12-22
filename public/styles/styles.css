@@ -38,8 +38,18 @@ nav{
     font-weight: bolder;
 }
 
+.flexBoxNav{
+    display: flex;
+    align-items: baseline;
+}
+
 .fa-play{
     font-size: 1em;
+    margin:5px;
+}
+
+.navHover{
+    cursor: pointer;
 }
 
 /* **************** SEARCH ************** */
