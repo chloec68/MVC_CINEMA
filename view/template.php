@@ -49,9 +49,28 @@
         </div>
     </div>
 
-    <div>
-   
-    </div>
+    <footer>
+        <div id="flexBox">
+            <div class="section">
+                <p class="sectionTitle">SOCIAL</p>
+                <p>Contact us</p>
+                <p>Facebook</p>
+                <p>Twitter</p>
+            </div>
+            <div class="section">
+                <p class="sectionTitle">GET INVOLVED</p>
+                <p>Add a movie</p>
+                <p>Make a report</p>
+            </div>
+            <div class="section">
+                <p class="sectionTitle">LEGAL</p>
+                <p>Use Policy</p>
+                <p>Impressum</p>
+                <p>Cookie Policy</p>
+            </div>
+        </div>
+        <div class="small"><i class="fa-regular fa-copyright"></i> Wiki Movie. All Rights Reserved</div>
+    </footer>
 
     </body>
 </html>

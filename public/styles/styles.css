@@ -7,6 +7,7 @@ body{
     color :white;
     font-family: "Jost", serif;
     font-size:1em;
+    margin:0px;
 }
 
 /* **************** HEADER ************** */
@@ -209,4 +210,43 @@ td{
     background-color: rgba(0,0,0,0.5); /* Black background with opacity */
     z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
     cursor: pointer; /* Add a pointer on hover */
+}
+
+
+/* **************** FOOTER ************** */
+footer{
+    background-color: #240a0a;
+    width:100%;
+    font-family:"Jost", serif;
+    margin-top:10vh;
+}
+
+#flexBox{
+    display: flex;
+    justify-content: space-evenly;
+    gap:20%;
+}
+
+.section{
+    display:block;
+    font-size:16px;
+    font-weight:300;
+    /* flex-grow:1; */
+}
+
+.sectionTitle{
+    font-weight:500;
+}
+
+.small{
+
+    text-align: center;
+    /* flex-grow:3; */
+    align-self: flex-end;
+    font-size: 14px;
+    font-weight: 300;
+}
+
+.small i{
+    font-size:13px;
 }
