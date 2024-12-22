@@ -6,8 +6,8 @@
         <?php 
             foreach($requete->fetchAll() as $film){ 
         ?>
-                <div class="poster" onclick="on()"><img class="poster" src="<?=$film["poster"] ?>" alt=""></div>
-                <div id="movieInfo">
+               <img class="poster" onclick="on()" src="<?=$film["poster"]?>" alt="<?= $film["movie_title"]?>">
+                <div class="movieInfo">
                         <p class="movieTitle"><?= $film["movie_title"]?></p>
                         <p class="otherInfo"><?= $film["synopsis"]?></p>
                         <p class="otherInfo">Release : <?= $film["releaseYear"]?></p>
