@@ -35,8 +35,9 @@ nav{
     margin:auto;
     justify-content: center;
     display: flex;
-    gap:200px;
+    gap:180px;
     font-weight: bolder;
+    font-size:0.8em;
 }
 
 .flexBoxNav{
@@ -45,7 +46,7 @@ nav{
     background-image:linear-gradient(to bottom, #de607d, #7b1515,#5a0e0e);
     /* background-image: linear-gradient(to right top, #370505, #610512, #8e0317, #bc0518, #eb1212); */
     border-radius: 40px;
-    width:7%;
+    width:8%;
     justify-content: center;
 
     /*BOX SHADOW*/
@@ -216,10 +217,10 @@ td{
 
 /* **OVERLAY** */
 
-.movieInfo{
+/* .movieInfo{
     display: none;
     position: absolute;
-    top:100vh;
+    top:150vh;
     left:0;
     right:0;
     margin-left: auto;
@@ -231,6 +232,10 @@ td{
     padding:10vh;
     margin:auto;
     opacity:80%;
+} */
+
+.movieInfo{
+    color:white;
 }
 
 .movieTitle{
@@ -273,7 +278,7 @@ footer{
 
 .section{
     display:block;
-    font-size:16px;
+    font-size:0.8em;
     font-weight:300;
     /* flex-grow:1; */
 }
@@ -287,10 +292,10 @@ footer{
     text-align: center;
     /* flex-grow:3; */
     align-self: flex-end;
-    font-size: 14px;
+    font-size: 10px;
     font-weight: 300;
 }
 
 .small i{
-    font-size:13px;
+    font-size:10px;
 }

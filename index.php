@@ -11,7 +11,7 @@ use Controller\PersonController;
 
 //autochargement des classes du projet 
 spl_autoload_register(function ($class_name){
-    $class_name = str_replace("\\", "/", $class_name);
+    // $class_name = str_replace("\\", "/", $class_name);
     include $class_name . '.php';
 });
 
@@ -27,14 +27,19 @@ $ctrlPerson = new PersonController();
 // But : simplification du code (+ court qu'une structure if/else classique)
 $id = (isset($_GET["id"])) ? $_GET["id"] : null;
 
+// FILTRES 
+// $id = filter_var($id,FILTER_VALIDATE_INT);
+// $newType = filter_var($newType,FILTER_VALIDATE_STRING);
+
 //en fonction de l'action détectée dans l'URL via la propriété "action", on interagit avec la bonne méthode du controller
 if(isset($_GET["action"])){
     switch ($_GET["action"]){
         case "listFilms" : $ctrlCinema->listFilms();break;
-        // case "detailFilm":$ctrlCinema->detailFilm($id);break;
         case "listTypes" : $ctrlType->listTypes(); break;
         case "listActors":$ctrlPerson->listActors();break;
         case "listDirectors":$ctrlPerson->listDirectors();break;
+        case "detailFilm":$ctrlCinema->detailFilm($id);break;
+        case "addType":$ctrlType->addType($newType);break;
     }
 }
 

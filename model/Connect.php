@@ -4,9 +4,9 @@ namespace Model;
 // la classe est abstraite car on n'instanciera jamais la classe Connect -> on a seulement besoin d'accéder à la méthode seConnecter()
 abstract class Connect {
     const HOST = "localhost";
-    const DB = "cinema"; 
+    const DB = "cinema_chloe"; 
     const USER = "root";
-    const PASS ="root";
+    const PASS ="";
 
     public static function seConnecter(){
         try{
@@ -84,3 +84,8 @@ abstract class Connect {
 
     //La méthode PDO aurait l'avantage d'être plus sécurisée et d'être compatible avec plusieurs SGBD
     //La méthode mySQLi serait moins sécurisée en matière d'injections SQL et limitée à MySQL 
+
+
+// Quelle est la différence entre query et prepare + execute 
+    // query -> quand pas de variable (?) => sécurisé
+    // prepare + excute => quand variable (?) => pas sécurisé, il faut ajouter un filtre; 

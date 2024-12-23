@@ -1,19 +1,22 @@
 <?php ob_start();
 ?>
-<div id="overlay" onclick="off()"></div>
+<!-- <div id="overlay" onclick="off()"></div> -->
 <p class="count">There are <?= $requete->rowCount() ?> films </p>
 <div class="movieDisplay">
         <?php 
             foreach($requete->fetchAll() as $film){ 
         ?>
-               <img class="poster" onclick="on()" src="<?=$film["poster"]?>" alt="<?= $film["movie_title"]?>">
-                <div class="movieInfo">
-                        <p class="movieTitle"><?= $film["movie_title"]?></p>
+               <img class="poster"  src="<?=$film["poster"]?>" alt="<?= $film["movie_title"]?>">
+               
+                  <a href="index.php?action=detailFilm&id=<?= $film['id_movie']?>">See details</a>
+                        
+                <!-- <div class="movieInfo matrix"> -->
+                        <!-- <p class="movieTitle"><?= $film["movie_title"]?></p>
                         <p class="otherInfo"><?= $film["synopsis"]?></p>
                         <p class="otherInfo">Release : <?= $film["releaseYear"]?></p>
                         <p class="otherInfo">Duration : <?= $film["CONVERT(duration,TIME)"]?></p>
-                        <p class="otherInfo">Director : <?= $film["person_surname"],$film["person_name"]?></p>
-                </div>
+                        <p class="otherInfo">Director : <?= $film["person_surname"],$film["person_name"]?></p> -->
+                <!-- </div> -->
         <?php } ?>
 </div>
  <!-- *************************** LE RENVOI AU TEMPLATE ("squelette") -->
@@ -23,7 +26,6 @@ $titre = "All Movies";
 $titre_secondaire = "Movies";
 $contenu = ob_get_clean();
 require "view/template.php";
-
 
 // Tout ce qui se trouve entre la fonction ob_start() et la fonction ob_clean() est temporairement stocké dans la variable $contenu
 // = temporisation de sortie

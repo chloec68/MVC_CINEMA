@@ -15,10 +15,9 @@ class CinemaController {
         // le résultat (=L'OBJET PDO RENVOYE) est affecté à la variable $pdo
         // l'objet PDO est nécessaire pour exécuter la requête qui suit (il sert de passerelle entre la BDD et l'application PHP) : 
         $requete = $pdo->query("
-           SELECT movie_title,poster, releaseYear,synopsis,CONVERT(duration,TIME),person_surname,person_name
+            SELECT id_movie,poster,movie_title
             FROM movie
-            INNER JOIN DIRECTOR ON MOVIE.id_director = DIRECTOR.id_director 
-            INNER JOIN PERSON ON DIRECTOR.id_person=PERSON.id_person
+    
         ");
         // la méthode $requete = $pdo->query est utilisée pour exécuter la requête SQL directement sur la base de donnée 
         // la méthode renvoie un objet de type PDOStatement 
@@ -32,7 +31,7 @@ class CinemaController {
         // la vue ne peut pas accéder directemnet à l'objet PDOStatement, c'est pourquoi l'objet PDOStatement est stocké dans une variable 
         // -> la variable est passée à la vue 
     }
-}
+
 
 // 1- Déclaration du namespace auquel le fichier appartient ; 
 // 2- Importation de la classe Connect 
@@ -44,3 +43,43 @@ class CinemaController {
 // on se connecte
 // on exécute la requête de notre choix
 // on relie par un "require" la vue qui nous intéresse (située dans le dossier "view")
+
+
+    public function detailFilm($id){
+
+        $pdo = Connect:: seConnecter();
+      
+        $details = $pdo->prepare("
+                SELECT movie.id_movie, movie.movie_title ,MOVIE.releaseYear,synopsis,ROUND(duration/60,2),person_surname,person_name
+                FROM movie
+                INNER JOIN director ON movie.id_director = director.id_director
+                INNER JOIN person ON director.id_person = person.id_person
+                WHERE movie.id_movie = :id
+        
+                ");
+
+        $details->execute(["id"=>$id]);
+        
+        // CASTING 
+
+        $casting = $pdo->prepare("
+            SELECT * ,CONCAT(person.person_surname,person.person_name) AS identity,role.id_role
+            FROM casting
+            INNER JOIN ACTOR ON casting.id_actor = actor.id_actor
+            INNER JOIN person ON actor.id_person = person.id_person
+            INNER JOIN role ON casting.id_role = role.id_role
+            WHERE id_movie= :id
+        ");
+
+        $casting->execute(["id"=>$id]);
+
+        require "view/film/detailFilms.php";
+    }
+}
+
+
+
+   
+
+
+
