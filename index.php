@@ -26,6 +26,7 @@ $ctrlPerson = new PersonController();
 // $id = si existence d'un paramètre id dans l'URL alors la valeur du paramètre est assigné à $id ;  
 // But : simplification du code (+ court qu'une structure if/else classique)
 $id = (isset($_GET["id"])) ? $_GET["id"] : null;
+$newType = (isset($_GET["id"])) ? $_GET["id"] : null;
 
 // FILTRES 
 // $id = filter_var($id,FILTER_VALIDATE_INT);
@@ -39,7 +40,9 @@ if(isset($_GET["action"])){
         case "listActors":$ctrlPerson->listActors();break;
         case "listDirectors":$ctrlPerson->listDirectors();break;
         case "detailFilm":$ctrlCinema->detailFilm($id);break;
-        case "addType":$ctrlType->addType($newType);break;
+        case "addTypeForm":$ctrlType->addTypeForm();break;
+        case "addType":$ctrlType->addType();break;
+
     }
 }
 

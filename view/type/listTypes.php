@@ -19,15 +19,7 @@
             </tr>
         <?php } 
         ?>
-
-
-
-
-            <form action="addType" method="post">
-                <label for="newType"></label>Add a type: </label><br>
-                <input type="text" name="newType" id="newType"><br> 
-                <input type="submit" value="Submit">
-            </form>
+            <a href="index.php?action=addTypeForm">Add type</a>
     </tbody>
 </table>
 

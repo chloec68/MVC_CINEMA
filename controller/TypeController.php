@@ -1,9 +1,6 @@
 <?php
 namespace Controller;
 use Model\Connect;
-// utilisation du "use" pour accéder à la classe Connect située dans le namespace "Model"
-
-
 
 class TypeController {
 
@@ -18,17 +15,33 @@ class TypeController {
         require "view/type/listTypes.php";
     }
 
-    public function addType($newType){
-        $pdo = Connect :: seConnecter();
-        $addType = $pdo->prepare("
-            ALTER TABLE TYPE
-            ADD :newType VARCHAR(255)
-        ");
 
-        $addType->execute(["newType"=>$newType]);
+    public function addTypeForm(){
 
+        require "view/type/addTypeForm.php";
+    }
+
+    public function addType(){
+
+        if(isset($_POST['submit'])){
+
+            $typeName = filter_input(INPUT_POST,"typeName",FILTER_SANITIZE_SPECIAL_CHARS);
+
+            if($typeName){
+                $pdo = Connect :: seConnecter();
+                $addType = $pdo->prepare("
+                    INSERT INTO type (type_name)
+                    VALUES (:typeName)
+                ");
+            
+                $addType->execute(["typeName"=>$typeName]);
+
+                header("Location:index.php?action=listFilms");
+            }
+        }
         require "view/type/listTypes.php";
     }
+
 
 }
 

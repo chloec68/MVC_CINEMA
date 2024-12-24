@@ -35,7 +35,7 @@ nav{
     margin:auto;
     justify-content: center;
     display: flex;
-    gap:180px;
+    gap:150px;
     font-weight: bolder;
     font-size:0.8em;
 }
@@ -46,14 +46,20 @@ nav{
     background-image:linear-gradient(to bottom, #de607d, #7b1515,#5a0e0e);
     /* background-image: linear-gradient(to right top, #370505, #610512, #8e0317, #bc0518, #eb1212); */
     border-radius: 40px;
-    width:8%;
+    width:8.5%;
     justify-content: center;
+    height:fit-content;
 
     /*BOX SHADOW*/
 
     -webkit-box-shadow: 0px 10px 23px 0px rgb(44, 7, 7);
     -moz-box-shadow: 0px 10px 23px 0px rgb(44, 7, 7);
     box-shadow: 0px 10px 23px 0px rgb(44, 7, 7);
+}
+
+nav a{
+    color:white; 
+    text-decoration: none;
 }
 
 .fa-play{
@@ -298,4 +304,31 @@ footer{
 
 .small i{
     font-size:10px;
+}
+
+/* **************** ADD CATEGORY ************** */
+
+form{
+    text-align: center;
+}
+
+input{
+    margin:10px;
+}
+
+#submit{
+    border-radius:5px;
+    border:none;
+    font-family:"Blinker", serif;
+}
+
+#submit:hover{
+    cursor: pointer;
+}
+
+#newType{
+    border-radius:10px;
+    border:none;
+    padding:3px;
+    padding-left:10px;
 }

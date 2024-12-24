@@ -29,11 +29,12 @@
     </header>
 
     <nav>
+        
+        <div class="flexBoxNav"><a href="http://chloe_cilia.test/MVC/MVC/index.php?action=listFilms"><p>ALL MOVIES</p></a><a href="http://chloe_cilia.test/MVC/MVC/index.php?action=listFilms"><i class="fa-solid fa-play"></i></a></div>
+        <div class="flexBoxNav"><a href="http://chloe_cilia.test/MVC/MVC/index.php?action=listTypes"><p>CATEGORY</p></a><a href="http://chloe_cilia.test/MVC/MVC/index.php?action=listTypes"><i class="fa-solid fa-play"></i></a></div>
+        <div class="flexBoxNav"><a href="http://chloe_cilia.test/MVC/MVC/index.php?action=listDirectors"><p>DIRECTOR</p></a><i class="fa-solid fa-play"></i></div>
+        <div class="flexBoxNav"><a href="http://chloe_cilia.test/MVC/MVC/index.php?action=listActors"><p>ACTOR</p></a><a href="http://chloe_cilia.test/MVC/MVC/index.php?action=listActors"><i class="fa-solid fa-play"></i></a></div>
         <div class="flexBoxNav"><p>RELEASE</p><i class="fa-solid fa-play"></i></div>
-        <div class="flexBoxNav"><p>CATEGORY</p><i class="fa-solid fa-play"></i></div>
-        <div class="flexBoxNav"><p>DIRECTOR</p><i class="fa-solid fa-play"></i></div>
-        <div class="flexBoxNav"><p>ACTOR</p><i class="fa-solid fa-play"></i></div>
-        <div class="flexBoxNav"><p>DURATION</p><i class="fa-solid fa-play"></i></i></div>
     </nav>
 
     <div class="searchBarContainer">
