@@ -8,7 +8,6 @@
     <input type="submit" name="submit" value="Submit" id="submit">
 </form>
 
-    <!-- name = nom qui figure dans la BDD  -->
 <?=
 
 $contenu = ob_get_clean();

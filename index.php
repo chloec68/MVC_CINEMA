@@ -11,7 +11,7 @@ use Controller\PersonController;
 
 //autochargement des classes du projet 
 spl_autoload_register(function ($class_name){
-    // $class_name = str_replace("\\", "/", $class_name);
+    $class_name = str_replace("\\", "/", $class_name);
     include $class_name . '.php';
 });
 
@@ -26,7 +26,6 @@ $ctrlPerson = new PersonController();
 // $id = si existence d'un paramètre id dans l'URL alors la valeur du paramètre est assigné à $id ;  
 // But : simplification du code (+ court qu'une structure if/else classique)
 $id = (isset($_GET["id"])) ? $_GET["id"] : null;
-$newType = (isset($_GET["id"])) ? $_GET["id"] : null;
 
 // FILTRES 
 // $id = filter_var($id,FILTER_VALIDATE_INT);
@@ -42,7 +41,7 @@ if(isset($_GET["action"])){
         case "detailFilm":$ctrlCinema->detailFilm($id);break;
         case "addTypeForm":$ctrlType->addTypeForm();break;
         case "addType":$ctrlType->addType();break;
-
+        case "deleteType":$ctrlType->deleteType($id);break;
     }
 }
 

@@ -2,40 +2,29 @@
 
 $film = $details->fetch();
 
-
-
-
-
-// $cast = isset($cast? $cast:"no")
-
-
-
 ?>
+        <div class="poster_wrapper"><img class="poster-detail" src="<?=$film["poster"]?>" alt="<?= $film["movie_title"]?>"></div>
+        <div class="movieDetails">
+                <p class="otherInfo"><?= $film["synopsis"]?></p>
+                <p class="otherInfo">Release : <?= $film["releaseYear"]?></p>
+                <p class="otherInfo">Duration : <?= $film["ROUND(duration/60,2)"]?></p>
+                <p class="otherInfo">Director : <?= $film["person_surname"],$film["person_name"]?></p>
+                <p class="otherInfo">Casting : 
 
-        <div class="movieDisplay">
-        
-                <div class="movieDetails">
-                        <p class="otherInfo"><?= $film["movie_title"]?></p>
-                        <p class="otherInfo"><?= $film["synopsis"]?></p>
-                        <p class="otherInfo">Release : <?= $film["releaseYear"]?></p>
-                        <p class="otherInfo">Duration : <?= $film["ROUND(duration/60,2)"]?></p>
-                        <p class="otherInfo">Director : <?= $film["person_surname"],$film["person_name"]?></p>
-                        <p class="otherInfo">Casting : </p>
                 <?php
                 foreach($casting->fetchAll() as $cast){
                 ?>
-                        <p class="otherInfo"><?= $cast["person_surname"],$cast["person_name"]?> as <?= $cast["role_name"]?></p>
+                <?=
+                 $cast["person_surname"],$cast["person_name"]?> as <?= $cast["role_name"]?></p>
                 <?php
                 }
                 ?>
-                </div>
-                
         </div>
  <!-- *************************** LE RENVOI AU TEMPLATE ("squelette") -->
 <?php
 
 $titre = "Movie details";
-$titre_secondaire = "id du film";
+$titre_secondaire = $film["movie_title"];
 $contenu = ob_get_clean();
 require "view/template.php";
 

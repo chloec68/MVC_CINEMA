@@ -9,14 +9,6 @@
                <img class="poster"  src="<?=$film["poster"]?>" alt="<?= $film["movie_title"]?>">
                
                   <a href="index.php?action=detailFilm&id=<?= $film['id_movie']?>">See details</a>
-                        
-                <!-- <div class="movieInfo matrix"> -->
-                        <!-- <p class="movieTitle"><?= $film["movie_title"]?></p>
-                        <p class="otherInfo"><?= $film["synopsis"]?></p>
-                        <p class="otherInfo">Release : <?= $film["releaseYear"]?></p>
-                        <p class="otherInfo">Duration : <?= $film["CONVERT(duration,TIME)"]?></p>
-                        <p class="otherInfo">Director : <?= $film["person_surname"],$film["person_name"]?></p> -->
-                <!-- </div> -->
         <?php } ?>
 </div>
  <!-- *************************** LE RENVOI AU TEMPLATE ("squelette") -->

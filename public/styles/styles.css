@@ -174,18 +174,8 @@ td{
 
 /* **************** TYPES TABLE ************** */
 
-.flexTBody{
-    display: flex;
-    gap : 100px;
-    margin-top:150px;
-}
 
-.typeTable{
-    margin: auto;
-    margin-bottom:400px; /*A SUPPRIMER + TARD*/
-}
-
-.typeTd{ 
+.cat_container{ 
     width:150px;
     height:40px;
     text-align: center;
@@ -193,11 +183,35 @@ td{
     font-weight: 300;
     border: 2px solid;
     border-radius: 10px;
+    margin:30px auto 30px auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: baseline;
 
+    .fa-trash{
+        font-size:0.7em;
+    }
 }
 
 
-/* **************** MOVIES TABLE ************** */
+
+.add-button{
+    text-align: center;
+    color: white;
+    font-size:1.5em;
+    font-weight:600;
+    text-decoration: none;
+
+    width:20%;
+    display:block;
+    margin:auto;
+
+    .fa-plus{
+        font-size:1em;
+    }
+}
+
+/* **************** ALL MOVIES ************** */
 .count{
     text-align: center;
 }
@@ -221,29 +235,6 @@ td{
     cursor: pointer;
 }
 
-/* **OVERLAY** */
-
-/* .movieInfo{
-    display: none;
-    position: absolute;
-    top:150vh;
-    left:0;
-    right:0;
-    margin-left: auto;
-    margin-right: auto;
-    background-color: rgb(20, 10, 10);
-    z-index: 100;
-    width:70vh;
-    height:50vh;
-    padding:10vh;
-    margin:auto;
-    opacity:80%;
-} */
-
-.movieInfo{
-    color:white;
-}
-
 .movieTitle{
     text-align: center;
     font-size: 2em;
@@ -254,18 +245,22 @@ td{
     font-weight:300;
 }
 
-#overlay{
-    position: fixed; /* Sit on top of the page content */
-    display: none; /* Hidden by default */
-    width: 100%; /* Full width (cover the whole page) */
-    height: 100%; /* Full height (cover the whole page) */
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0,0,0,0.7); /* Black background with opacity */
-    z-index: 50; /* Specify a stack order in case you're using a different order for other elements */
-    cursor: pointer; /* Add a pointer on hover */
+/* **************** FILM DETAILS ************** */
+
+.movieDetails{
+    width: 30%;
+    margin:auto;
+}
+.poster_wrapper{
+    width : 100%;
+    display: flex;
+    justify-content: center;
+    margin:50px auto 50px auto;
+}
+.poster-detail{
+    width:20%;
+    margin:auto;
+    opacity: 80%;
 }
 
 /* **************** FOOTER ************** */
@@ -286,7 +281,6 @@ footer{
     display:block;
     font-size:0.8em;
     font-weight:300;
-    /* flex-grow:1; */
 }
 
 .sectionTitle{
@@ -296,7 +290,6 @@ footer{
 .small{
 
     text-align: center;
-    /* flex-grow:3; */
     align-self: flex-end;
     font-size: 10px;
     font-weight: 300;
@@ -332,3 +325,4 @@ input{
     padding:3px;
     padding-left:10px;
 }
+

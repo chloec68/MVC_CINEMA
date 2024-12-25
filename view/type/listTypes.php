@@ -1,27 +1,21 @@
 <!--*************************************************** STRUCTURE D'UNE VUE -->
 
 <?php ob_start();
+
 // $newType=$addType->fetch();?>
 <!-- <p class="uk-label uk-label-warning">There is <?= $requete->rowCount() ?> categories </p> -->
-<table class="typeTable">
-    <thead>
-        <tr>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody class="flexTBody">
-        <?php 
-             
+<div>
+        <?php    
             foreach($requete->fetchAll() as $genre){ 
+                $id=$genre["id_type"];
         ?>
-            <tr>
-                <td class="typeTd"><p><?= $genre["type_name"]?></p></td>
-            </tr>
+            <div class="cat_container"><?= $genre["type_name"]?><a href="index.php?action=deleteType&id=<?=$id?>"><i class="fa-solid fa-trash"></i></a></div>
+            
         <?php } 
         ?>
-            <a href="index.php?action=addTypeForm">Add type</a>
-    </tbody>
-</table>
+</div>
+
+<a class="add-button" href="index.php?action=addTypeForm">Add a category <i class="fa-solid fa-plus"></i></a>
 
  <!-- *************************** LE RENVOI AU TEMPLATE ("squelette") -->
 

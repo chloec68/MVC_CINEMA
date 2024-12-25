@@ -17,7 +17,6 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Blinker:wght@100;200;300;400;600;700;800;900&display=swap" rel="stylesheet">
-        <script src="script.js"></script>
         <title><?= $titre ?></title>
     </head>
 
@@ -30,10 +29,10 @@
 
     <nav>
         
-        <div class="flexBoxNav"><a href="http://chloe_cilia.test/MVC/MVC/index.php?action=listFilms"><p>ALL MOVIES</p></a><a href="http://chloe_cilia.test/MVC/MVC/index.php?action=listFilms"><i class="fa-solid fa-play"></i></a></div>
-        <div class="flexBoxNav"><a href="http://chloe_cilia.test/MVC/MVC/index.php?action=listTypes"><p>CATEGORY</p></a><a href="http://chloe_cilia.test/MVC/MVC/index.php?action=listTypes"><i class="fa-solid fa-play"></i></a></div>
-        <div class="flexBoxNav"><a href="http://chloe_cilia.test/MVC/MVC/index.php?action=listDirectors"><p>DIRECTOR</p></a><i class="fa-solid fa-play"></i></div>
-        <div class="flexBoxNav"><a href="http://chloe_cilia.test/MVC/MVC/index.php?action=listActors"><p>ACTOR</p></a><a href="http://chloe_cilia.test/MVC/MVC/index.php?action=listActors"><i class="fa-solid fa-play"></i></a></div>
+        <div class="flexBoxNav"><a href="index.php?action=listFilms"><p>ALL MOVIES</p></a><a href="index.php?action=listFilms"><i class="fa-solid fa-play"></i></a></div>
+        <div class="flexBoxNav"><a href="index.php?action=listTypes"><p>CATEGORY</p></a><a href="index.php?action=listTypes"><i class="fa-solid fa-play"></i></a></div>
+        <div class="flexBoxNav"><a href="index.php?action=listDirectors"><p>DIRECTOR</p></a><i class="fa-solid fa-play"></i></div>
+        <div class="flexBoxNav"><a href="index.php?action=listActors"><p>ACTOR</p></a><a href="index.php?action=listActors"><i class="fa-solid fa-play"></i></a></div>
         <div class="flexBoxNav"><p>RELEASE</p><i class="fa-solid fa-play"></i></div>
     </nav>
 
