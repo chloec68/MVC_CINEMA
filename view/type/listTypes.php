@@ -4,18 +4,21 @@
 
 // $newType=$addType->fetch();?>
 <!-- <p class="uk-label uk-label-warning">There is <?= $requete->rowCount() ?> categories </p> -->
+
+<a class="add-button" href="index.php?action=addTypeForm">Add a category <i class="fa-solid fa-circle-plus"></i></a>
+
 <div>
         <?php    
             foreach($requete->fetchAll() as $genre){ 
                 $id=$genre["id_type"];
         ?>
-            <div class="cat_container"><?= $genre["type_name"]?><a href="index.php?action=deleteType&id=<?=$id?>"><i class="fa-solid fa-trash"></i></a></div>
+            <div class="cat_wrapper"><div class="cat_container"><?= $genre["type_name"]?></div><a href="index.php?action=deleteType&id=<?=$id?>"><i class="fa-solid fa-trash"></i></a></div>
             
         <?php } 
         ?>
 </div>
 
-<a class="add-button" href="index.php?action=addTypeForm">Add a category <i class="fa-solid fa-plus"></i></a>
+
 
  <!-- *************************** LE RENVOI AU TEMPLATE ("squelette") -->
 

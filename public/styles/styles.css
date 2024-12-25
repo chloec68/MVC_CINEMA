@@ -29,6 +29,47 @@ header{
     text-align: center;
     font-weight:300;
 }
+
+/* **************** FOOTER ************** */
+footer{
+    background-color: #240a0a;
+    width:100%;
+    font-family:"Jost", serif;
+    margin-top:10vh;
+}
+
+#flexBox{
+    display: flex;
+    justify-content: space-evenly;
+    gap:20%;
+}
+
+.section{
+    display:block;
+    font-size:1;
+    font-weight:300;
+
+    p:hover{
+        cursor: pointer;
+    }
+}
+
+.sectionTitle{
+    font-weight:500;
+}
+
+.small{
+
+    text-align: center;
+    align-self: flex-end;
+    font-size: 0.9em;
+    font-weight: 300;
+}
+
+.small i{
+    font-size:0.9em;
+}
+
 /* **************** NAVBAR ************** */
 nav{
     width:100%;
@@ -183,16 +224,26 @@ td{
     font-weight: 300;
     border: 2px solid;
     border-radius: 10px;
-    margin:30px auto 30px auto;
-    display: flex;
-    justify-content: space-around;
-    align-items: baseline;
-
-    .fa-trash{
-        font-size:0.7em;
-    }
+    margin:20px;
 }
 
+.cat_wrapper{
+
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    gap:10px;
+
+    .fa-trash{
+        font-size:1em;
+    }
+    a{
+        color:white;
+    }
+    a:hover{
+        color:blue;
+    }
+}
 
 
 .add-button{
@@ -204,10 +255,12 @@ td{
 
     width:20%;
     display:block;
-    margin:auto;
+    margin:50px auto 50px auto;
 
-    .fa-plus{
+    
+    .fa-circle-plus{
         font-size:1em;
+        display: block;
     }
 }
 
@@ -223,16 +276,55 @@ td{
     row-gap:50px;
 }
 
+.container{
+    position:relative;
+    width:50%;
+
+    .middle {
+        transition: .5s ease;
+        opacity: 0;
+        position: absolute;
+        top: 50%;
+        left: 75%;
+        transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        text-align: center;
+      }
+
+    .link {
+        opacity : 100%;
+        color: white;
+        font-size: 2em;
+      }
+
+    a{
+        color:white;
+    }
+}
+
+
 .poster{
     width:150px;
     height:200px;
     object-fit: cover;
+
+    opacity: 1;
+    display: block;
+    width: 150%;
+    height: auto;
+    transition: .5s ease;
+    backface-visibility: hidden;
 }
 
-.poster:hover{
+.container:hover .poster {
+    opacity: 0.3;
     transform: scale(1.4);
     transition:0.8s ease;
     cursor: pointer;
+}
+
+.container:hover .middle {
+opacity: 1;
 }
 
 .movieTitle{
@@ -263,46 +355,11 @@ td{
     opacity: 80%;
 }
 
-/* **************** FOOTER ************** */
-footer{
-    background-color: #240a0a;
-    width:100%;
-    font-family:"Jost", serif;
-    margin-top:10vh;
-}
-
-#flexBox{
-    display: flex;
-    justify-content: space-evenly;
-    gap:20%;
-}
-
-.section{
-    display:block;
-    font-size:0.8em;
-    font-weight:300;
-}
-
-.sectionTitle{
-    font-weight:500;
-}
-
-.small{
-
-    text-align: center;
-    align-self: flex-end;
-    font-size: 10px;
-    font-weight: 300;
-}
-
-.small i{
-    font-size:10px;
-}
-
 /* **************** ADD CATEGORY ************** */
 
 form{
     text-align: center;
+    margin:50px;
 }
 
 input{
@@ -313,6 +370,10 @@ input{
     border-radius:5px;
     border:none;
     font-family:"Blinker", serif;
+    width:80px;
+    font-size: 1.3em;
+    color:white;
+    background-image:linear-gradient(to bottom, #de607d, #7b1515,#380a0a);
 }
 
 #submit:hover{

@@ -6,9 +6,12 @@
         <?php 
             foreach($requete->fetchAll() as $film){ 
         ?>
+                <div class="container">
                <img class="poster"  src="<?=$film["poster"]?>" alt="<?= $film["movie_title"]?>">
-               
-                  <a href="index.php?action=detailFilm&id=<?= $film['id_movie']?>">See details</a>
+               <div class="middle">
+                  <div class="link"><a href="index.php?action=detailFilm&id=<?= $film['id_movie']?>"><i class="fa-solid fa-circle-arrow-right"></i></a></div>
+                </div>
+                </div>
         <?php } ?>
 </div>
  <!-- *************************** LE RENVOI AU TEMPLATE ("squelette") -->
