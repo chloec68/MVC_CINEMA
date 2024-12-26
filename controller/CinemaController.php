@@ -82,26 +82,23 @@ class CinemaController {
     public function addMovie(){
         if(isset($_POST['submit'])){
             $movieTitle = filter_input(INPUT_POST,"movieTitle",FILTER_SANITIZE_SPECIAL_CHARS);
-            $movieRelease = filter_input(INPUT_POST,"release",FILTER_SANITIZE_NUMBER_INT);
             $movieDuration = filter_INPUT(INPUT_POST,"duration",FILTER_SANITIZE_NUMBER_INT);
             $movieSynopsis = filter_INPUT(INPUT_POST,"synopsis",FILTER_SANITIZE_SPECIAL_CHARS);
             $moviePoster = filter_INPUT(INPUT_POST,"poster",FILTER_SANITIZE_URL); 
 
-            if($movieTitle && $movieRelease && $movieDuration && $movieSynopsis && $moviePoster){
+            if($movieTitle){
                 $pdo = Connect:: seConnecter();
                 $addMovie = $pdo->prepare("
-                    INSERT INTO movie (movie_title,release,duration,synopsis,poster)
+                    INSERT INTO movie (movie_title,duration,synopsis,poster)
                     VALUES (:movieTitle,:movieDuration,:movieSynopsis,:moviePoster)
                 ");
                 $addMovie->execute([
                 "movieTitle"=>$movieTitle,
-                "movieRelease"=>$movieRelease,
                 "movieDuration"=>$movieDuration,
                 "movieSynopsis"=>$movieSynopsis,
                 "moviePoster"=>$moviePoster]);
          
-            }else{
-                echo "not working";
+            
             }
         }
         header("Location:index.php?action=listFilms");
