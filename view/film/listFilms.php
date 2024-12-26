@@ -2,6 +2,7 @@
 ?>
 <!-- <div id="overlay" onclick="off()"></div> -->
 <p class="count">There are <?= $requete->rowCount() ?> films </p>
+<a class="add-button" href="index.php?action=addMovieForm">Add a movie <i class="fa-solid fa-circle-plus"></i></a>
 <div class="movieDisplay">
         <?php 
             foreach($requete->fetchAll() as $film){ 

@@ -1,5 +1,4 @@
 <?php ob_start();
-
 ?>
 
 <form action="index.php?action=addType" method="post">
@@ -8,9 +7,10 @@
     <input type="submit" name="submit" value="Submit" id="submit">
 </form>
 
-<?=
+<?php
 
-$contenu = ob_get_clean();
+
 $titre="Add a category";
 $titre_secondaire = "Add a category";
+$contenu = ob_get_clean();
 require "view/template.php";

@@ -50,7 +50,7 @@ class CinemaController {
         $pdo = Connect:: seConnecter();
       
         $details = $pdo->prepare("
-                SELECT movie.id_movie, movie.poster, movie.movie_title ,MOVIE.releaseYear,synopsis,ROUND(duration/60,2),person_surname,person_name
+                SELECT movie.id_movie, movie.poster, movie.movie_title ,MOVIE.release,synopsis,ROUND(duration/60,2),person_surname,person_name
                 FROM movie
                 INNER JOIN director ON movie.id_director = director.id_director
                 INNER JOIN person ON director.id_person = person.id_person
@@ -74,11 +74,53 @@ class CinemaController {
 
         require "view/film/detailFilms.php";
     }
+
+    public function addMovieForm(){
+        require "view/film/addMovieForm.php";
+    }
+
+    public function addMovie(){
+        if(isset($_POST['submit'])){
+            $movieTitle = filter_input(INPUT_POST,"movieTitle",FILTER_SANITIZE_SPECIAL_CHARS);
+            $movieRelease = filter_input(INPUT_POST,"release",FILTER_SANITIZE_NUMBER_INT);
+            $movieDuration = filter_INPUT(INPUT_POST,"duration",FILTER_SANITIZE_NUMBER_INT);
+            $movieSynopsis = filter_INPUT(INPUT_POST,"synopsis",FILTER_SANITIZE_SPECIAL_CHARS);
+            $moviePoster = filter_INPUT(INPUT_POST,"poster",FILTER_SANITIZE_URL); 
+
+            if($movieTitle && $movieRelease && $movieDuration && $movieSynopsis && $moviePoster){
+                $pdo = Connect:: seConnecter();
+                $addMovie = $pdo->prepare("
+                    INSERT INTO movie (movie_title,release,duration,synopsis,poster)
+                    VALUES (:movieTitle,:movieDuration,:movieSynopsis,:moviePoster)
+                ");
+                $addMovie->execute([
+                "movieTitle"=>$movieTitle,
+                "movieRelease"=>$movieRelease,
+                "movieDuration"=>$movieDuration,
+                "movieSynopsis"=>$movieSynopsis,
+                "moviePoster"=>$moviePoster]);
+         
+            }else{
+                echo "not working";
+            }
+        }
+        header("Location:index.php?action=listFilms");
+        require "view/film/listFilms.php";
+    }
 }
 
-
-
-   
-
-
+// <form action="index.php?action=addMovie" method="post">
+//     <label for="newMovie">Title : </label>
+//     <input type="text" name="movieTitle" id="newMovie"><br> 
+//     <label for="newMovie">Release : </label>
+//     <input type="text" name="release" id="newMovie"><br> 
+//     <label for="newMovie">Duration : </label>
+//     <input type="text" name="duration" id="newMovie"><br> 
+//     <label for="newMovie">Synopsis : </label>
+//     <input type="text" name="synopsis" id="newMovie"><br> 
+//     <label for="newMovie">Poster : </label>
+//     <input type="text" name="poster" id="newMovie"><br> 
+//     <!-- <input type="text" name="director" id="newMovie"><br>  -->
+//     <input type="submit" name="submit" value="Submit" id="submit">
+// </form>
 
