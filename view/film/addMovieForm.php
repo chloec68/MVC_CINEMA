@@ -10,6 +10,8 @@
     <input type="number" name="movieDuration" id="newDuration" required min="1"><br> 
     <label for="newMovie">Synopsis : </label>
     <input type="text" name="movieSynopsis" id="newSynopsis" required><br> 
+    <label for="newMovie">Directors id : </label>
+    <input type="number" name="idDirector" id="newSynopsis" required min="1"><br> 
     <label for="newMovie">Poster : </label>
     <input type="url" name="moviePoster" id="newPoster" required><br> 
     <!-- <input type="text" name="director" id="newMovie"><br>  -->

@@ -1,20 +1,27 @@
 <?php ob_start();
 
-$film = $details->fetch();
+$film = $details->fetch(PDO::FETCH_ASSOC);
 
-var_dump($film);
+if($film === false){
+        echo "Movie not found.";
+        exit;
+    }
+
+// var_dump($details->errorInfo());
+// var_dump($film);
+// var_dump($casting);
 
 ?>
         <div class="poster_wrapper"><img class="poster-detail" src="<?=$film["poster"]?>" alt="<?= $film["movie_title"]?>"></div>
         <div class="movieDetails">
                 <p class="otherInfo"><?= $film["synopsis"]?></p>
-                <p class="otherInfo">Release : <?= $film["release"]?></p>
+                <p class="otherInfo">Release : <?= $film["releaseYear"]?></p>
                 <p class="otherInfo">Duration : <?= $film["ROUND(duration/60,2)"]?></p>
-                <p class="otherInfo">Director : <?= $film["person_surname"],$film["person_name"]?></p>
+                <p class="otherInfo">Director : <?= $film["person_surname"]?> <?$film["person_name"]?></p>
                 <p class="otherInfo">Casting : 
 
                 <?php
-                foreach($casting->fetchAll() as $cast){
+                foreach($casting->fetchAll(PDO::FETCH_ASSOC) as $cast){
                 ?>
                 <?=
                  $cast["person_surname"],$cast["person_name"]?> as <?= $cast["role_name"]?></p>
