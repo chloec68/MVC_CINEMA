@@ -355,6 +355,20 @@ opacity: 1;
     opacity: 80%;
 }
 
+#deleteOption{
+    text-align: center;
+    font-size:1em;
+    margin-top:50px;
+
+    i{
+        font-size:1em;
+    }
+
+    i:hover{
+        cursor: pointer;
+    }
+}
+
 /* **************** ADD CATEGORY ************** */
 
 form{

@@ -27,9 +27,10 @@ if($film === false){
                  $cast["person_surname"],$cast["person_name"]?> as <?= $cast["role_name"]?></p>
                 <?php
                 }
-
                 ?>
         </div>
+
+        <div id="deleteOption"><p>Delete this movie</p><i class="fa-solid fa-trash"></i></div>
  <!-- *************************** LE RENVOI AU TEMPLATE ("squelette") -->
 <?php
 
