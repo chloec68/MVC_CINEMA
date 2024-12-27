@@ -3,15 +3,15 @@
 
 <form action="index.php?action=addMovie" method="post">
     <label for="newMovie">Title : </label>
-    <input type="text" name="movieTitle" id="newMovie"><br> 
-    <!-- <label for="newMovie">Release : </label>
-    <input type="text" name="movieRelease" id="newMovie"><br>  -->
-    <!-- <label for="newMovie">Duration : </label>
-    <input type="text" name="movieDuration" id="newMovie"><br>  -->
+    <input type="text" name="movieTitle" id="newTitle" required><br> 
+    <label for="newMovie">Release year : </label>
+    <input type="number" name="movieRelease" id="newMovie" min="1900"><br> 
+    <label for="newMovie">Duration : </label>
+    <input type="number" name="movieDuration" id="newDuration" required min="1"><br> 
     <label for="newMovie">Synopsis : </label>
-    <input type="text" name="movieSynopsis" id="newMovie"><br> 
+    <input type="text" name="movieSynopsis" id="newSynopsis" required><br> 
     <label for="newMovie">Poster : </label>
-    <input type="text" name="moviePoster" id="newMovie"><br> 
+    <input type="url" name="moviePoster" id="newPoster" required><br> 
     <!-- <input type="text" name="director" id="newMovie"><br>  -->
     <input type="submit" name="submit" value="Submit" id="submit">
 </form>

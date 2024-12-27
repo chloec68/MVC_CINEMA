@@ -2,6 +2,8 @@
 
 $film = $details->fetch();
 
+var_dump($film);
+
 ?>
         <div class="poster_wrapper"><img class="poster-detail" src="<?=$film["poster"]?>" alt="<?= $film["movie_title"]?>"></div>
         <div class="movieDetails">
@@ -18,6 +20,7 @@ $film = $details->fetch();
                  $cast["person_surname"],$cast["person_name"]?> as <?= $cast["role_name"]?></p>
                 <?php
                 }
+
                 ?>
         </div>
  <!-- *************************** LE RENVOI AU TEMPLATE ("squelette") -->

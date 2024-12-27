@@ -50,7 +50,7 @@ class CinemaController {
         $pdo = Connect:: seConnecter();
       
         $details = $pdo->prepare("
-                SELECT movie.id_movie, movie.poster, movie.movie_title ,MOVIE.release,synopsis,ROUND(duration/60,2),person_surname,person_name
+                SELECT movie.id_movie, movie.poster, movie.movie_title ,MOVIE.releaseYear,synopsis,ROUND(duration/60,2),person_surname,person_name
                 FROM movie
                 INNER JOIN director ON movie.id_director = director.id_director
                 INNER JOIN person ON director.id_person = person.id_person
@@ -82,24 +82,23 @@ class CinemaController {
     public function addMovie(){
         if(isset($_POST['submit'])){
             $movieTitle = filter_input(INPUT_POST,"movieTitle",FILTER_SANITIZE_SPECIAL_CHARS);
-            $movieDuration = filter_INPUT(INPUT_POST,"duration",FILTER_SANITIZE_NUMBER_INT);
-            $movieSynopsis = filter_INPUT(INPUT_POST,"synopsis",FILTER_SANITIZE_SPECIAL_CHARS);
-            $moviePoster = filter_INPUT(INPUT_POST,"poster",FILTER_SANITIZE_URL); 
+            $movieDuration = filter_INPUT(INPUT_POST,"movieDuration",FILTER_SANITIZE_NUMBER_INT);
+            $movieSynopsis = filter_INPUT(INPUT_POST,"movieSynopsis",FILTER_SANITIZE_SPECIAL_CHARS);
+            $moviePoster = filter_INPUT(INPUT_POST,"moviePoster",FILTER_SANITIZE_URL); 
+            $releaseYear = filter_INPUT(INPUT_POST,"releaseYear",FILTER_SANITIZE_NUMBER_INT);
 
-            if($movieTitle){
                 $pdo = Connect:: seConnecter();
                 $addMovie = $pdo->prepare("
-                    INSERT INTO movie (movie_title,duration,synopsis,poster)
-                    VALUES (:movieTitle,:movieDuration,:movieSynopsis,:moviePoster)
+                    INSERT INTO movie (movie_title,duration,synopsis,poster,releaseYear)
+                    VALUES (:movieTitle,:movieDuration,:movieSynopsis,:moviePoster,:releaseYear)
                 ");
                 $addMovie->execute([
                 "movieTitle"=>$movieTitle,
                 "movieDuration"=>$movieDuration,
                 "movieSynopsis"=>$movieSynopsis,
-                "moviePoster"=>$moviePoster]);
+                "moviePoster"=>$moviePoster,
+                "releaseYear"=>$releaseYear]);
          
-            
-            }
         }
         header("Location:index.php?action=listFilms");
         require "view/film/listFilms.php";
