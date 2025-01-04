@@ -13,7 +13,7 @@ class PersonController {
             INNER JOIN person ON actor.id_person = person.id_person"
            );
 
-        require "view/acteur/listActors.php";
+        require "view/actor/listActors.php";
     }
 
 
@@ -26,8 +26,51 @@ class PersonController {
 
         require "view/director/listDirectors.php";
     }
-}
 
+
+    public function addActor(){
+
+        if(isset($_POST['submit'])){
+            $personName = filter_input(INPUT_POST,"personName",FILTER_SANITIZE_SPECIAL_CHARS);
+            $personSurname = filter_INPUT(INPUT_POST,"personSurname",FILTER_SANITIZE_SPECIAL_CHARS);
+            $gender = filter_INPUT(INPUT_POST,"gender",FILTER_SANITIZE_SPECIAL_CHARS);
+            $dob = preg_replace("([^0-9/])", "", $_POST['dob']);
+            $portraitUrl = filter_INPUT(INPUT_POST,"portraitUrl",FILTER_SANITIZE_URL);
+
+            $pdo = Connect:: seConnecter();
+
+            $details = $pdo->prepare("
+                INSERT INTO PERSON(person_name,person_surname,gender,dateOfBirth,portrait)
+                VALUES(:personName,:personSurname,:gender,:dob,:portraitUrl)
+            ");
+
+            $details->execute(["personName"=>$personName,
+                            "personSurname"=>$personSurname,
+                            "gender"=>$gender,
+                            "dob"=>$dob,
+                            "portraitUrl"=>$portraitUrl]);
+
+            $idPerson = $pdo->lastInsertId();
+
+            $addActor = $pdo->prepare("
+                INSERT INTO ACTOR(id_person)
+                VALUES(:idPerson)
+            ");
+
+            $addActor->execute([
+                "idPerson"=>$idPerson
+            ]);
+
+            header("Location:index.php?action=listActors");
+            exit();
+
+        }
+
+        require "view/actor/addActor.php";
+        
+    }
+
+}
 // Certaines requêtes avec query, certaines requêtes avec prepare et execute : c'est quoi la différence ?
 
 

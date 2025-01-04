@@ -44,6 +44,7 @@ if(isset($_GET["action"])){
         case "deleteType":$ctrlType->deleteType($id);break;
         case "addMovie":$ctrlCinema->addMovie();break;
         case "addMovieForm":$ctrlCinema->addMovieForm();break;
+        case "addActor":$ctrlPerson->addActor();break;
     }
 }
 

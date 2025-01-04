@@ -79,6 +79,8 @@ class CinemaController {
     }
 
 
+
+
     public function detailFilm($id){
 
         $pdo = Connect:: seConnecter();
@@ -110,18 +112,4 @@ class CinemaController {
     }
 }
 
-// <form action="index.php?action=addMovie" method="post">
-//     <label for="newMovie">Title : </label>
-//     <input type="text" name="movieTitle" id="newMovie"><br> 
-//     <label for="newMovie">Release : </label>
-//     <input type="text" name="release" id="newMovie"><br> 
-//     <label for="newMovie">Duration : </label>
-//     <input type="text" name="duration" id="newMovie"><br> 
-//     <label for="newMovie">Synopsis : </label>
-//     <input type="text" name="synopsis" id="newMovie"><br> 
-//     <label for="newMovie">Poster : </label>
-//     <input type="text" name="poster" id="newMovie"><br> 
-//     <!-- <input type="text" name="director" id="newMovie"><br>  -->
-//     <input type="submit" name="submit" value="Submit" id="submit">
-// </form>
 
