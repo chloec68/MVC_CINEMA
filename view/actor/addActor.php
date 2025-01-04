@@ -11,7 +11,7 @@
     <select id="gender" name="gender">
         <option value="male">Male</option>
         <option value="female">Female</option>
-    </select>
+    </select><br> 
     <label for="newActor">Date of birth : </label>
     <input type="date" name="dob" id="dob" required><br> 
     <label for="newActor">Picture : </label>

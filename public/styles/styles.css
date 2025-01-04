@@ -85,7 +85,6 @@ nav{
     display: flex;
     align-items: baseline;
     background-image:linear-gradient(to bottom, #de607d, #7b1515,#5a0e0e);
-    /* background-image: linear-gradient(to right top, #370505, #610512, #8e0317, #bc0518, #eb1212); */
     border-radius: 40px;
     width:8.5%;
     justify-content: center;
@@ -114,7 +113,6 @@ nav a{
 /* **************** SEARCH ************** */
 
 .searchButton{
-    /* background-image: linear-gradient(to bottom, #ffffff, #e7cfec, #e499c1, #de607d, #c22a29); */
     background-image:linear-gradient(to bottom, #de607d, #7b1515,#380a0a);
     height:40px;
     width:45px;
@@ -257,30 +255,6 @@ td{
     row-gap:50px;
 }
 
-.add-button{
-    background-image:linear-gradient(to bottom, #de607d, #7b1515,#5a0e0e);
-    border-radius: 40px;
-    height:fit-content;
-    text-align: center;
-    color: white;
-    font-size:1.5em;
-    font-weight:600;
-    text-decoration: none;
-    width:15%;
-    display:block;
-    margin:50px auto 50px auto;
-
-    /*BOX SHADOW*/
-    -webkit-box-shadow: 0px 10px 23px 0px rgb(44, 7, 7);
-    -moz-box-shadow: 0px 10px 23px 0px rgb(44, 7, 7);
-    box-shadow: 0px 10px 23px 0px rgb(44, 7, 7);
-}
-
-.fa-circle-plus{
-    margin-left:5px;
-    font-size:1em;
-    display: block;
-}
 
 
 .container{
@@ -365,48 +339,54 @@ opacity: 1;
     }
 }
 
-/* **************** ADD MOVIE FORM ************** */
+/* **************** "ADD" FORMS ************** */
 
-form label,
-form input {
+form label{
     display: inline-block;
     width: 10%;
     margin: 5px 0; 
+    text-align: right;
 }
 
-.form_addMovie{
-    text-align: center;
+form input,#gender{
+    width: 15%;
+    margin: 5px 0; 
+    display: inline-block;
 }
-
-/* **************** ADD CATEGORY FORM ************** */
 
 form{
     text-align: center;
     margin:50px;
 }
 
-input{
-    margin:10px;
+.add-button,#submit{
+    background-image:linear-gradient(to bottom, #de607d, #7b1515,#5a0e0e);
+    border-radius: 40px;
+    height:fit-content;
+    text-align: center;
+    color: white;
+    font-size:1.5em;
+    font-weight:600;
+    text-decoration: none;
+    width:fit-content;
+    display:block;
+    margin:50px auto 50px auto;
+    padding-left:10px;
+    padding-right:10px;
+    border: none;
+
+    
+    -webkit-box-shadow: 0px 10px 23px 0px rgb(44, 7, 7);
+    -moz-box-shadow: 0px 10px 23px 0px rgb(44, 7, 7);
+    box-shadow: 0px 10px 23px 0px rgb(44, 7, 7);
 }
 
-#submit{
-    border-radius:5px;
-    border:none;
-    font-family:"Blinker", serif;
-    width:80px;
-    font-size: 1.3em;
-    color:white;
-    background-image:linear-gradient(to bottom, #de607d, #7b1515,#380a0a);
+.fa-circle-plus{
+    margin:5px;
+    font-size:1em;
+    display: block;
 }
 
 #submit:hover{
     cursor: pointer;
 }
-
-#newType{
-    border-radius:10px;
-    border:none;
-    padding:3px;
-    padding-left:10px;
-}
-

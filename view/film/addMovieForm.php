@@ -1,7 +1,7 @@
 <?php ob_start();
 ?>
 
-<form class="form_addMovie" action="index.php?action=addMovie" method="post">
+<form action="index.php?action=addMovie" method="post">
     <label for="newMovie">Title : </label>
     <input type="text" name="movieTitle" id="newTitle" required><br> 
     <label for="newMovie">Release year : </label>
