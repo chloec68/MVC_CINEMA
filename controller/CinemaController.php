@@ -48,7 +48,7 @@ class CinemaController {
     public function addMovieForm(){
         $pdo = Connect:: seConnecter();
         $request = $pdo->query(
-            "SELECT person_surname,person_name FROM PERSON
+            "SELECT person_surname,person_name,id_director FROM PERSON
             INNER JOIN DIRECTOR ON PERSON.id_person = DIRECTOR.id_person"
         );
         require "view/film/addMovieForm.php";
@@ -82,10 +82,12 @@ class CinemaController {
                 ":idDirector"=>$_POST['director']
                 ]);
 
-        require "view/film/addMovieForm.php"; 
+      
+        header("Location: index.php?action=listFilms");
+        exit;  
         }
 
-        header("Location:view/film/listFilms.php");
+        require "view/film/addMovieForm.php"; 
     }
 
 
