@@ -10,7 +10,7 @@
             foreach($requete->fetchAll() as $genre){ 
                 $id=$genre["id_type"];
         ?>
-            <div class="cat_wrapper"><div class="cat_container"><?= $genre["type_name"]?></div><a href="index.php?action=deleteType&id=<?=$id?>"><i class="fa-solid fa-trash"></i></a></div>
+            <div class="category_wrapper"><div class="category_container"><?= $genre["type_name"]?></div><a href="index.php?action=deleteType&id=<?=$id?>"><i class="fa-solid fa-trash"></i></a></div>
             
         <?php } 
         ?>

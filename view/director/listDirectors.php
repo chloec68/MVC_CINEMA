@@ -1,29 +1,19 @@
 <?php ob_start();
 ?>
 
-<!-- <p class="uk-label uk-label-warning"> <?= $requete->rowCount() ?> directors </p> -->
-<table class="persons">
-    <thead>
-        <tr>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
+<p class="count">There are <?= $requete->rowCount() ?> directors </p>
+<div class="persons_grid">
+    <?php
+        foreach($requete->fetchAll() as $director){ 
+    ?>
+                <div class="persons_container">
+                <img class="portrait" src=" <?=$director["portrait"]?>" alt="">
+                <p><?= $director["person_surname"],$director["person_name"] ?></p>
+            </div>
         <?php
-
-            foreach($requete->fetchAll() as $director){ 
+        }
         ?>
-                <tr>
-                    <td class="persons tableDataPortrait"><img class="portrait" src=" <?=$director["portrait"]?>" alt=""></td>
-                    <td class="persons "><?= $director["person_surname"],$director["person_name"] ?></td>
-                </tr>
-            <?php
-            }
-            ?>
-
-      
-    </tbody>
-</table>
+</div>
 
  <!-- *************************** LE RENVOI AU TEMPLATE ("squelette") -->
 <?php

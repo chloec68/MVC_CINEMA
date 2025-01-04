@@ -10,11 +10,11 @@ if($film === false){
 ?>
         <div class="poster_wrapper"><img class="poster-detail" src="<?=$film["poster"]?>" alt="<?= $film["movie_title"]?>"></div>
         <div class="movieDetails">
-                <p class="otherInfo"><?= $film["synopsis"]?></p>
-                <p class="otherInfo">Release : <?= $film["releaseYear"]?></p>
-                <p class="otherInfo">Duration : <?= $film["ROUND(duration/60,2)"]?></p>
-                <p class="otherInfo">Director : <?= $film["person_surname"]?> <?$film["person_name"]?></p>
-                <p class="otherInfo">Casting : 
+                <p><?= $film["synopsis"]?></p>
+                <p>Release : <?= $film["releaseYear"]?></p>
+                <p>Duration : <?= $film["ROUND(duration/60,2)"]?></p>
+                <p>Director : <?= $film["person_surname"]?> <?$film["person_name"]?></p>
+                <p>Casting : 
 
                 <?php
                 foreach($casting->fetchAll(PDO::FETCH_ASSOC) as $cast){

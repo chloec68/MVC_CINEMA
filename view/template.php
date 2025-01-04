@@ -31,14 +31,14 @@
         
         <div class="flexBoxNav"><a href="index.php?action=listFilms"><p>ALL MOVIES</p></a><a href="index.php?action=listFilms"><i class="fa-solid fa-play"></i></a></div>
         <div class="flexBoxNav"><a href="index.php?action=listTypes"><p>CATEGORY</p></a><a href="index.php?action=listTypes"><i class="fa-solid fa-play"></i></a></div>
-        <div class="flexBoxNav"><a href="index.php?action=listDirectors"><p>DIRECTOR</p></a><i class="fa-solid fa-play"></i></div>
+        <div class="flexBoxNav"><a href="index.php?action=listDirectors"><p>DIRECTOR</p></a><a href="index.php?action=listDirectors"><i class="fa-solid fa-play"></i></a></div>
         <div class="flexBoxNav"><a href="index.php?action=listActors"><p>ACTOR</p></a><a href="index.php?action=listActors"><i class="fa-solid fa-play"></i></a></div>
-        <div class="flexBoxNav"><p>RELEASE</p><i class="fa-solid fa-play"></i></div>
+        <!-- <div class="flexBoxNav"><p>RELEASE</p><i class="fa-solid fa-play"></i></div> -->
     </nav>
 
     <div class="searchBarContainer">
-    <input type="text" value="Find your movie" class="searchBar margin20px"></input>
-    <div class="searchButton margin20px"><i class="fa-solid fa-magnifying-glass"></i></div>
+    <input type="text" value="Find your movie" class="searchBar"></input>
+    <div class="searchButton"><i class="fa-solid fa-magnifying-glass"></i></div>
     </div>
     
 
