@@ -26,7 +26,7 @@ if($film === false){
                 ?>
         </div>
 
-        <div id="deleteOption"><p>Delete this movie</p><i class="fa-solid fa-trash"></i></div>
+        <div id="deleteOption"><p>Delete this movie</p><a href="index.php?action=deleteMovie&id=<?=$id?>"><i class="fa-solid fa-trash"></i></a></div>
  <!-- *************************** LE RENVOI AU TEMPLATE ("squelette") -->
 <?php
 

@@ -27,6 +27,9 @@ class PersonController {
         require "view/director/listDirectors.php";
     }
 
+    public function addActorForm(){
+        require "view/actor/addActorForm.php";
+    }
 
     public function addActor(){
 
@@ -66,7 +69,7 @@ class PersonController {
 
         }
 
-        require "view/actor/addActor.php";
+        require "view/actor/addActorForm.php";
         
     }
 

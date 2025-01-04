@@ -122,6 +122,24 @@ class CinemaController {
 
         require "view/film/detailFilms.php";
     }
+
+
+
+    public function deleteMovie($id){
+        $id = $_GET['id'] ?? null;
+        $pdo = Connect:: seConnecter();
+
+        $request = $pdo->prepare("
+                DELETE FROM movie
+                WHERE id_movie= :id
+        ");
+
+        $request ->execute(["id"=>$id]);
+      
+        header("Location: index.php?action=listFilms");
+        exit;  
+
+
+        require "view/film/detailFilms.php";
+    }
 }
-
-

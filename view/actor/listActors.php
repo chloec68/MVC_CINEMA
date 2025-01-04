@@ -1,5 +1,5 @@
 <?php ob_start();?>
-<a class="add-button" href="index.php?action=addActor">Add an actor <i class="fa-solid fa-circle-plus"></i></a>
+<a class="add-button" href="index.php?action=addActorForm">Add an actor <i class="fa-solid fa-circle-plus"></i></a>
 <table class="persons">
     <thead>
     </thead>
