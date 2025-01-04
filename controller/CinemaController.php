@@ -46,20 +46,28 @@ class CinemaController {
 
 
     public function addMovieForm(){
+        $pdo = Connect:: seConnecter();
+        $request = $pdo->query(
+            "SELECT person_surname,person_name FROM PERSON
+            INNER JOIN DIRECTOR ON PERSON.id_person = DIRECTOR.id_person"
+        );
         require "view/film/addMovieForm.php";
+        
     }
    
 
     public function addMovie(){
+        
         if(isset($_POST['submit'])){
             $movieTitle = filter_input(INPUT_POST,"movieTitle",FILTER_SANITIZE_SPECIAL_CHARS);
             $movieDuration = filter_INPUT(INPUT_POST,"movieDuration",FILTER_SANITIZE_NUMBER_INT);
             $movieSynopsis = filter_INPUT(INPUT_POST,"movieSynopsis",FILTER_SANITIZE_SPECIAL_CHARS);
             $moviePoster = filter_INPUT(INPUT_POST,"moviePoster",FILTER_SANITIZE_URL); 
             $releaseYear = filter_INPUT(INPUT_POST,"releaseYear",FILTER_SANITIZE_NUMBER_INT);
-            $idDirector = filter_INPUT(INPUT_POST,"idDirector",FILTER_SANITIZE_NUMBER_INT);
+            $directorId = filter_input(INPUT_POST, "director", FILTER_SANITIZE_NUMBER_INT);
 
                 $pdo = Connect:: seConnecter();
+
                 $addMovie = $pdo->prepare("
                     INSERT INTO movie (movie_title,duration,synopsis,poster,releaseYear,id_director)
                     VALUES (:movieTitle,:movieDuration,:movieSynopsis,:moviePoster,:releaseYear,:idDirector)
@@ -71,11 +79,13 @@ class CinemaController {
                 "movieSynopsis"=>$movieSynopsis,
                 "moviePoster"=>$moviePoster,
                 "releaseYear"=>$releaseYear,
-                "idDirector"=>$idDirector]);
-        
+                ":idDirector"=>$_POST['director']
+                ]);
+
+        require "view/film/addMovieForm.php"; 
         }
-        header("Location:index.php?action=listFilms");
-        require "view/film/listFilms.php";
+
+        header("Location:view/film/listFilms.php");
     }
 
 

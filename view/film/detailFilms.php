@@ -7,10 +7,6 @@ if($film === false){
         exit;
     }
 
-// var_dump($details->errorInfo());
-// var_dump($film);
-// var_dump($casting);
-
 ?>
         <div class="poster_wrapper"><img class="poster-detail" src="<?=$film["poster"]?>" alt="<?= $film["movie_title"]?>"></div>
         <div class="movieDetails">

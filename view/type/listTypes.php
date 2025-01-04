@@ -5,8 +5,6 @@
 // $newType=$addType->fetch();?>
 <!-- <p class="uk-label uk-label-warning">There is <?= $requete->rowCount() ?> categories </p> -->
 
-<a class="add-button" href="index.php?action=addTypeForm">Add a category <i class="fa-solid fa-circle-plus"></i></a>
-
 <div>
         <?php    
             foreach($requete->fetchAll() as $genre){ 
@@ -18,7 +16,7 @@
         ?>
 </div>
 
-
+<a class="add-button" href="index.php?action=addTypeForm">Add a category <i class="fa-solid fa-circle-plus"></i></a>
 
  <!-- *************************** LE RENVOI AU TEMPLATE ("squelette") -->
 

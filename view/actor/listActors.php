@@ -1,15 +1,16 @@
 <?php ob_start();?>
 <a class="add-button" href="index.php?action=addActor">Add an actor <i class="fa-solid fa-circle-plus"></i></a>
-<table class="uk-table uk-table-striped">
+<table class="persons">
     <thead>
     </thead>
 
     <tbody>
         <?php 
-            foreach($requete->fetchAll() as $acteur){ 
+            foreach($requete->fetchAll() as $actor){ 
         ?>
             <tr>
-                <td><?= $acteur["person_surname"],$acteur["person_name"] ?></td>
+                <td class="persons tableDataPortrait"><img class="portrait" src=" <?=$actor["portrait"]?>" alt=""></td>
+                <td><?= $actor["person_surname"],$actor["person_name"] ?></td>
             </tr>
         <?php } ?>
     </tbody>

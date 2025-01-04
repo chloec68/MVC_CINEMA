@@ -30,46 +30,6 @@ header{
     font-weight:300;
 }
 
-/* **************** FOOTER ************** */
-footer{
-    background-color: #240a0a;
-    width:100%;
-    font-family:"Jost", serif;
-    margin-top:10vh;
-}
-
-#flexBox{
-    display: flex;
-    justify-content: space-evenly;
-    gap:20%;
-}
-
-.section{
-    display:block;
-    font-size:1;
-    font-weight:300;
-
-    p:hover{
-        cursor: pointer;
-    }
-}
-
-.sectionTitle{
-    font-weight:500;
-}
-
-.small{
-
-    text-align: center;
-    align-self: flex-end;
-    font-size: 0.9em;
-    font-weight: 300;
-}
-
-.small i{
-    font-size:0.9em;
-}
-
 /* **************** NAVBAR ************** */
 nav{
     width:100%;
@@ -190,9 +150,9 @@ td{
     font-size:1.2em;
 }
 
-/* **************** DIRECTOR TABLE ************** */
+/* **************** PERSONS TABLES ************** */
 
-.directors{
+.persons{
     height:100px;
     border-collapse:collapse;
     margin:100px 0px 0px 100px;
@@ -210,7 +170,7 @@ td{
     filter:grayscale(100%);
 }
 
-/* **************** TYPES TABLE ************** */
+/* **************** TYPES LIST ************** */
 
 
 .cat_container{ 
@@ -389,4 +349,47 @@ form{
 
 #submit:hover{
     cursor: pointer;
+}
+
+
+
+
+/* **************** FOOTER ************** */
+footer{
+    background-color: #240a0a;
+    width:100%;
+    font-family:"Jost", serif;
+    margin-top:10vh;
+}
+
+#flexBox{
+    display: flex;
+    justify-content: space-evenly;
+    gap:20%;
+}
+
+.section{
+    display:block;
+    font-size:1;
+    font-weight:300;
+
+    p:hover{
+        cursor: pointer;
+    }
+}
+
+.sectionTitle{
+    font-weight:500;
+}
+
+.small{
+
+    text-align: center;
+    align-self: flex-end;
+    font-size: 0.9em;
+    font-weight: 300;
+}
+
+.small i{
+    font-size:0.9em;
 }

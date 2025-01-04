@@ -2,7 +2,7 @@
 ?>
 
 <!-- <p class="uk-label uk-label-warning"> <?= $requete->rowCount() ?> directors </p> -->
-<table class="directors">
+<table class="persons">
     <thead>
         <tr>
             <th></th>
@@ -14,8 +14,8 @@
             foreach($requete->fetchAll() as $director){ 
         ?>
                 <tr>
-                    <td class="directors tableDataPortrait"><img class="portrait" src=" <?=$director["portrait"]?>" alt=""></td>
-                    <td class="directors "><?= $director["person_surname"],$director["person_name"] ?></td>
+                    <td class="persons tableDataPortrait"><img class="portrait" src=" <?=$director["portrait"]?>" alt=""></td>
+                    <td class="persons "><?= $director["person_surname"],$director["person_name"] ?></td>
                 </tr>
             <?php
             }
