@@ -142,4 +142,20 @@ class CinemaController {
 
         require "view/film/detailFilms.php";
     }
+
+
+    public function addCasting($id){
+        $id = $_GET['id'] ?? null;
+        $pdo = Connect:: seConnecter();
+
+        $request = $pdo->prepare("
+      
+        ");
+
+
+        header("Location: index.php?action=detailFilms&id=$id");
+        exit;  
+
+        require "view/film/detailFilms.php";
+    }
 }

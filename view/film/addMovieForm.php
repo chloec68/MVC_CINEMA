@@ -20,7 +20,7 @@
         if ($directors = $request->fetchAll()) {
             foreach ($directors as $director) {
         ?>
-                <option value=<?=($director['id_director']) ?>><?= htmlspecialchars($director['person_name']) ?> <?= htmlspecialchars($director['person_surname'])?> <?= ($director['id_director'])?></option>
+                <option value=<?=($director['id_director']) ?>><?= htmlspecialchars($director['person_surname']) ?> <?= htmlspecialchars($director['person_name'])?></option>
                 <?php
             }
         } else {
