@@ -26,6 +26,8 @@ if($film === false){
                 ?>
         </div>
 
+        <a class="add-button" href="index.php?action=addCastingForm&id=<?=$id?>">Add casting <i class="fa-solid fa-circle-plus"></i></a>
+
         <div id="deleteOption"><p>Delete this movie</p><a href="index.php?action=deleteMovie&id=<?=$id?>"><i class="fa-solid fa-trash"></i></a></div>
  <!-- *************************** LE RENVOI AU TEMPLATE ("squelette") -->
 <?php

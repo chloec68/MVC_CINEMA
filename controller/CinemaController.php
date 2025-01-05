@@ -144,18 +144,63 @@ class CinemaController {
     }
 
 
-    public function addCasting($id){
-        $id = $_GET['id'] ?? null;
-        $pdo = Connect:: seConnecter();
 
-        $request = $pdo->prepare("
-      
+
+
+    public function addCastingForm(){
+       
+        $pdo = Connect:: seConnecter();
+        $requestActors = $pdo->query("
+            SELECT person_name,person_surname,actor.id_actor FROM ACTOR 
+            inner join person on actor.id_person = person.id_person
+            order by person_surname
         ");
+
+        $requestRoles = $pdo->query("
+            SELECT * from ROLE 
+            order by role_name
+        ");
+
+        require "view/film/addCastingForm.php";
+    }
+
+    public function addCasting($id){
+
+        $pdo = Connect::seConnecter();
+
+        $createRole = $pdo->prepare("
+        INSERT INTO role (role_name)
+        VALUES (:roleName)
+        ");
+
+        $roleName = $_POST['roleName'];
+
+        if ($roleName !== "") {
+            $createRole->execute(["roleName" => $roleName]);
+            $idRole = $pdo->lastInsertId();
+        } else {
+            $idRole = $_POST['roleSelect']; 
+        }
+
+        $createCasting = $pdo->prepare("
+        INSERT INTO casting (id_actor,id_movie,id_role)
+        VALUES (:idActor,:idMovie,:idRole)
+        ");
+
+        $id = $_GET['id'];
+        $idActor = $_POST['idActor'];
+        // $idRole=$pdo->lastInsertId();
+
+        $createCasting ->execute([
+            "idActor"=>$idActor,
+            "idMovie"=>$id,
+            "idRole"=>$idRole
+        ]);
 
 
         header("Location: index.php?action=detailFilms&id=$id");
         exit;  
 
-        require "view/film/detailFilms.php";
+        require "view/film/addCastingForm.php";
     }
 }
