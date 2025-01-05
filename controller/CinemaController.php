@@ -139,7 +139,6 @@ class CinemaController {
         header("Location: index.php?action=listFilms");
         exit;  
 
-
         require "view/film/detailFilms.php";
     }
 
@@ -166,8 +165,12 @@ class CinemaController {
 
     public function addCasting($id){
 
+        $id = $_GET['id'];
+        $idActor = $_POST['idActor'];
+
         $pdo = Connect::seConnecter();
 
+        //création ou sélection du rôle 
         $createRole = $pdo->prepare("
         INSERT INTO role (role_name)
         VALUES (:roleName)
@@ -182,14 +185,12 @@ class CinemaController {
             $idRole = $_POST['roleSelect']; 
         }
 
+
+        //ajout du rôle + acteur sélectionné au film dont l'ID est récupéré da,s l'URL
         $createCasting = $pdo->prepare("
         INSERT INTO casting (id_actor,id_movie,id_role)
         VALUES (:idActor,:idMovie,:idRole)
         ");
-
-        $id = $_GET['id'];
-        $idActor = $_POST['idActor'];
-        // $idRole=$pdo->lastInsertId();
 
         $createCasting ->execute([
             "idActor"=>$idActor,
