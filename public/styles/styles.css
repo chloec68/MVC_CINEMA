@@ -1,7 +1,14 @@
 
+:root{
+    --beige:#fbeee0;
+    --light-beige:#fcf6ef;
+    --white:#fff;
+    --brown:#422800;
+}
+
 body{
-    background-image: linear-gradient(to bottom, #140001, #240a0a, #340f11, #451215, #561517, #65181a, #741b1c, #831e1e, #942222, #a62626, #b82b2a, #ca2f2e);
-    color :white;
+    background-image: linear-gradient(to bottom, #0c0001, #3b0002,#710103,#a20202,#b80101);
+    color :var(--beige);
     font-family: "Jost", serif;
     font-size:1em;
     margin:0px;
@@ -10,7 +17,7 @@ body{
 /* **************** HEADER ************** */
 
 header{
-    margin-bottom: 200px;
+    margin-bottom: 100px;
 }
 
 header .logo{
@@ -27,6 +34,28 @@ header #slogan{
     font-weight:300;
 }
 
+ h1 {
+    text-align: center;
+    font-size:30px;
+    font-weight:300;
+    color:var(--beige);
+    letter-spacing:1px;
+    text-transform: uppercase;
+    
+    display: grid;
+    grid-template-columns: 1fr max-content 1fr;
+    grid-template-rows: 27px 0;
+    grid-gap: 20px;
+    align-items: center;
+    }
+    
+  h1:after, h1:before {
+        content: " ";
+        display: block;
+        height: 5px;
+      background-color:var(--beige);
+    }
+
 /* **************** NAVBAR ************** */
 nav{
     width:100%;
@@ -41,26 +70,35 @@ nav{
 nav .flexBoxNav{
     display: flex;
     align-items: baseline;
-    background-image:linear-gradient(to bottom, #de607d, #7b1515,#5a0e0e);
-    border-radius: 40px;
-    width:8.5%;
     justify-content: center;
+    width:8.5%;
     height:fit-content;
-
-    /*BOX SHADOW*/
-    -webkit-box-shadow: 0px 10px 23px 0px rgb(44, 7, 7);
-    -moz-box-shadow: 0px 10px 23px 0px rgb(44, 7, 7);
-    box-shadow: 0px 10px 23px 0px rgb(44, 7, 7);
+    background-color: var(--beige);
+    border-radius: 30px;
+    color: var(--brown);
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1em;
+    padding: 0 18px;
+    text-align: center;
 }
 
-nav .flexBoxNav:hover{
-    cursor: pointer;
+nav .flexBoxNav:hover {
+  background-color:var(--white);
+  -webkit-box-shadow: 1px 1px 30px 1px rgb(190, 1, 1);
+  -moz-box-shadow: 1px 1px 30px 1px rgb(190, 1, 1);
+  box-shadow:1px 1px 30px 1px rgb(190, 1, 1);
+}
+
+nav .flexBoxNav:active {
+  box-shadow: var(--brown) 2px 2px 0 0;
+  transform: translate(2px, 2px);
 }
 
 nav .flexBoxNav a{
-    color:white; 
+    color:var(--brown); 
     text-decoration: none;
-}
+} 
 
 nav .flexBoxNav a .fa-play{
     font-size: 1em;
@@ -69,32 +107,23 @@ nav .flexBoxNav a .fa-play{
 
 /* **************** SEARCH ************** */
 
-.searchBarContainer .searchButton{
-    background-image:linear-gradient(to bottom, #de607d, #7b1515,#380a0a);
-    height:40px;
-    width:45px;
-    display: flex;
-    justify-content: center;
-    padding-top:5px;
-    border-radius:10px;
-}
-
-.searchBarContainer .searchButton i{
-    opacity: 100%;
-    font-size:2em;
-    font-weight:200;
-}
-
-.searchBarContainer .searchButton:hover{
-    cursor: pointer;
-}
-
 .searchBarContainer{
     width:100%;
     display: flex;
     justify-content: center;
     align-items: center;
     margin:100px auto 0px auto;
+    position :relative;
+}
+
+.searchBarContainer .fa-magnifying-glass{
+    position :absolute;
+    color:var(--brown);
+    right:25%;
+}
+
+.searchBarContainer .fa-magnifying-glass:hover{
+    cursor: pointer;
 }
 
 .searchBarContainer .searchBar{
@@ -102,9 +131,15 @@ nav .flexBoxNav a .fa-play{
     width:700px;
     height:30px;
     padding-left:10px;
-    border:1px white solid;
+    border:1px var(--beige) solid;
     color:grey;
     margin:20px;
+    background-color:var(--beige);
+}
+
+.searchBarContainer .searchBar:focus{
+    outline:none;
+    background-color:var(--white);
 }
 
 /* **************** CONTENT WRAPPER ************** */
@@ -119,18 +154,20 @@ nav .flexBoxNav a .fa-play{
     height:min-content;
 }
 
-/* **************** SECTION TITLE ************** */
+/* **************** HEADINGS ************** */
 #wrapper #contenu h2{
     font-family: "Blinker", serif;
     font-weight: 700;
-    font-size:2.5em;
+    font-size:3em;
     width: fit-content;
     display:block;
     margin: auto;
+    color:var(--light-beige);
+    letter-spacing: 5%;
 }
 
 
-/* **************** ALL TABLES ************** */
+/* **************** TABLES ************** */
 .table{
     text-align: center;
     margin:20px;
@@ -200,7 +237,7 @@ td{
     margin:20px;
 }
 
-/* **************** ALL MOVIES ************** */
+/* **************** ALL MOVIES GRID ************** */
 .count{
     text-align: center;
 }
@@ -314,13 +351,15 @@ form input,#gender{
     display: inline-block;
 }
 
+/* **************** BUTTONS ************** */
+
 .add-button,#submit{
-    background-image:linear-gradient(to bottom, #de607d, #7b1515,#5a0e0e);
+    background-color:#630101;
     border-radius: 40px;
     height:fit-content;
     text-align: center;
-    color: white;
-    font-size:1.5em;
+    color: var(--light-beige);
+    font-size:1em;
     font-weight:600;
     text-decoration: none;
     width:fit-content;
@@ -329,8 +368,8 @@ form input,#gender{
     padding-left:10px;
     padding-right:10px;
     border: none;
+    cursor: pointer;
 
-    
     -webkit-box-shadow: 0px 10px 23px 0px rgb(44, 7, 7);
     -moz-box-shadow: 0px 10px 23px 0px rgb(44, 7, 7);
     box-shadow: 0px 10px 23px 0px rgb(44, 7, 7);
@@ -341,13 +380,6 @@ form input,#gender{
     font-size:1em;
     display: block;
 }
-
-#submit:hover{
-    cursor: pointer;
-}
-
-
-
 
 /* **************** FOOTER ************** */
 footer{
@@ -388,3 +420,4 @@ footer{
 .small i{
     font-size:0.9em;
 }
+

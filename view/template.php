@@ -38,7 +38,7 @@
 
     <div class="searchBarContainer">
     <input type="text" value="Find your movie" class="searchBar"></input>
-    <div class="searchButton"><i class="fa-solid fa-magnifying-glass"></i></div>
+    <i class="fa-solid fa-magnifying-glass"></i>
     </div>
     
 
