@@ -1,9 +1,10 @@
 <?php ob_start(); 
+$id = $_GET['id'];
 ?>
-    <form action="index.php?action=addCasting&id= <?= $id ?>" method="post">
+    <form action="index.php?action=addCasting&id=<?=$id?>" method="post">
 
         <label for="actors">Select an actor : </label>
-        <select id="idActor" name="idActor">
+        <select id="actor" name="actor">
         <?php
         if ($actors = $requestActors->fetchAll()) {
             foreach ($actors as $actor) {
