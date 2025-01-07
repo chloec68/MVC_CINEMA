@@ -143,9 +143,6 @@ class CinemaController {
     }
 
 
-
-
-
     public function addCastingForm(){
        
         $pdo = Connect:: seConnecter();
@@ -165,25 +162,25 @@ class CinemaController {
 
     public function addCasting($id){
 
-        $id = $_GET['id'];
-        $idActor = $_POST['idActor'];
-
         $pdo = Connect::seConnecter();
 
+        $id = $_GET['id'];
+        $idActor = $_POST['idActor'];
+        $roleName = $_POST['roleName'];
+            if ($roleName !== "") {
+                $createRole->execute(["roleName" => $roleName]);
+                $idRole = $pdo->lastInsertId();
+            } else {
+                $idRole = $_POST['roleSelect']; 
+            }
+    
         //création ou sélection du rôle 
         $createRole = $pdo->prepare("
         INSERT INTO role (role_name)
         VALUES (:roleName)
         ");
 
-        $roleName = $_POST['roleName'];
-
-        if ($roleName !== "") {
-            $createRole->execute(["roleName" => $roleName]);
-            $idRole = $pdo->lastInsertId();
-        } else {
-            $idRole = $_POST['roleSelect']; 
-        }
+    
 
 
         //ajout du rôle + acteur sélectionné au film dont l'ID est récupéré da,s l'URL

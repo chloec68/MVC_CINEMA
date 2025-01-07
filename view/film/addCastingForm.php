@@ -2,7 +2,7 @@
 ?>
     <form action="index.php?action=addCasting&id= <?= $id ?>" method="post">
 
-        <label for="actors">Actor : </label>
+        <label for="actors">Select an actor : </label>
         <select id="idActor" name="idActor">
         <?php
         if ($actors = $requestActors->fetchAll()) {
@@ -17,6 +17,8 @@
 
         <label for="role">Role (as) : </label>
         <select id="roleSelect" name="roleSelect">
+            <option value="">&nbsp;</option>
+
             <?php
                 if ($roles = $requestRoles->fetchAll()) 
                     foreach ($roles as $role){
