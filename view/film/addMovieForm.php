@@ -13,7 +13,7 @@
         <label for="newPoster">Poster : </label>
         <input type="url" name="moviePoster" id="newPoster" required><br> 
 
-        <label for="director">Director : </label>
+        <label for="director">Select director : </label>
         <select id="director" name="director">
 
         <?php

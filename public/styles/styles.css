@@ -335,21 +335,42 @@ opacity: 1;
 /* **************** "ADD" FORMS ************** */
 form{
     text-align: center;
-    margin:50px;
+    color:var(--brown);
+    margin:20px auto 20px auto;
+    background-color: #EBECF0;
+    width:40%;
+    border-radius: 30px;
+    padding:20px;
 }
 
 form label{
-    display: inline-block;
-    width: 10%;
+    display: block;
     margin: 5px 0; 
-    text-align: right;
+    text-align: center;
 }
 
-form input,#gender{
-    width: 15%;
+form input,#gender,select{
+    width: 90%;
     margin: 5px 0; 
     display: inline-block;
+    font-family: "Jost", serif;
+    font-size: 1em;
+    letter-spacing: -0.2px;
+    border-radius: 20px;
+    padding:14px;
+    box-shadow: inset 2px 2px 5px #BABECC, inset -5px -5px 10px #FFF;
+    box-sizing: border-box;
+    transition: all 0.2s ease-in-out;
+    appearance: none;
+    border: 0;
+    outline: 0;
+
+    &:focus {
+        box-shadow:  inset 1px 1px 2px #BABECC, inset -1px -1px 2px var(--white);
+      }
 }
+
+
 
 /* **************** BUTTONS ************** */
 
@@ -362,7 +383,6 @@ form input,#gender{
     font-size:1em;
     font-weight:600;
     text-decoration: none;
-    width:fit-content;
     display:block;
     margin:50px auto 50px auto;
     padding-left:10px;
@@ -373,6 +393,14 @@ form input,#gender{
     -webkit-box-shadow: 0px 10px 23px 0px rgb(44, 7, 7);
     -moz-box-shadow: 0px 10px 23px 0px rgb(44, 7, 7);
     box-shadow: 0px 10px 23px 0px rgb(44, 7, 7);
+}
+
+#submit{
+    width:20%;
+}
+
+.add-button{
+    width:fit-content;
 }
 
 .fa-circle-plus{
