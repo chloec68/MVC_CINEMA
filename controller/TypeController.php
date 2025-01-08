@@ -64,7 +64,7 @@ class TypeController {
         $requete = $pdo->prepare("
             SELECT movie_type.id_movie,movie.movie_title,movie.poster
             FROM movie_type 
-            INNER JOIN MOVIE ON movie_type.id_movie = MOVIE.id_movie
+            INNER JOIN MOVIE ON movie_type.id_movie = movie.id_movie
             WHERE movie_type.id_type = :idType
         ");
 

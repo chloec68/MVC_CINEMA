@@ -46,25 +46,34 @@ class CinemaController {
 
     public function addMovieForm(){
         $pdo = Connect:: seConnecter();
-        $request = $pdo->query(
-            "SELECT person_surname,person_name,id_director FROM PERSON
-            INNER JOIN DIRECTOR ON PERSON.id_person = DIRECTOR.id_person"
+        $requestDirectors = $pdo->query(
+            "SELECT person_surname,person_name,id_director
+            FROM PERSON
+            INNER JOIN DIRECTOR ON PERSON.id_person = DIRECTOR.id_person
+            ORDER BY person_surname"
         );
+
+        $requestTypes = $pdo->query(
+            "SELECT type.id_type, type.type_name
+            FROM type
+            ORDER BY type_name"
+        );
+
         require "view/film/addMovieForm.php";
-        
     }
    
 
     public function addMovie(){
 
         $pdo = Connect:: seConnecter();
-        
+
         if(isset($_POST['submit'])){
             $movieTitle = filter_input(INPUT_POST,"movieTitle",FILTER_SANITIZE_SPECIAL_CHARS);
             $movieDuration = filter_INPUT(INPUT_POST,"movieDuration",FILTER_SANITIZE_NUMBER_INT);
             $movieSynopsis = filter_INPUT(INPUT_POST,"movieSynopsis",FILTER_SANITIZE_SPECIAL_CHARS);
             $releaseYear = filter_INPUT(INPUT_POST,"releaseYear",FILTER_SANITIZE_NUMBER_INT);
             $directorId = filter_input(INPUT_POST, "director", FILTER_SANITIZE_NUMBER_INT);
+            $types = $_POST['type'] ?? [];
 
             if (isset($_FILES['file'])) {
                 $tmpName = $_FILES['file']['tmp_name'];
@@ -114,13 +123,30 @@ class CinemaController {
             "movieSynopsis"=>$movieSynopsis,
             "moviePoster"=>$moviePoster,
             "releaseYear"=>$releaseYear,
-            ":idDirector"=>$_POST['director']
+            ":idDirector"=>$directorId
             ]);
 
-        header("Location: index.php?action=listFilms");
-        exit;  
-        }
+            $idMovie = $pdo->lastInsertId();
 
+            foreach ($types as $type) {
+
+                $type = filter_var($type, FILTER_VALIDATE_INT);
+
+                $requestAddMovieType = $pdo->prepare("
+                INSERT INTO movie_type (id_movie, id_type)
+                VALUES(:idMovie, :idType)
+                ");
+
+                $requestAddMovieType->execute([
+                        "idMovie" => $idMovie,
+                        "idType" => $type
+                    ]);
+            }
+
+            $_SESSION['message'] = 'Movie added successfully!';
+            header("Location: index.php?action=listFilms");
+            exit;  
+        }
         require "view/film/addMovieForm.php"; 
     }
 
@@ -173,6 +199,7 @@ class CinemaController {
     }
 
 
+
     public function addCastingForm(){
        
         $pdo = Connect:: seConnecter();
@@ -222,57 +249,3 @@ class CinemaController {
         header("Location: index.php?action=detailFilm&id=$id");
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// public function addCasting($id){
-
-//     if(isset($_POST['submit'])){
-//         $actor= filter_input(INPUT_POST,"actor",FILTER_SANITIZE_SPECIAL_CHARS);
-//         $roleName = filter_input(INPUT_POST,"roleName",FILTER_SANITIZE_SPECIAL_CHARS);
-        
-//         $pdo = Connect:: seConnecter();
-
-//         if($roleName = ""){
-//             $idRole = $_POST['roleSelect']; 
-//         }else{
-//             $createRole = $pdo->prepare("
-//             INSERT INTO role (role_name)
-//             VALUES (:roleName)
-//         ");
-//         $createRole->execute(["roleName" => $roleName]);
-//         $idRole = $pdo->lastInsertId();
-//         }
-
-
-//         $requestAddCasting = $pdo->prepare("
-//             INSERT INTO casting (id_actor,id_movie,id_role)
-//             VALUES (:actor,:id,:idRole)
-//         ");
-
-//         $requestAddCasting ->execute([
-//             "actor"=>$actor,
-//             "id"=>$id,
-//             "idRole"=>$idRole 
-//         ]);
-        
-//     }
-//     header("Location: index.php?action=detailFilm&id=$id");
-// }

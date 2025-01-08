@@ -12,36 +12,34 @@
         <input type="text" name="movieSynopsis" id="newSynopsis" required><br> 
         <label for="newPoster">Poster : </label>
         <input type="file" name="file" id="newPoster" accept="image/*"><br> 
-        <input type="category" name="category" id="category" required><br> 
-        <select id="category" name="category">
-        <?php
-        if ($categories = $request->fetchAll()) {
-            foreach ($categories as $category) {
-        ?>
-                <option value=<?=($type['id_type']) ?>><?= htmlspecialchars($type['type_name']) ?></option>
-                <?php
-            }
-        } else {
-            echo "<option disabled>No directors available</option>";
-        }
-        ?>
-        </select><br> 
+
 
         <label for="director">Select director : </label>
         <select id="director" name="director">
-        <?php
-        if ($directors = $request->fetchAll()) {
-            foreach ($directors as $director) {
-        ?>
-                <option value=<?=($director['id_director']) ?>><?= htmlspecialchars($director['person_surname']) ?> <?= htmlspecialchars($director['person_name'])?></option>
-                <?php
+            <?php
+            foreach($requestDirectors->fetchAll(PDO::FETCH_ASSOC) as $director) {
+            ?>
+            <option value=<?= $director['id_director'] ?>><?= $director['person_surname'] ?> <?=$director['person_name']?></option>
+            <?php
             }
-        } else {
-            echo "<option disabled>No directors available</option>";
-        }
-        ?>
-        </select><br> 
+            ?>
+        </select><br>
 
+
+        <label for="category">Select category : </label>
+        <select id="type" name="types">
+            <?php
+            foreach($requestTypes->fetchAll(PDO::FETCH_ASSOC) as $type) {
+            ?>
+                <option value=<?=$type['id_type']?>> <?= $type['type_name'] ?> </option>
+            <?php
+            }
+            ?>
+        </select><br> 
+       
+
+     
+       
         <input type="submit" name="submit" value="Submit" id="submit">
     </form>
 
