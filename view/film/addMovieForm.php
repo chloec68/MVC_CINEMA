@@ -2,20 +2,21 @@
 ?>
 
     <form action="index.php?action=addMovie" method="post" enctype="multipart/form-data">
-        <label for="newTitle">Title : </label>
-        <input type="text" name="movieTitle" id="newTitle" required><br> 
-        <label for="newMovie">Release : </label>
-        <input type="number" name="releaseYear" id="releaseYear" min="1895"><br> 
-        <label for="newDuration">Duration : </label>
-        <input type="number" name="movieDuration" id="newDuration" required min="1"><br> 
-        <label for="newSynopsis">Synopsis : </label>
-        <input type="text" name="movieSynopsis" id="newSynopsis" required><br> 
-        <label for="newPoster">Poster : </label>
-        <input type="file" name="file" id="newPoster" accept="image/*"><br> 
+        <label for="title">Title : </label>
+        <input type="text" name="movieTitle" id="title" required><br> 
+        <label for="release">Release : </label>
+        <input type="number" name="releaseYear" id="release" min="1895"><br> 
+        <label for="duration">Duration : </label>
+        <input type="number" name="movieDuration" id="duration" required min="1"><br> 
+        <label for="synopsis">Synopsis : </label>
+        <input type="text" name="movieSynopsis" id="synopsis" required><br> 
+        <label for="poster">Poster : </label>
+        <input type="file" name="file" id="poster" accept="image/*"><br> 
 
 
         <label for="director">Select director : </label>
         <select id="director" name="director">
+            <option value="">Select an option</option>
             <?php
             foreach($requestDirectors->fetchAll(PDO::FETCH_ASSOC) as $director) {
             ?>
