@@ -1,27 +1,23 @@
 <?php
 namespace Controller;
 use Model\Connect;
-// utilisation du "use" pour accéder à la classe Connect située dans le namespace "Model"
 
-// class CinemaController {
 
-    /**
-     * Lister les acteurs
-     */
+class HomeController {
+    public function index(){
 
-//     public function detActeur($id){
+        $pdo = Connect:: seConnecter();
 
-//         $pdo = Connect :: seConnecter();
-//         $requete = $pdo->prepare("
-//             SELECT *
-//             FROM acteur
-//             WHERE id_acteur = :id");
-//         $requete->execute(["id" -> $id]);
+        $bestRating = $pdo->query("
+        SELECT movie.poster,movie.movie_title
+        FROM movie
+        WHERE movie.rating = '5'
+        ");
 
-//         require "view/acteur/detailActeur.php";
-//     }
-// }
+        require "view/home/index.php";
+    }
 
-// on se connecte
-// on exécute la requête de notre choix
-// on relie par un "require" la vue qui nous intéresse (située dans le dossier "view")
+}
+
+
+

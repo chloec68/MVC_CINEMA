@@ -8,6 +8,7 @@
 use Controller\CinemaController;
 use Controller\TypeController;
 use Controller\PersonController;
+use Controller\HomeController;
 
 //autochargement des classes du projet 
 spl_autoload_register(function ($class_name){
@@ -19,6 +20,7 @@ spl_autoload_register(function ($class_name){
 $ctrlCinema = new CinemaController();
 $ctrlType = new TypeController();
 $ctrlPerson = new PersonController();
+$ctrlHome = new HomeController();
 
 
 // utilisation de l'OPERATEUR TERNAIRE pour affecter une valeur à $id
@@ -34,6 +36,8 @@ $id = (isset($_GET["id"])) ? $_GET["id"] : null;
 //en fonction de l'action détectée dans l'URL via la propriété "action", on interagit avec la bonne méthode du controller
 if(isset($_GET["action"])){
     switch ($_GET["action"]){
+        //HOME 
+        case "index" : $ctrlHome->index();break;
         // MOVIES
         case "listFilms" : $ctrlCinema->listFilms();break;
         case "detailFilm":$ctrlCinema->detailFilm($id);break;

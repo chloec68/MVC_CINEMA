@@ -449,3 +449,35 @@ footer{
     font-size:0.9em;
 }
 
+
+
+/* SWIPER */
+
+.swiper {
+    width: 20%;
+    height: 100%;
+    margin: 20px auto;
+  }
+
+  .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #030303;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .swiper-slide img {
+    display: block;
+    max-width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .swiper-button-prev{
+    color:red;
+  }
+
+
+

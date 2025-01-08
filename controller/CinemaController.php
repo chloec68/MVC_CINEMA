@@ -73,6 +73,7 @@ class CinemaController {
             $movieSynopsis = filter_INPUT(INPUT_POST,"movieSynopsis",FILTER_SANITIZE_SPECIAL_CHARS);
             $releaseYear = filter_INPUT(INPUT_POST,"releaseYear",FILTER_SANITIZE_NUMBER_INT);
             $directorId = filter_input(INPUT_POST, "director", FILTER_SANITIZE_NUMBER_INT);
+            $rating = filter_input(INPUT_POST, "rating", FILTER_SANITIZE_NUMBER_INT);
             $types = $_POST['type'] ?? [];
 
             if (isset($_FILES['file'])) {
@@ -113,8 +114,8 @@ class CinemaController {
             $moviePoster = isset($webpPath) ? $webpPath : "public/img/posters/default.webp";
 
             $addMovie = $pdo->prepare("
-                INSERT INTO movie (movie_title,duration,synopsis,poster,releaseYear,id_director)
-                VALUES (:movieTitle,:movieDuration,:movieSynopsis,:moviePoster,:releaseYear,:idDirector)
+                INSERT INTO movie (movie_title,duration,synopsis,poster,releaseYear,id_director,rating)
+                VALUES (:movieTitle,:movieDuration,:movieSynopsis,:moviePoster,:releaseYear,:idDirector,:rating)
             ");
 
             $addMovie->execute([
@@ -123,7 +124,8 @@ class CinemaController {
             "movieSynopsis"=>$movieSynopsis,
             "moviePoster"=>$moviePoster,
             "releaseYear"=>$releaseYear,
-            ":idDirector"=>$directorId
+            ":idDirector"=>$directorId,
+            ":rating"=>$rating
             ]);
 
             $idMovie = $pdo->lastInsertId();

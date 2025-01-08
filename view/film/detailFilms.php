@@ -1,6 +1,7 @@
 <?php ob_start();
 
 $film = $details->fetch(PDO::FETCH_ASSOC);
+$castingData = $casting->fetchAll(PDO::FETCH_ASSOC);
 
 if($film === false){
         echo "Movie not found.";
@@ -11,17 +12,21 @@ if($film === false){
         <div class="poster_wrapper"><img class="poster-detail" src="<?=$film["poster"]?>" alt="<?= $film["movie_title"]?>"></div>
         <div class="movieDetails">
                 <p><?= $film["synopsis"]?></p>
-                <p>Release : <?= $film["releaseYear"]?></p>
+                <p>Released in : <?= $film["releaseYear"]?></p>
                 <p>Duration : <?= $film["ROUND(duration/60,2)"]?></p>
-                <p>Director : <?= $film["person_surname"]?> <?$film["person_name"]?></p>
+                <p>Director : <?= $film["person_surname"]?> <?= $film["person_name"]?></p>
                 <p>Casting : 
-
                 <?php
-                foreach($casting->fetchAll(PDO::FETCH_ASSOC) as $cast){
+                if (empty($castingData)) {
                 ?>
-                <?=
-                 $cast["person_surname"],$cast["person_name"]?> as <?= $cast["role_name"]?></p>
+                <p>Not added yet</p>
                 <?php
+                } else {
+                        foreach ($castingData as $cast) {
+                        ?>
+                        <p><?=$cast["person_surname"], $cast["person_name"]?> as <?=$cast["role_name"]?></p><br>
+                        <?php
+                        }
                 }
                 ?>
         </div>

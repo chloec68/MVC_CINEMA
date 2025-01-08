@@ -10,6 +10,8 @@
         <input type="number" name="movieDuration" id="duration" required min="1"><br> 
         <label for="synopsis">Synopsis : </label>
         <input type="text" name="movieSynopsis" id="synopsis" required><br> 
+        <label for="rating">Rating : </label>
+        <input type="number" name="rating" id="rating" required max="5"><br>
         <label for="poster">Poster : </label>
         <input type="file" name="file" id="poster" accept="image/*"><br> 
 
