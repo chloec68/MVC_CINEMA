@@ -12,10 +12,23 @@
         <input type="text" name="movieSynopsis" id="newSynopsis" required><br> 
         <label for="newPoster">Poster : </label>
         <input type="file" name="file" id="newPoster" accept="image/*"><br> 
+        <input type="category" name="category" id="category" required><br> 
+        <select id="category" name="category">
+        <?php
+        if ($categories = $request->fetchAll()) {
+            foreach ($categories as $category) {
+        ?>
+                <option value=<?=($type['id_type']) ?>><?= htmlspecialchars($type['type_name']) ?></option>
+                <?php
+            }
+        } else {
+            echo "<option disabled>No directors available</option>";
+        }
+        ?>
+        </select><br> 
 
         <label for="director">Select director : </label>
         <select id="director" name="director">
-
         <?php
         if ($directors = $request->fetchAll()) {
             foreach ($directors as $director) {

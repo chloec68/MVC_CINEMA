@@ -112,6 +112,87 @@ class PersonController {
         
     }
 
+    public function addDirectorForm(){
+        require "view/director/addDirectorForm.php";
+    }
+
+    public function addDirector(){
+        if(isset($_POST['submit'])){
+
+            $pdo = Connect:: seConnecter();
+            $personName = filter_input(INPUT_POST,"personName",FILTER_SANITIZE_SPECIAL_CHARS);
+            $personSurname = filter_INPUT(INPUT_POST,"personSurname",FILTER_SANITIZE_SPECIAL_CHARS);
+            $gender = filter_INPUT(INPUT_POST,"gender",FILTER_SANITIZE_SPECIAL_CHARS);
+            $dob = preg_replace("([^0-9/])", "", $_POST['dob']);
+
+            if (isset($_FILES['file'])) {
+                $tmpName = $_FILES['file']['tmp_name'];
+                $name = $_FILES['file']['name'];
+                $size = $_FILES['file']['size'];
+                $error = $_FILES['file']['error'];
+                $type = $_FILES['file']['type'];
+
+                $tabExtension = explode('.', $name);
+                $extension = strtolower(end($tabExtension));
+
+                // Tableau des extensions qu'on autorise
+                $allowedExtensions = ['jpg', 'png', 'jpeg', 'webp'];
+                $maxSize = 100000000;
+
+                if (in_array($extension, $allowedExtensions) && $size <= $maxSize && $error == 0) {
+
+                    $uniqueName = uniqid('', true);
+                    $file = $uniqueName . '.' . $extension;
+
+                    move_uploaded_file($tmpName, "public/img/directors/" . $file);
+
+                    // Conversion en webp
+                    // Création de mon image en doublon en chaine de caractères
+                    $posterSource = imagecreatefromstring(file_get_contents("public/img/directors/" . $file));
+                    // Récupération du chemin de l'image
+                    $webpPath = "public/img/directors/" . $uniqueName . ".webp";
+                    // Conversion en format webp
+                    imagewebp($posterSource, $webpPath);
+                    // Suppression de l'ancienne image
+                    unlink("public/img/directors/" . $file);
+                } else {
+                    echo "Wrong extension or file size too large or error !";
+                }
+            }
+
+            $portrait = isset($webpPath) ? $webpPath : "public/img/actors/default.webp";
+
+
+            $details = $pdo->prepare("
+                INSERT INTO PERSON(person_name,person_surname,gender,dateOfBirth,portrait)
+                VALUES(:personName,:personSurname,:gender,:dob,:portrait)
+            ");
+
+            $details->execute(["personName"=>$personName,
+                            "personSurname"=>$personSurname,
+                            "gender"=>$gender,
+                            "dob"=>$dob,
+                            "portrait"=>$portrait]);
+
+            $idPerson = $pdo->lastInsertId();
+
+            $addActor = $pdo->prepare("
+                INSERT INTO DIRECTOR(id_person)
+                VALUES(:idPerson)
+            ");
+
+            $addActor->execute([
+                "idPerson"=>$idPerson
+            ]);
+
+            header("Location:index.php?action=listDirectors");
+            exit();
+
+        }
+
+        require "view/director/addDirectorForm.php";
+    }
+
 }
 // Certaines requêtes avec query, certaines requêtes avec prepare et execute : c'est quoi la différence ?
 

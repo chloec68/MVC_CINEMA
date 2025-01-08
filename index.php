@@ -49,6 +49,11 @@ if(isset($_GET["action"])){
         case "addActorForm":$ctrlPerson->addActorForm();break;
         case "addCasting":$ctrlCinema->addCasting($id);break;
         case "addCastingForm":$ctrlCinema->addCastingForm();break;
+        case "addDirector":$ctrlPerson->addDirector();break;
+        case "addDirectorForm":$ctrlPerson->addDirectorForm();break;
+
+        case "displayByType":$ctrlType->displayByType($id);break;
+        case "displayByTypePage":$ctrlType->displayByTypePage();break;
     }
 }
 

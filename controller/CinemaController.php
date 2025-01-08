@@ -17,7 +17,6 @@ class CinemaController {
         $requete = $pdo->query("
             SELECT id_movie,poster,movie_title
             FROM movie
-    
         ");
         // la méthode $requete = $pdo->query est utilisée pour exécuter la requête SQL directement sur la base de donnée 
         // la méthode renvoie un objet de type PDOStatement 

@@ -53,8 +53,29 @@ class TypeController {
 
             require "view/type/listTypes.php";
         }
-        
+
+
+    public function displayByTypePage(){
+        require "view/type/displayByTypePage.php";
     }
+
+    public function displayByType($id) {
+
+        $pdo = Connect::seConnecter();
+
+        $requete = $pdo->prepare("
+            SELECT movie_type.id_movie,movie.movie_title,movie.poster
+            FROM movie_type 
+            INNER JOIN MOVIE ON movie_type.id_movie = MOVIE.id_movie
+            WHERE movie_type.id_type = :idType
+        ");
+
+        $requete->execute(['idType' => $_GET['id_type']]); 
+        
+        require "view/type/displayByTypePage.php";
+    }
+}
+        
     
 
 

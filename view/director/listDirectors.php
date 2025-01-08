@@ -2,6 +2,9 @@
 ?>
 
 <p class="count">There are <?= $requete->rowCount() ?> directors </p>
+
+<a class="add-button" href="index.php?action=addDirectorForm">Add a director <i class="fa-solid fa-circle-plus"></i></a>
+
 <div class="persons_grid">
     <?php
         foreach($requete->fetchAll() as $director){ 
@@ -22,7 +25,6 @@ $titre = "Directors";
 $titre_secondaire = "Directors List";
 $contenu = ob_get_clean();
 require "view/template.php";
-$img[1]="public/img/CNolan.jpg";
 
 
 // Tout ce qui se trouve entre la fonction ob_start() et la fonction ob_clean() est temporairement stocké dans la variable $contenu
