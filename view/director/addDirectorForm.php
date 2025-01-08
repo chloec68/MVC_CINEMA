@@ -6,10 +6,10 @@
     <input type="text" name="personName" id="personName" required><br> 
     <label for="surname">Surname : </label>
     <input type="text" name="personSurname" id="personSurname"><br> 
-    <label for="gender">Select gender : </label>
+    <label for="gender">Gender : </label>
     <!-- <input type="text" name="gender" id="gender" required><br>  -->
     <select id="gender" name="gender">
-        <option value="">&nbsp;</option>
+        <option value="">Select gender</option>
         <option value="male">Male</option>
         <option value="female">Female</option>
     </select><br> 

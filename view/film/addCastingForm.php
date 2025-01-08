@@ -16,7 +16,7 @@ $id = $_GET['id'];
         ?>
         </select>    
         
-        <label for="role">Create role : </label>
+        <label for="role">As (role) : </label>
         <input type="text" name="roleName" id="roleName"><br> 
         <br> 
         <input type="submit" name="submit" value="Submit" id="submit">
