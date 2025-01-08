@@ -5,7 +5,7 @@
         <label for="newTitle">Title : </label>
         <input type="text" name="movieTitle" id="newTitle" required><br> 
         <label for="newMovie">Release : </label>
-        <input type="date" name="releaseYear" id="releaseYear" min="1895"><br> 
+        <input type="number" name="releaseYear" id="releaseYear" min="1895"><br> 
         <label for="newDuration">Duration : </label>
         <input type="number" name="movieDuration" id="newDuration" required min="1"><br> 
         <label for="newSynopsis">Synopsis : </label>

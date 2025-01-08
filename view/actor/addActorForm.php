@@ -1,7 +1,7 @@
 <?php ob_start();
 ?>
 
-<form class="form_addActor" action="index.php?action=addActor" method="post">
+<form class="form_addActor" action="index.php?action=addActor" method="post" enctype="multipart/form-data">
     <label for="newActor">Name : </label>
     <input type="text" name="personName" id="personName" required><br> 
     <label for="newActor">Surname : </label>
@@ -16,7 +16,7 @@
     <label for="newActor">Date of birth : </label>
     <input type="date" name="dob" id="dob" required><br> 
     <label for="newActor">Picture : </label>
-    <input type="url" name="portraitUrl" id="portraitUrl"><br> 
+    <input type="file" name="file" id="file" accept="image/*"><br> 
     <input type="submit" name="submit" value="Submit" id="submit">
 </form>
 
