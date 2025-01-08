@@ -1,7 +1,7 @@
 <?php ob_start(); 
 ?>
 
-    <form action="index.php?action=addMovie" method="post">
+    <form action="index.php?action=addMovie" method="post" enctype="multipart/form-data">
         <label for="newTitle">Title : </label>
         <input type="text" name="movieTitle" id="newTitle" required><br> 
         <label for="newMovie">Release : </label>
@@ -11,7 +11,7 @@
         <label for="newSynopsis">Synopsis : </label>
         <input type="text" name="movieSynopsis" id="newSynopsis" required><br> 
         <label for="newPoster">Poster : </label>
-        <input type="url" name="moviePoster" id="newPoster" required><br> 
+        <input type="file" name="file" id="newPoster" accept="image/*"><br> 
 
         <label for="director">Select director : </label>
         <select id="director" name="director">

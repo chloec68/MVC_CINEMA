@@ -57,16 +57,56 @@ class CinemaController {
    
 
     public function addMovie(){
+
+        $pdo = Connect:: seConnecter();
         
         if(isset($_POST['submit'])){
             $movieTitle = filter_input(INPUT_POST,"movieTitle",FILTER_SANITIZE_SPECIAL_CHARS);
             $movieDuration = filter_INPUT(INPUT_POST,"movieDuration",FILTER_SANITIZE_NUMBER_INT);
             $movieSynopsis = filter_INPUT(INPUT_POST,"movieSynopsis",FILTER_SANITIZE_SPECIAL_CHARS);
-            $moviePoster = filter_INPUT(INPUT_POST,"moviePoster",FILTER_SANITIZE_URL); 
+            // $moviePoster = filter_INPUT(INPUT_POST,"moviePoster",FILTER_SANITIZE_URL); 
             $releaseYear = filter_INPUT(INPUT_POST,"releaseYear",FILTER_SANITIZE_NUMBER_INT);
             $directorId = filter_input(INPUT_POST, "director", FILTER_SANITIZE_NUMBER_INT);
 
-                $pdo = Connect:: seConnecter();
+            if (isset($_FILES['file'])) {
+                $tmpName = $_FILES['file']['tmp_name'];
+                $name = $_FILES['file']['name'];
+                $size = $_FILES['file']['size'];
+                $error = $_FILES['file']['error'];
+                $type = $_FILES['file']['type'];
+
+                $tabExtension = explode('.', $name);
+                $extension = strtolower(end($tabExtension));
+
+                // Tableau des extensions qu'on autorise
+                $allowedExtensions = ['jpg', 'png', 'jpeg', 'webp'];
+                $maxSize = 100000000;
+
+                if (in_array($extension, $allowedExtensions) && $size <= $maxSize && $error == 0) {
+
+                    $uniqueName = uniqid('', true);
+                    $file = $uniqueName . '.' . $extension;
+
+                    move_uploaded_file($tmpName, "public/img/posters/" . $file);
+
+                    // Conversion en webp
+                    // Création de mon image en doublon en chaine de caractères
+                    $posterSource = imagecreatefromstring(file_get_contents("public/img/posters/" . $file));
+                    // Récupération du chemin de l'image
+                    $webpPath = "public/img/posters/" . $uniqueName . ".webp";
+                    // Conversion en format webp
+                    imagewebp($posterSource, $webpPath);
+                    // Suppression de l'ancienne image
+                    unlink("public/img/posters/" . $file);
+                } else {
+                    echo "Wrong extension or file size too large or error !";
+                }
+            }
+
+            $moviePoster = isset($webpPath) ? $webpPath : "public/img/posters/default.webp";
+
+
+                
 
                 $addMovie = $pdo->prepare("
                     INSERT INTO movie (movie_title,duration,synopsis,poster,releaseYear,id_director)
