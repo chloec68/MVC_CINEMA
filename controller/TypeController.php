@@ -13,7 +13,6 @@ class TypeController {
         require "view/type/listTypes.php";
     }
 
-
     public function addTypeForm(){
         require "view/type/addTypeForm.php";
     }
@@ -53,7 +52,6 @@ class TypeController {
 
             require "view/type/listTypes.php";
         }
-
 
     public function displayByTypePage(){
         require "view/type/displayByTypePage.php";

@@ -34,26 +34,30 @@ $id = (isset($_GET["id"])) ? $_GET["id"] : null;
 //en fonction de l'action détectée dans l'URL via la propriété "action", on interagit avec la bonne méthode du controller
 if(isset($_GET["action"])){
     switch ($_GET["action"]){
+        // MOVIES
         case "listFilms" : $ctrlCinema->listFilms();break;
-        case "listTypes" : $ctrlType->listTypes(); break;
-        case "listActors":$ctrlPerson->listActors();break;
-        case "listDirectors":$ctrlPerson->listDirectors();break;
         case "detailFilm":$ctrlCinema->detailFilm($id);break;
-        case "addTypeForm":$ctrlType->addTypeForm();break;
-        case "addType":$ctrlType->addType();break;
-        case "deleteType":$ctrlType->deleteType($id);break;
         case "addMovie":$ctrlCinema->addMovie();break;
         case "addMovieForm":$ctrlCinema->addMovieForm();break;
         case "deleteMovie":$ctrlCinema->deleteMovie($id);break;
-        case "addActor":$ctrlPerson->addActor();break;
-        case "addActorForm":$ctrlPerson->addActorForm();break;
-        case "addCasting":$ctrlCinema->addCasting($id);break;
-        case "addCastingForm":$ctrlCinema->addCastingForm();break;
-        case "addDirector":$ctrlPerson->addDirector();break;
-        case "addDirectorForm":$ctrlPerson->addDirectorForm();break;
-
+        //TYPES
+        case "listTypes" : $ctrlType->listTypes(); break;
+        case "addTypeForm":$ctrlType->addTypeForm();break;
+        case "addType":$ctrlType->addType();break;
+        case "deleteType":$ctrlType->deleteType($id);break;
         case "displayByType":$ctrlType->displayByType($id);break;
         case "displayByTypePage":$ctrlType->displayByTypePage();break;
+        //ACTORS
+        case "listActors":$ctrlPerson->listActors();break;
+        case "addActor":$ctrlPerson->addActor();break;
+        case "addActorForm":$ctrlPerson->addActorForm();break;
+        //DIRECTORS
+        case "listDirectors":$ctrlPerson->listDirectors();break;
+        case "addDirector":$ctrlPerson->addDirector();break;
+        case "addDirectorForm":$ctrlPerson->addDirectorForm();break;
+        //CASTING
+        case "addCasting":$ctrlCinema->addCasting($id);break;
+        case "addCastingForm":$ctrlCinema->addCastingForm();break;
     }
 }
 

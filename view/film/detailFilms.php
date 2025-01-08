@@ -29,19 +29,11 @@ if($film === false){
         <a class="add-button" href="index.php?action=addCastingForm&id=<?=$id?>">Add casting <i class="fa-solid fa-circle-plus"></i></a>
 
         <div id="deleteOption"><p>Delete this movie</p><a href="index.php?action=deleteMovie&id=<?=$id?>"><i class="fa-solid fa-trash"></i></a></div>
- <!-- *************************** LE RENVOI AU TEMPLATE ("squelette") -->
+
 <?php
 
 $titre = "Movie details";
 $titre_secondaire = $film["movie_title"];
 $contenu = ob_get_clean();
 require "view/template.php";
-
-
-// Tout ce qui se trouve entre la fonction ob_start() et la fonction ob_clean() est temporairement stocké dans la variable $contenu
-// = temporisation de sortie
-
-//Le require de fin permet d'injecter le contenu dans le template "squelette"/de base -> template.php
-// Dans template.php on aura des variables qui vont accueillir les éléments provenant des vues 
-// C'est pourquoi dans chaque vue, il faut toujours donner une valeur à $titre, $contenu et $titre_secondaire
 

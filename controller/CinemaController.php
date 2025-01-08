@@ -63,7 +63,6 @@ class CinemaController {
             $movieTitle = filter_input(INPUT_POST,"movieTitle",FILTER_SANITIZE_SPECIAL_CHARS);
             $movieDuration = filter_INPUT(INPUT_POST,"movieDuration",FILTER_SANITIZE_NUMBER_INT);
             $movieSynopsis = filter_INPUT(INPUT_POST,"movieSynopsis",FILTER_SANITIZE_SPECIAL_CHARS);
-            // $moviePoster = filter_INPUT(INPUT_POST,"moviePoster",FILTER_SANITIZE_URL); 
             $releaseYear = filter_INPUT(INPUT_POST,"releaseYear",FILTER_SANITIZE_NUMBER_INT);
             $directorId = filter_input(INPUT_POST, "director", FILTER_SANITIZE_NUMBER_INT);
 
@@ -104,32 +103,26 @@ class CinemaController {
 
             $moviePoster = isset($webpPath) ? $webpPath : "public/img/posters/default.webp";
 
+            $addMovie = $pdo->prepare("
+                INSERT INTO movie (movie_title,duration,synopsis,poster,releaseYear,id_director)
+                VALUES (:movieTitle,:movieDuration,:movieSynopsis,:moviePoster,:releaseYear,:idDirector)
+            ");
 
-                
+            $addMovie->execute([
+            "movieTitle"=>$movieTitle,
+            "movieDuration"=>$movieDuration,
+            "movieSynopsis"=>$movieSynopsis,
+            "moviePoster"=>$moviePoster,
+            "releaseYear"=>$releaseYear,
+            ":idDirector"=>$_POST['director']
+            ]);
 
-                $addMovie = $pdo->prepare("
-                    INSERT INTO movie (movie_title,duration,synopsis,poster,releaseYear,id_director)
-                    VALUES (:movieTitle,:movieDuration,:movieSynopsis,:moviePoster,:releaseYear,:idDirector)
-                ");
-
-                $addMovie->execute([
-                "movieTitle"=>$movieTitle,
-                "movieDuration"=>$movieDuration,
-                "movieSynopsis"=>$movieSynopsis,
-                "moviePoster"=>$moviePoster,
-                "releaseYear"=>$releaseYear,
-                ":idDirector"=>$_POST['director']
-                ]);
-
-      
         header("Location: index.php?action=listFilms");
         exit;  
         }
 
         require "view/film/addMovieForm.php"; 
     }
-
-
 
 
     public function detailFilm($id){
@@ -161,8 +154,6 @@ class CinemaController {
 
         require "view/film/detailFilms.php";
     }
-
-
 
     public function deleteMovie($id){
         $id = $_GET['id'] ?? null;
@@ -198,8 +189,6 @@ class CinemaController {
 
         require "view/film/addCastingForm.php";
     }
-
-
 
     public function addCasting($id){
 
