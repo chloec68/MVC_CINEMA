@@ -201,6 +201,7 @@ class CinemaController {
     }
 
 
+
     public function addCasting($id){
 
         if(isset($_POST['submit'])){
@@ -209,17 +210,14 @@ class CinemaController {
             
             $pdo = Connect:: seConnecter();
 
-            if($roleName = ""){
-                $idRole = $_POST['roleSelect']; 
-            }else{
-                $createRole = $pdo->prepare("
+            $createRole = $pdo->prepare("
                 INSERT INTO role (role_name)
                 VALUES (:roleName)
             ");
+            
             $createRole->execute(["roleName" => $roleName]);
-            $idRole = $pdo->lastInsertId();
-            }
 
+            $idRole = $pdo->lastInsertId();
 
             $requestAddCasting = $pdo->prepare("
                 INSERT INTO casting (id_actor,id_movie,id_role)
@@ -235,8 +233,18 @@ class CinemaController {
         }
         header("Location: index.php?action=detailFilm&id=$id");
     }
-
 }
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -254,14 +262,17 @@ class CinemaController {
         
 //         $pdo = Connect:: seConnecter();
 
-//         $createRole = $pdo->prepare("
+//         if($roleName = ""){
+//             $idRole = $_POST['roleSelect']; 
+//         }else{
+//             $createRole = $pdo->prepare("
 //             INSERT INTO role (role_name)
 //             VALUES (:roleName)
 //         ");
-        
 //         $createRole->execute(["roleName" => $roleName]);
-
 //         $idRole = $pdo->lastInsertId();
+//         }
+
 
 //         $requestAddCasting = $pdo->prepare("
 //             INSERT INTO casting (id_actor,id_movie,id_role)

@@ -14,28 +14,13 @@ $id = $_GET['id'];
             }
         }
         ?>
-        </select>
-
-        <label for="role">Role (as) : </label>
-        <select id="roleSelect" name="roleSelect">
-            <option value="">&nbsp;</option>
-
-            <?php
-                if ($roles = $requestRoles->fetchAll()) 
-                    foreach ($roles as $role){
-            ?>
-                <option value=<?=($role['id_role']) ?>><?= htmlspecialchars($role['role_name']) ?></option>
-            <?php
-                    }
-            ?>
-       </select>        
+        </select>    
         
-        <label for="role">Or create role : </label>
+        <label for="role">Create role : </label>
         <input type="text" name="roleName" id="roleName"><br> 
         <br> 
         <input type="submit" name="submit" value="Submit" id="submit">
     </form>
-
 <?php
 
 $titre="Add a casting";
