@@ -166,6 +166,16 @@ nav .flexBoxNav a .fa-play{
     letter-spacing: 5%;
 }
 
+/* HOME PAGE LINK */
+
+.home_container{
+    margin:50px;
+}
+
+.home_container a{
+    color:var(--beige);
+    text-decoration:none;
+}
 
 /* **************** TABLES ************** */
 .table{
@@ -449,35 +459,37 @@ footer{
     font-size:0.9em;
 }
 
+.section .addMovie_link a{
+    color:white;
+    text-decoration: none;
+}
 
 
-/* SWIPER */
+/* HOME PAGE */
 
-.swiper {
-    width: 20%;
-    height: 100%;
-    margin: 20px auto;
-  }
+.home_wrapper{
+    width:100%;
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
 
-  .swiper-slide {
+.poster_container{
     text-align: center;
-    font-size: 18px;
-    background: #030303;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+}
 
-  .swiper-slide img {
-    display: block;
-    max-width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
+.poster_container img{
+    width:40%;
+    border-radius: 5%;
+}
 
-  .swiper-button-prev{
-    color:red;
-  }
+.fiveStars{
+    font-size: 2em;
+    color:#e5d164;
+    text-align: center;
+    margin:50px auto 50px auto;
 
-
+}
+.fiveStars i{
+    text-shadow: 2px 2px 40px rgba(239, 211, 30, 0.832);
+}
 

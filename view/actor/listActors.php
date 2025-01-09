@@ -1,4 +1,7 @@
 <?php ob_start();?>
+
+<div class="home_container"><a href="index.php?action=index"><i class="fa-solid fa-circle-arrow-left"></i> Home page</a></div>
+
 <p class="count">There are <?= $requete->rowCount() ?> actors </p>
 
 <a class="add-button" href="index.php?action=addActorForm">Add an actor <i class="fa-solid fa-circle-plus"></i></a>

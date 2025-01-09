@@ -1,22 +1,22 @@
 <?php ob_start();
 ?>
 
+
 <form class="form_addActor" action="index.php?action=addActor" method="post" enctype="multipart/form-data">
-    <label for="newActor">Name : </label>
-    <input type="text" name="personName" id="personName" required><br> 
-    <label for="newActor">Surname : </label>
-    <input type="text" name="personSurname" id="personSurname"><br> 
-    <label for="newActor">Gender : </label>
-    <!-- <input type="text" name="gender" id="gender" required><br>  -->
+    <label for="name">Name : </label>
+    <input type="text" name="personName" id="name" required><br> 
+    <label for="surname">Surname : </label>
+    <input type="text" name="personSurname" id="surname"><br> 
+    <label for="actor">Gender : </label>
     <select id="gender" name="gender">
         <option value="">Select gender</option>
         <option value="male">Male</option>
         <option value="female">Female</option>
     </select><br> 
-    <label for="newActor">Date of birth : </label>
+    <label for="dob">Date of birth : </label>
     <input type="date" name="dob" id="dob" required><br> 
-    <label for="newActor">Picture : </label>
-    <input type="file" name="file" id="file" accept="image/*"><br> 
+    <label for="picture">Picture : </label>
+    <input type="file" name="file" id="picture" accept="image/*"><br> 
     <input type="submit" name="submit" value="Submit" id="submit">
 </form>
 

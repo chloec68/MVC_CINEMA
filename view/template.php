@@ -65,7 +65,7 @@
             </div>
             <div class="section">
                 <p class="sectionTitle">GET INVOLVED</p>
-                <p>Add a movie</p>
+                <p class="addMovie_link"><a href="index.php?action=addMovieForm">Add a movie</a></p>
                 <p>Make a report</p>
             </div>
             <div class="section">

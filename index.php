@@ -63,6 +63,8 @@ if(isset($_GET["action"])){
         case "addCasting":$ctrlCinema->addCasting($id);break;
         case "addCastingForm":$ctrlCinema->addCastingForm();break;
     }
+
+    // header("Location: index.php?action=listFilms");
 }
 
 // INDEX.PHP fait office de FRONT CONTROLLER -> porte d'entrée de l'application 
