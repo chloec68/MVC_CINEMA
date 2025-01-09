@@ -1,13 +1,32 @@
+document.addEventListener("DOMContentLoaded", () => {
+	const sliders = document.querySelectorAll(".emotions-slider");
 
-    var swiper = new Swiper(".swiper", {
-        loop:true,
-        grabCursor:true,
-        slidesPerView: 3,
-        centeredSlides: true,
-        spaceBetween: 30,
-        navigation: {
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
-    },
-    });
+	if (!sliders.length) return;
 
+	const list = [];
+
+	sliders.forEach((element) => {
+		const [slider, prevEl, nextEl, pagination] = [
+			element.querySelector(".swiper"),
+			element.querySelector(".slider-nav__item_prev"),
+			element.querySelector(".slider-nav__item_next"),
+			element.querySelector(".slider-pagination")
+		];
+
+		list.push(
+			new Swiper(slider, {
+				slidesPerView: 3,
+				spaceBetween: 5,
+				speed: 800,
+				observer: true,
+				watchOverflow: true,
+				centeredSlides: true,
+                loop:true,
+				navigation: { nextEl, prevEl, disabledClass: "disabled" },
+				breakpoints: {
+					768: { spaceBetween: 40 }
+				}
+			})
+		);
+	});
+});

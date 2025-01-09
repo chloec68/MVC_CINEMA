@@ -289,3 +289,21 @@ public function addMovie(): void
 
 
 
+
+    https://codepen.io/bato-web-agency/pen/OPLxQWx
+
+
+//                 <div class="home_wrapper">
+
+    <?php
+    foreach($bestRating->fetchAll() as $best){ 
+    ?>
+        <div class="poster_container"><img src="<?=$best['poster']?>"></div>
+    <?php
+    }
+    ?>
+
+// </div>
+
+
+
