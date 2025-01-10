@@ -128,12 +128,13 @@ class PersonController {
         $actorDetails = $requete->fetch(); 
 
         $filmography = $pdo->prepare(
-            "SELECT movie.movie_title
+            "SELECT movie_title 
             FROM movie
-            INNER JOIN actor ON person.id_person = actor.id_person
-            INNER JOIN casting ON actor.id_actor = casting.id_actor
-            INNER JOIN movie ON casting.id_movie = movie.id_movie
-            WHERE actor.id_person = :id"
+            INNER JOIN casting ON movie.id_movie = casting.id_movie 
+            INNER JOIN role ON casting.id_role = role.id_role
+            INNER JOIN actor ON actor.id_actor = CASTING.id_actor
+            WHERE actor.id_actor = :id
+            "
         );
 
         $filmography->execute(["id"=>$id]);

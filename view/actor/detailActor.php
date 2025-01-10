@@ -3,15 +3,16 @@
 <div class="actor_container">
 <div class="actorCard">
 <img class="actorPortrait" src="<?=$actorDetails["portrait"]?>" alt="">
-<p id="actor_name"> <?= $actorDetails["person_surname"]." "?><?= $actorDetails["person_name"] ?></p>
+<!-- <p id="actor_name"> <?= $actorDetails["person_surname"]." "?><?= $actorDetails["person_name"] ?></p> -->
 <p>Born : <?= $actorDetails["dateOfBirth"] ?></p>
 <p>Gender : <?= $actorDetails["gender"] ?></p>
-
+<p>Starred in :</p>
 <?php if($actorFilmography){
     foreach($actorFilmography as $film){
 ?>
-        <p>starred in : <?= $actorDetails["movie_title"]?></p><br>
-    <?php}
+         <p id="actor_movie"><?= $film["movie_title"]?></p>
+    <?php
+    }
 }?>
 
 
@@ -22,5 +23,5 @@
 
 $titre = "Actors";
 $contenu = ob_get_clean();
-$titre_secondaire = "Search by Actor";
+$titre_secondaire = $actorDetails["person_surname"]." ".$actorDetails["person_name"];
 require "view/template.php";
