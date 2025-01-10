@@ -9,7 +9,7 @@ class PersonController {
 
         $pdo = Connect :: seConnecter();
         $requete = $pdo->query(
-            "SELECT person_surname,person_name,portrait FROM actor 
+            "SELECT person.id_person,person_surname,person_name,portrait FROM actor 
             INNER JOIN person ON actor.id_person = person.id_person"
            );
 
@@ -111,6 +111,40 @@ class PersonController {
         require "view/actor/addActorForm.php";
         
     }
+
+
+    public function detailActor($id){
+        $pdo = Connect:: seConnecter();
+        $requete = $pdo->prepare(
+            "SELECT person.person_surname,person.person_name,person.gender,person.dateOfBirth,person.portrait,actor.id_person,person.portrait
+            FROM person
+            INNER JOIN actor ON person.id_person = actor.id_person
+            INNER JOIN casting ON actor.id_actor = casting.id_actor
+            WHERE actor.id_person = :id"
+        );
+
+        $requete->execute(["id"=>$id]);
+
+        $actorDetails = $requete->fetch(); 
+
+        $filmography = $pdo->prepare(
+            "SELECT movie.movie_title
+            FROM movie
+            INNER JOIN actor ON person.id_person = actor.id_person
+            INNER JOIN casting ON actor.id_actor = casting.id_actor
+            INNER JOIN movie ON casting.id_movie = movie.id_movie
+            WHERE actor.id_person = :id"
+        );
+
+        $filmography->execute(["id"=>$id]);
+
+        $actorFilmography = $filmography->fetchAll();
+
+        require "view/actor/detailActor.php";
+    }
+
+
+
 
     public function addDirectorForm(){
         require "view/director/addDirectorForm.php";

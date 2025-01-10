@@ -24,9 +24,18 @@ document.addEventListener("DOMContentLoaded", () => {
                 loop:true,
 				navigation: { nextEl, prevEl, disabledClass: "disabled" },
 				breakpoints: {
-					768: { spaceBetween: 40 }
+					768: { 
+						slidesPerView:4,	
+						spaceBetween: 30
+					}
 				}
 			})
 		);
 	});
 });
+
+
+
+
+
+
