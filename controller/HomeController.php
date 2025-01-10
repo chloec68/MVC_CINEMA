@@ -9,7 +9,7 @@ class HomeController {
         $pdo = Connect:: seConnecter();
 
         $bestRating = $pdo->query("
-        SELECT movie.poster,movie.movie_title
+        SELECT movie.poster,movie.movie_title,movie.id_movie
         FROM movie
         WHERE movie.rating = '5'
         ");

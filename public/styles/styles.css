@@ -8,7 +8,8 @@
 }
 
 body{
-    background-image: linear-gradient(to bottom, #0c0001, #3b0002,#710103,#a20202,#b80101);
+    /* background-image: linear-gradient(to bottom, #0c0001, #3b0002,#710103,#a20202,#b80101); */
+    background-image: linear-gradient(to bottom, #0c0001, #3b0002);
     color :var(--beige);
     font-family: "Jost", serif;
     font-size:1em;
@@ -423,7 +424,8 @@ form input,#gender,select{
 
 /* **************** FOOTER ************** */
 footer{
-    background-color: #240a0a;
+    /* background-color: #240a0a; */
+    background-color: #0b0001;
     width:100%;
     font-family:"Jost", serif;
     margin-top:10vh;
@@ -485,13 +487,13 @@ footer{
 
 .fiveStars{
     font-size: 2em;
-    color:#e5d164;
+    color:var(--light-beige);
     text-align: center;
     margin:50px auto 50px auto;
 
 }
 .fiveStars i{
-    text-shadow: 2px 2px 40px rgba(239, 211, 30, 0.832);
+    text-shadow: 2px 2px 40px rgba(237, 236, 232, 0.832);
 }
 
 /* **************** SLIDER ************** */
@@ -596,7 +598,7 @@ footer{
 }
 
 .swiper-slide-active .emotions-slider-item {
-	transform: scale(1.3);
+	transform: scale(1.1);
 }
 
 .emotions-slider-item__image {
@@ -606,16 +608,13 @@ footer{
 
 .emotions-slider-item__image img {
 	width: 100%;
-	height: 200%;
+	max-height: 200%;
 	object-fit: cover;
 	object-position: center;
 }
 
 .emotions-slider-item__content {
-	display: flex;
-	flex-direction: column;
-	gap: 20px;
-	padding: 10px;
+   
 }
 
 .emotions-slider-item__header,
@@ -633,11 +632,15 @@ footer{
 	gap: 20px;
 }
 
-.emotions-slider-item__title {
+/* .emotions-slider-item__title {
 	font-weight: 600;
 	font-size: 20px;
 	line-height: 1.2;
 	margin-bottom: 8px;
+} */
+
+.emotions-slider-item__footer{
+    text-align: right;
 }
 
 .emotions-slider-item__text {
@@ -655,6 +658,10 @@ footer{
 	font-size: 18px;
 	color: #fff;
 	text-decoration: none;
+}
+
+.emotions-slider-item__btn-text{
+    text-align: right;
 }
 
 .emotions-slider-item__btn-icon {

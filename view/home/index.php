@@ -10,17 +10,6 @@
 </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
 			<div class="emotions-slider">
 
 				<!-- Slider left/right Navigation -->
@@ -61,7 +50,7 @@
 									</div>
 
 									<div class="emotions-slider-item__footer">
-										<a class="emotions-slider-item__btn" href="/" onclick="event.preventDefault();">
+										<a class="emotions-slider-item__btn" href="index.php?action=movieDetails&id= ">
 											<span class="emotions-slider-item__btn-text">View more</span>
 											<span class="emotions-slider-item__btn-icon"></span>
 										</a>
@@ -70,7 +59,7 @@
 							</div>
                         </div>
             
-                        
+						                      
                         <?php
                         }
                         ?>

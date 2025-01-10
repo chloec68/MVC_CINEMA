@@ -4,9 +4,9 @@ namespace Model;
 // la classe est abstraite car on n'instanciera jamais la classe Connect -> on a seulement besoin d'accéder à la méthode seConnecter()
 abstract class Connect {
     const HOST = "localhost";
-    const DB = "cinema"; 
+    const DB = "cinema_chloe"; 
     const USER = "root";
-    const PASS ="root";
+    const PASS ="";
 
     public static function seConnecter(){
         try{
