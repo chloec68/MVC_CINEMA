@@ -34,7 +34,16 @@ class TypeController {
     }
 
     public function deleteTypeForm(){
-        require "view/type/deleteTypeForm.php";
+        $pdo = Connect :: seConnecter();
+
+        $getTypes = $pdo->query(
+            "SELECT type_name,id_type
+            FROM type"
+        );
+
+        // $categories = $getType->fetchAll();
+
+        require "view/type/listTypes.php";
     }
 
     public function deleteType($id){
@@ -48,10 +57,8 @@ class TypeController {
 
             $deleteType->execute(["id"=>$id]);
 
-            header("Location:index.php?action=listTypes");
-
             require "view/type/listTypes.php";
-        }
+    }
 
     public function displayByTypePage(){
         require "view/type/displayByTypePage.php";

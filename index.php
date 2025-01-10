@@ -49,6 +49,7 @@ if(isset($_GET["action"])){
         case "addTypeForm":$ctrlType->addTypeForm();break;
         case "addType":$ctrlType->addType();break;
         case "deleteType":$ctrlType->deleteType($id);break;
+        case "deleteTypeForm":$ctrlType->deleteTypeForm();break;
         case "displayByType":$ctrlType->displayByType($id);break;
         case "displayByTypePage":$ctrlType->displayByTypePage();break;
         //ACTORS

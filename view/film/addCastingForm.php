@@ -3,7 +3,7 @@ $id = $_GET['id'];
 ?>
     <form action="index.php?action=addCasting&id=<?=$id?>" method="post">
 
-        <label for="actors">Select an actor : </label>
+        <label for="actor">Select an actor : </label>
         <select id="actor" name="actor">
         <?php
         if ($actors = $requestActors->fetchAll()) {
