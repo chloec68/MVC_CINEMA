@@ -10,6 +10,7 @@ class TypeController {
             SELECT type_name,id_type
             FROM type
         ");
+        $genres = $requete->fetchAll();
         require "view/type/listTypes.php";
     }
 
@@ -33,31 +34,23 @@ class TypeController {
         require "view/type/listTypes.php";
     }
 
-    public function deleteTypeForm(){
-        $pdo = Connect :: seConnecter();
-
-        $getTypes = $pdo->query(
-            "SELECT type_name,id_type
-            FROM type"
-        );
-
-        // $categories = $getType->fetchAll();
-
-        require "view/type/listTypes.php";
-    }
 
     public function deleteType($id){
+        if(isset($_POST['submit'])){
+            $typeName = filter_input(INPUT_POST,"typeName",FILTER_SANITIZE_SPECIAL_CHARS);
+            if($typeName){
+                $pdo = Connect :: seConnecter();
+                $deleteType = $pdo->prepare("
+                    DELETE FROM type 
+                    WHERE id_type= :id
+                ");
 
-            $id = $_GET['id'] ?? null;
-            $pdo = Connect :: seConnecter();
-            $deleteType = $pdo->prepare("
-                DELETE FROM type 
-                WHERE id_type= :id
-            ");
-
-            $deleteType->execute(["id"=>$id]);
-
-            require "view/type/listTypes.php";
+                $deleteType->execute(["id"=>$id]);
+                header("Location:index.php?action=listTypes");
+                exit;
+            }
+        }
+        require "view/type/listTypes.php";
     }
 
     public function displayByTypePage(){

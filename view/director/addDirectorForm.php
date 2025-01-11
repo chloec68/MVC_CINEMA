@@ -1,7 +1,7 @@
 <?php ob_start();
 ?>
 
-<form class="form_addDirector" action="index.php?action=addDirector" method="post" enctype="multipart/form-data">
+<form class="add-form" action="index.php?action=addDirector" method="post" enctype="multipart/form-data">
     <label for="name">Name : </label>
     <input type="text" name="personName" id="personName" required><br> 
     <label for="surname">Surname : </label>

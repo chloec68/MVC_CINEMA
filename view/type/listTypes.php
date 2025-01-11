@@ -1,37 +1,39 @@
 <?php ob_start();
+
 ?>
 <!-- <p class="uk-label uk-label-warning">There is <?= $requete->rowCount() ?> categories </p> -->
 
 <div class="category_wrapper">
         <?php    
-            foreach($requete->fetchAll() as $genre){
+            foreach($genres as $genre){
                 $id=$genre["id_type"]; 
         ?>
             <div class="wrapper-trash-a">
                 <a href="index.php?action=displayByType&id_type=<?=$id?>"><div class="category_container"><?= $genre["type_name"]?></div></a>
-                <a href="index.php?action=deleteType&id=<?=$id?>"><i class="fa-solid fa-trash"></i></a>
             </div>
             
         <?php } 
         ?>
 </div>
 
+<a class="add-button" href="index.php?action=addTypeForm">Add a category <i class="fa-solid fa-circle-plus"></i></a>
+
 <form class="delete-form" action="index.php?action=deleteType&id=<?=$id?>" method="post">
-    <label for="delete-category">Delete a category: </label>
-    <select name="category" id="delete-category">
+    <label for="type">Delete a category: </label>
+    <select name="typeName" id="type">
+        <option value="select">Select</option>
                     <?php    
-                    if ($categories = $getTypes->fetchAll()) {
-                        foreach ($categories as $category) { 
+                     foreach($genres as $genre){
                     ?>
-                <option value="<?= $category["id_type"] ?>"><?= $category["type_name"] ?></option>
+                <option value="<?= $genre["id_type"] ?>"><?= $genre["type_name"] ?></option>
                 <?php
-                        }
-                    }
+                        }       
                 ?>
     </select>
+    <input type="submit" name="submit" value="Submit" id="submit">
 </form>
 
-<a class="add-button button" href="index.php?action=addTypeForm">Add a category <i class="fa-solid fa-circle-plus"></i></a>
+
 
 <?php
 

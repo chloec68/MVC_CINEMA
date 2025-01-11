@@ -2,7 +2,7 @@
 ?>
 
 
-<form class="form_addActor" action="index.php?action=addActor" method="post" enctype="multipart/form-data">
+<form class="add-form" action="index.php?action=addActor" method="post" enctype="multipart/form-data">
     <label for="name">Name : </label>
     <input type="text" name="personName" id="name" required><br> 
     <label for="surname">Surname : </label>

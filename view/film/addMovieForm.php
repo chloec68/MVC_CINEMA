@@ -1,7 +1,7 @@
 <?php ob_start(); 
 ?>
 
-    <form action="index.php?action=addMovie" method="post" enctype="multipart/form-data">
+    <form class="add-form" action="index.php?action=addMovie" method="post" enctype="multipart/form-data">
         <label for="title">Title : </label>
         <input type="text" name="movieTitle" id="title" required><br> 
         <label for="release">Release : </label>

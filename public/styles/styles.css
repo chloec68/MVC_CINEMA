@@ -535,8 +535,9 @@ opacity: 1;
     text-align:center;
 }
 
-/* **************** "ADD" FORMS ************** */
-form{
+/* **************** FORMS ************** */
+/* ADD FORM */
+.add-form{
     text-align: center;
     color:var(--brown);
     margin:20px auto 20px auto;
@@ -573,11 +574,22 @@ form input,#gender,select{
       }
 }
 
+/* DELETE FORM */
+.delete-form{
+    width:25%;
+    text-align: center;
+    margin: auto;
+}
 
-
+.delete-form #type{
+    width:fit-content;
+    padding:2px 2px 2px 10px;
+    border-radius:5px;
+}
 /* **************** BUTTONS ************** */
 
-.button,#submit{
+.add-button,#submit{
+    width:fit-content;
     background-color:#630101;
     border-radius: 40px;
     height:fit-content;
@@ -600,10 +612,6 @@ form input,#gender,select{
 
 #submit{
     width:20%;
-}
-
-.button{
-    width:fit-content;
 }
 
 .fa-circle-plus{
