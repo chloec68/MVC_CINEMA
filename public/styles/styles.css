@@ -490,8 +490,9 @@ td{
 
 /* **************** DETAILS FILM ************** */
 .movieDetails{
-    width : 30%;
-    margin: auto;
+    width : 20%;
+    margin: 50px auto auto auto;
+    padding:20px;
 }
 
 #deleteOption{
@@ -525,7 +526,7 @@ td{
     border:rgb(50, 2, 2) solid 1px;
     box-shadow:1px 1px 30px 1px rgb(190, 1, 1);
     border-radius: 5px;
-    margin : 50px
+    margin : 50px auto auto auto;
 }
 
 .actorPortrait{
@@ -553,42 +554,42 @@ td{
     text-align: center;
     color:var(--brown);
     margin:20px auto 20px auto;
-    background-color: #EBECF0;
+    /* background-color:rgb(50, 2, 2); */
     width:40%;
-    border-radius: 30px;
+    border-radius: 10px;
     padding:20px;
     opacity: 0.8;
+    /* box-shadow:1px 1px 30px 1px rgb(190, 1, 1); */
     label{
         display: block;
         margin: 5px 0; 
         text-align: center;
+        color:white;
     }
-
+ 
     input,#gender,select{
-        width: 90%;
+        width: 70%;
         margin: 5px 0; 
         display: inline-block;
         font-family: "Jost", serif;
         font-size: 1em;
         letter-spacing: -0.2px;
         border-radius: 20px;
-        padding:14px;
-        box-shadow: inset 2px 2px 5px #BABECC, inset -5px -5px 10px #FFF;
+        padding:8px;
+        background-color:#FFF;
+        box-shadow: inset 2px 2px 5px #3c1f1f, inset -5px -5px 10px #FFF;
         box-sizing: border-box;
         transition: all 0.2s ease-in-out;
         appearance: none;
         border: 0;
         outline: 0;
+        box-shadow:1px 1px 30px 1px rgb(190, 1, 1);
     
         &:focus {
             box-shadow:  inset 1px 1px 2px #BABECC, inset -1px -1px 2px var(--white);
           }
     }
 }
-
-
-
-
 
 /* **************** BUTTONS ************** */
 
