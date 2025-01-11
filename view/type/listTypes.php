@@ -15,24 +15,24 @@
         <?php } 
         ?>
 </div>
+<div class="options">
+    <a class="add-button" href="index.php?action=addTypeForm">Add a category <i class="fa-solid fa-circle-plus"></i></a>
 
-<a class="add-button" href="index.php?action=addTypeForm">Add a category <i class="fa-solid fa-circle-plus"></i></a>
-
-<form class="delete-form" action="index.php?action=deleteType&id=<?=$id?>" method="post">
-    <label for="type">Delete a category: </label>
-    <select name="typeName" id="type">
-        <option value="select">Select</option>
-                    <?php    
-                     foreach($genres as $genre){
+    <form class="delete-form" action="index.php?action=deleteType&id=<?=$id?>" method="post">
+        <label for="type">Delete a category: </label>
+        <select name="typeName" id="type">
+            <option value="select">Select</option>
+                        <?php    
+                        foreach($genres as $genre){
+                        ?>
+                    <option value="<?= $genre["id_type"] ?>"><?= $genre["type_name"] ?></option>
+                    <?php
+                            }       
                     ?>
-                <option value="<?= $genre["id_type"] ?>"><?= $genre["type_name"] ?></option>
-                <?php
-                        }       
-                ?>
-    </select>
-    <input type="submit" name="submit" value="Submit" id="submit">
-</form>
-
+        </select>
+        <input type="submit" name="submit" value="Submit" id="categoryDeleteOption_submitButton">
+    </form>
+</div>
 
 
 <?php

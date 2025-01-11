@@ -158,7 +158,7 @@ class CinemaController {
         $pdo = Connect:: seConnecter();
       
         $details = $pdo->prepare("
-                SELECT movie.id_movie, movie.poster, movie.movie_title ,movie.releaseYear,synopsis,ROUND(duration/60,2),person_surname,person_name
+                SELECT movie.id_movie, movie.poster, movie.movie_title ,movie.releaseYear,synopsis,ROUND(duration/60,2),person_surname,person_name,movie.cover
                 FROM movie
                 INNER JOIN director ON movie.id_director = director.id_director
                 INNER JOIN person ON director.id_person = person.id_person

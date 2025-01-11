@@ -32,16 +32,15 @@
 
         <header>
             <img class ="logo" src="public/img/WikiMovieSVG-svg.svg" alt="Wiki Movie Logo">
-            <h1 id="slogan">Your Movie Library</h1>
+            <h1>Movie Library</h1>
+            <nav> 
+                <div class="flexBoxNav"><a href="index.php?action=listFilms"><p>ALL MOVIES</p></a><a href="index.php?action=listFilms"><i class="fa-solid fa-play"></i></a></div>
+                <div class="flexBoxNav"><a href="index.php?action=listTypes"><p>CATEGORY</p></a><a href="index.php?action=listTypes"><i class="fa-solid fa-play"></i></a></div>
+                <div class="flexBoxNav"><a href="index.php?action=listDirectors"><p>DIRECTOR</p></a><a href="index.php?action=listDirectors"><i class="fa-solid fa-play"></i></a></div>
+                <div class="flexBoxNav"><a href="index.php?action=listActors"><p>ACTOR</p></a><a href="index.php?action=listActors"><i class="fa-solid fa-play"></i></a></div>
+                <div class=" flexBoxNav"><a href="index.php?action=index"><p>HOME</p></i></a><a href="index.php?action=index"><i class="fa-solid fa-play"></i></a></div>
+            </nav>
         </header>
-
-        <nav> 
-            <div class="flexBoxNav"><a href="index.php?action=listFilms"><p>ALL MOVIES</p></a><a href="index.php?action=listFilms"><i class="fa-solid fa-play"></i></a></div>
-            <div class="flexBoxNav"><a href="index.php?action=listTypes"><p>CATEGORY</p></a><a href="index.php?action=listTypes"><i class="fa-solid fa-play"></i></a></div>
-            <div class="flexBoxNav"><a href="index.php?action=listDirectors"><p>DIRECTOR</p></a><a href="index.php?action=listDirectors"><i class="fa-solid fa-play"></i></a></div>
-            <div class="flexBoxNav"><a href="index.php?action=listActors"><p>ACTOR</p></a><a href="index.php?action=listActors"><i class="fa-solid fa-play"></i></a></div>
-            <div class=" flexBoxNav"><a href="index.php?action=index"><p>HOME</p></i></a><a href="index.php?action=index"><i class="fa-solid fa-play"></i></a></div>
-        </nav>
 
         <div class="searchBarContainer">
         <input type="text" value="Find your movie" class="searchBar"></input>
