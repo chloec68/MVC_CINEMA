@@ -12,7 +12,7 @@
     ?>
         <div class="persons_container">
 
-            <a href="index.php?action=detailDirector&id=<?= $director["id_person"] ?>">
+            <a href="index.php?action=detailDirector&id=<?= $director["id_director"] ?>">
             <img class="portrait" src=" <?=$director["portrait"]?>" alt="">
             </a>
             <p><?= $director["person_firstname"]." ".$director["person_lastname"] ?></p>

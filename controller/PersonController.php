@@ -23,7 +23,7 @@ class PersonController {
     public function listDirectors(){
         $pdo = Connect :: seConnecter();
         $requete = $pdo->query(
-            "SELECT person_firstname,person_lastname,dateOfBirth,portrait FROM PERSON
+            "SELECT person_firstname,person_lastname,dateOfBirth,portrait,director.id_director FROM PERSON
             INNER JOIN DIRECTOR ON PERSON.id_person = DIRECTOR.id_person"
         );
 
@@ -235,7 +235,7 @@ class PersonController {
     public function detailDirector($id){
         $pdo = Connect:: seConnecter();
         $requete = $pdo->prepare(
-            "SELECT DIRECTOR.id_director,DIRECTOR.id_person,PERSON.person_firstname,PERSON.person_lastname,PERSON.gender,PERSON.dateOfBirth,PERSON.portrait from DIRECTOR
+            "SELECT DIRECTOR.id_director,PERSON.person_firstname,PERSON.person_lastname,PERSON.gender,PERSON.dateOfBirth,PERSON.portrait from DIRECTOR
             INNER JOIN person on DIRECTOR.id_person = person.id_person
             WHERE DIRECTOR.id_director = :id
             "
