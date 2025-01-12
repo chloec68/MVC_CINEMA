@@ -1,4 +1,5 @@
 <?php ob_start();
+ $directors = $requete->fetchAll();
 ?>
 
 <p class="count">There are <?= $requete->rowCount() ?> directors </p>
@@ -7,18 +8,20 @@
 
 <div class="persons_grid">
     <?php
-        foreach($requete->fetchAll() as $director){ 
+    foreach($directors as $director){ 
     ?>
-                <div class="persons_container">
-                <img class="portrait" src=" <?=$director["portrait"]?>" alt="">
-                <p><?= $director["person_firstname"],$director["person_lastname"] ?></p>
-            </div>
-        <?php
-        }
-        ?>
+        <div class="persons_container">
+
+            <a href="index.php?action=detailDirector&id=<?= $director["id_person"] ?>">
+            <img class="portrait" src=" <?=$director["portrait"]?>" alt="">
+            </a>
+            <p><?= $director["person_firstname"]." ".$director["person_lastname"] ?></p>
+        </div>
+    <?php
+    }
+    ?>
 </div>
 
- <!-- *************************** LE RENVOI AU TEMPLATE ("squelette") -->
 <?php
 
 $titre = "Directors";

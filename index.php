@@ -60,6 +60,7 @@ if(isset($_GET["action"])){
         case "listDirectors":$ctrlPerson->listDirectors();break;
         case "addDirector":$ctrlPerson->addDirector();break;
         case "addDirectorForm":$ctrlPerson->addDirectorForm();break;
+        case "detailDirector":$ctrlPerson->detailDirector($id);break;
         //CASTING
         case "addCasting":$ctrlCinema->addCasting($id);break;
         case "addCastingForm":$ctrlCinema->addCastingForm();break;

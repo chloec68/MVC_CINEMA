@@ -514,12 +514,12 @@ td{
     }
 } */
 
-/* **************** ACTOR DETAILS ************** */
-.actor_container{
+/* **************** PERSON DETAILS ************** */
+.person_container{
     display:flex;
     justify-content: center;
 }
-.actorCard{
+.personCard{
     max-width: fit-content;
     height:fit-content;
     padding:40px;
@@ -529,7 +529,7 @@ td{
     margin : 50px auto auto auto;
 }
 
-.actorPortrait{
+.personPortrait{
     border-radius: 200px;
     width:200px;
     height:200px;
@@ -538,13 +538,7 @@ td{
     opacity:80%;
 }
 
-#actor_name{
-    text-align: center;
-    text-transform: uppercase;
-    font-size: 1.5em;
-}
-
-#actor_movie{
+#personMovie{
     text-align:center;
 }
 

@@ -151,7 +151,6 @@ class PersonController {
 
 
 
-
     public function addDirectorForm(){
         require "view/director/addDirectorForm.php";
     }
@@ -231,6 +230,31 @@ class PersonController {
         }
 
         require "view/director/addDirectorForm.php";
+    }
+
+    public function detailDirector($id){
+        $pdo = Connect:: seConnecter();
+        $requete = $pdo->prepare(
+            "SELECT DIRECTOR.id_director,DIRECTOR.id_person,PERSON.person_firstname,PERSON.person_lastname,PERSON.gender,PERSON.dateOfBirth,PERSON.portrait from DIRECTOR
+            INNER JOIN person on DIRECTOR.id_person = person.id_person
+            WHERE DIRECTOR.id_director = :id
+            "
+        );
+
+        $requete->execute(["id"=>$id]);
+
+        $filmography = $pdo->prepare(
+            "SELECT movie_title 
+            FROM movie
+            WHERE movie.id_director = :id
+            "
+        );
+
+        $filmography->execute(["id"=>$id]);
+
+        $directorFilmography = $filmography->fetchAll();
+
+        require "view/director/detailDirector.php";
     }
 
 }

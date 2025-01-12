@@ -1,9 +1,9 @@
 <?php ob_start();
 ?>
 
-<div class="actor_container">
-    <div class="actorCard">
-        <img class="actorPortrait" src="
+<div class="person_container">
+    <div class="personCard">
+        <img class="personPortrait" src="
         <?php 
         if($actorDetails["portrait"]==null){
             echo "public/img/persons/default.jpg";
@@ -20,7 +20,7 @@
         <?php if($actorFilmography){
             foreach($actorFilmography as $film){
         ?>
-         <p id="actor_movie"><?= $film["movie_title"]?></p>
+         <p id="personMovie"><?= $film["movie_title"]?></p>
         <?php
         }
         }?>
@@ -29,7 +29,7 @@
 
 <?php
 
-$titre = "Actors";
+$titre = "Actor";
 $contenu = ob_get_clean();
 $titre_secondaire = $actorDetails["person_firstname"]." ".$actorDetails["person_lastname"];
 require "view/template.php";
