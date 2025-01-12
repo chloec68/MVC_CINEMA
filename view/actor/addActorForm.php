@@ -3,10 +3,10 @@
 
 
 <form class="add-form" action="index.php?action=addActor" method="post" enctype="multipart/form-data">
-    <label for="name">Name : </label>
-    <input type="text" name="personName" id="name" required><br> 
-    <label for="surname">Surname : </label>
-    <input type="text" name="personSurname" id="surname"><br> 
+    <label for="lastname">Last name : </label>
+    <input type="text" name="lastname" id="name" required><br> 
+    <label for="firstname">First name : </label>
+    <input type="text" name="firstname" id="firstname"><br> 
     <label for="actor">Gender : </label>
     <select id="gender" name="gender">
         <option value="">Select gender</option>

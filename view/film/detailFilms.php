@@ -41,7 +41,7 @@ if($film === false){
                 <p><?= $film["synopsis"]?></p>
                 <p>Released in : <?= $film["releaseYear"]?></p>
                 <p>Duration : <?= $film["ROUND(duration/60,2)"]?></p>
-                <p>Director : <?= $film["person_surname"]?> <?= $film["person_name"]?></p>
+                <p>Director : <?= $film["person_firstname"]?> <?= $film["person_lastname"]?></p>
                 <p>Casting : 
                 <?php
                 if (empty($castingData)) {
@@ -51,7 +51,7 @@ if($film === false){
                 } else {
                         foreach ($castingData as $cast) {
                         ?>
-                        <p><?=$cast["person_surname"], $cast["person_name"]?> as <?=$cast["role_name"]?></p><br>
+                        <p><?=$cast["person_firstname"], $cast["person_lastname"]?> as <?=$cast["role_name"]?></p><br>
                         <?php
                         }
                 }

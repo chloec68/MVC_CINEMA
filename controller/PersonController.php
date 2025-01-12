@@ -9,9 +9,12 @@ class PersonController {
 
         $pdo = Connect :: seConnecter();
         $requete = $pdo->query(
-            "SELECT person.id_person,person_surname,person_name,portrait FROM actor 
-            INNER JOIN person ON actor.id_person = person.id_person"
+            "SELECT person.id_person,person_firstname,person_lastname,portrait FROM person
+            INNER JOIN actor ON person.id_person = actor.id_person"
            );
+
+            // "SELECT person.id_person,person_firstname,person_lastname,portrait FROM actor 
+            // INNER JOIN person ON actor.id_person = person.id_person"
 
         require "view/actor/listActors.php";
     }
@@ -20,7 +23,7 @@ class PersonController {
     public function listDirectors(){
         $pdo = Connect :: seConnecter();
         $requete = $pdo->query(
-            "SELECT person_surname,person_name,dateOfBirth,portrait FROM PERSON
+            "SELECT person_firstname,person_lastname,dateOfBirth,portrait FROM PERSON
             INNER JOIN DIRECTOR ON PERSON.id_person = DIRECTOR.id_person"
         );
 
@@ -37,11 +40,10 @@ class PersonController {
 
             $pdo = Connect:: seConnecter();
 
-            $personName = filter_input(INPUT_POST,"personName",FILTER_SANITIZE_SPECIAL_CHARS);
-            $personSurname = filter_INPUT(INPUT_POST,"personSurname",FILTER_SANITIZE_SPECIAL_CHARS);
+            $lastname = filter_input(INPUT_POST,"lastname",FILTER_SANITIZE_SPECIAL_CHARS);
+            $firstname = filter_INPUT(INPUT_POST,"firstname",FILTER_SANITIZE_SPECIAL_CHARS);
             $gender = filter_INPUT(INPUT_POST,"gender",FILTER_SANITIZE_SPECIAL_CHARS);
             $dob = preg_replace("([^0-9/])", "", $_POST['dob']);
-            // $portraitUrl = filter_INPUT(INPUT_POST,"portraitUrl",FILTER_SANITIZE_URL);
 
             if (isset($_FILES['file'])) {
                 $tmpName = $_FILES['file']['tmp_name'];
@@ -62,32 +64,32 @@ class PersonController {
                     $uniqueName = uniqid('', true);
                     $file = $uniqueName . '.' . $extension;
 
-                    move_uploaded_file($tmpName, "public/img/actors/" . $file);
+                    move_uploaded_file($tmpName, "public/img/persons/" . $file);
 
                     // Conversion en webp
                     // Création de mon image en doublon en chaine de caractères
-                    $posterSource = imagecreatefromstring(file_get_contents("public/img/actors/" . $file));
+                    $posterSource = imagecreatefromstring(file_get_contents("public/img/persons/" . $file));
                     // Récupération du chemin de l'image
-                    $webpPath = "public/img/actors/" . $uniqueName . ".webp";
+                    $webpPath = "public/img/persons/" . $uniqueName . ".webp";
                     // Conversion en format webp
                     imagewebp($posterSource, $webpPath);
                     // Suppression de l'ancienne image
-                    unlink("public/img/actors/" . $file);
+                    unlink("public/img/persons/" . $file);
                 } else {
                     echo "Wrong extension or file size too large or error !";
                 }
             }
 
-            $portrait = isset($webpPath) ? $webpPath : "public/img/actors/default.webp";
+            $portrait = isset($webpPath) ? $webpPath : "public/img/persons/default.jpg";
 
 
             $details = $pdo->prepare("
-                INSERT INTO PERSON(person_name,person_surname,gender,dateOfBirth,portrait)
-                VALUES(:personName,:personSurname,:gender,:dob,:portrait)
+                INSERT INTO PERSON(person_lastname,person_firstname,gender,dateOfBirth,portrait)
+                VALUES(:lastname,:firstname,:gender,:dob,:portrait)
             ");
 
-            $details->execute(["personName"=>$personName,
-                            "personSurname"=>$personSurname,
+            $details->execute(["lastname"=>$lastname,
+                            "firstname"=>$firstname,
                             "gender"=>$gender,
                             "dob"=>$dob,
                             "portrait"=>$portrait]);
@@ -116,16 +118,19 @@ class PersonController {
     public function detailActor($id){
         $pdo = Connect:: seConnecter();
         $requete = $pdo->prepare(
-            "SELECT person.person_surname,person.person_name,person.gender,person.dateOfBirth,person.portrait,actor.id_person,person.portrait
+            "SELECT person.person_firstname,person.person_lastname,person.gender,person.dateOfBirth,person.portrait,actor.id_person
             FROM person
             INNER JOIN actor ON person.id_person = actor.id_person
-            INNER JOIN casting ON actor.id_actor = casting.id_actor
             WHERE actor.id_person = :id"
         );
 
         $requete->execute(["id"=>$id]);
 
-        $actorDetails = $requete->fetch(); 
+        $actorDetails = $requete->fetch();
+        if (!$actorDetails) {
+            echo "Actor not found.";
+            return;
+        } 
 
         $filmography = $pdo->prepare(
             "SELECT movie_title 
@@ -133,7 +138,7 @@ class PersonController {
             INNER JOIN casting ON movie.id_movie = casting.id_movie 
             INNER JOIN role ON casting.id_role = role.id_role
             INNER JOIN actor ON actor.id_actor = CASTING.id_actor
-            WHERE actor.id_actor = :id
+            WHERE actor.id_person = :id
             "
         );
 
@@ -155,8 +160,8 @@ class PersonController {
         if(isset($_POST['submit'])){
 
             $pdo = Connect:: seConnecter();
-            $personName = filter_input(INPUT_POST,"personName",FILTER_SANITIZE_SPECIAL_CHARS);
-            $personSurname = filter_INPUT(INPUT_POST,"personSurname",FILTER_SANITIZE_SPECIAL_CHARS);
+            $lastname = filter_input(INPUT_POST,"lastname",FILTER_SANITIZE_SPECIAL_CHARS);
+            $firstname = filter_INPUT(INPUT_POST,"firstname",FILTER_SANITIZE_SPECIAL_CHARS);
             $gender = filter_INPUT(INPUT_POST,"gender",FILTER_SANITIZE_SPECIAL_CHARS);
             $dob = preg_replace("([^0-9/])", "", $_POST['dob']);
 
@@ -179,32 +184,32 @@ class PersonController {
                     $uniqueName = uniqid('', true);
                     $file = $uniqueName . '.' . $extension;
 
-                    move_uploaded_file($tmpName, "public/img/directors/" . $file);
+                    move_uploaded_file($tmpName, "public/img/persons/" . $file);
 
                     // Conversion en webp
                     // Création de mon image en doublon en chaine de caractères
-                    $posterSource = imagecreatefromstring(file_get_contents("public/img/directors/" . $file));
+                    $posterSource = imagecreatefromstring(file_get_contents("public/img/persons/" . $file));
                     // Récupération du chemin de l'image
-                    $webpPath = "public/img/directors/" . $uniqueName . ".webp";
+                    $webpPath = "public/img/persons/" . $uniqueName . ".webp";
                     // Conversion en format webp
                     imagewebp($posterSource, $webpPath);
                     // Suppression de l'ancienne image
-                    unlink("public/img/directors/" . $file);
+                    unlink("public/img/persons/" . $file);
                 } else {
                     echo "Wrong extension or file size too large or error !";
                 }
             }
 
-            $portrait = isset($webpPath) ? $webpPath : "public/img/actors/default.webp";
+            $portrait = isset($webpPath) ? $webpPath : "public/img/persons/default.jpg";
 
 
             $details = $pdo->prepare("
-                INSERT INTO PERSON(person_name,person_surname,gender,dateOfBirth,portrait)
-                VALUES(:personName,:personSurname,:gender,:dob,:portrait)
+                INSERT INTO PERSON(person_lastname,person_firstname,gender,dateOfBirth,portrait)
+                VALUES(:lastname,:firstname,:gender,:dob,:portrait)
             ");
 
-            $details->execute(["personName"=>$personName,
-                            "personSurname"=>$personSurname,
+            $details->execute(["lastname"=>$lastname,
+                            "firstname"=>$firstname,
                             "gender"=>$gender,
                             "dob"=>$dob,
                             "portrait"=>$portrait]);

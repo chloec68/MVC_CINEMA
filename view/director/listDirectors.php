@@ -11,7 +11,7 @@
     ?>
                 <div class="persons_container">
                 <img class="portrait" src=" <?=$director["portrait"]?>" alt="">
-                <p><?= $director["person_surname"],$director["person_name"] ?></p>
+                <p><?= $director["person_firstname"],$director["person_lastname"] ?></p>
             </div>
         <?php
         }

@@ -2,10 +2,10 @@
 ?>
 
 <form class="add-form" action="index.php?action=addDirector" method="post" enctype="multipart/form-data">
-    <label for="name">Name : </label>
-    <input type="text" name="personName" id="personName" required><br> 
-    <label for="surname">Surname : </label>
-    <input type="text" name="personSurname" id="personSurname"><br> 
+    <label for="lastname">Last name : </label>
+    <input type="text" name="lastname" id="lastname" required><br> 
+    <label for="firstname">First name : </label>
+    <input type="text" name="firstname" id="firstname"><br> 
     <label for="gender">Gender : </label>
     <!-- <input type="text" name="gender" id="gender" required><br>  -->
     <select id="gender" name="gender">

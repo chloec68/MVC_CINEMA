@@ -6,17 +6,29 @@
 
 <div class="persons_grid">
         <?php 
-            foreach($requete->fetchAll() as $actor){ 
+        foreach($requete->fetchAll() as $actor){ 
         ?>
             <div class="persons_container">
-                <a href="index.php?action=detailActor&id=<?= $actor["id_person"]?>"><img class="portrait" src=" <?=$actor["portrait"]?>" alt=""></a>
-                <p><?= $actor["person_surname"]." ", $actor["person_name"]?></p>
-                </div>
-        <?php } ?>
+                <a href="index.php?action=detailActor&id=<?= $actor["id_person"]?>">
+                <img class="portrait" src="
+                <?php
+                if ($actor["portrait"] == null){
+                    echo "public/img/persons/default.jpg";
+                }else{
+                    echo $actor["portrait"]?>
+                <?php
+                }
+                ?>
+                "alt="Portrait of <?=$actor["person_firstname"]." ",$actor["person_lastname"]?>">
+                </a>
+                <p><?= $actor["person_firstname"]." ", $actor["person_lastname"]?></p>
+            </div>
+        <?php
+    }
+        ?>
 </div>
 
 <?php
-
 $titre = "Actors";
 $contenu = ob_get_clean();
 $titre_secondaire = "Search by Actor";

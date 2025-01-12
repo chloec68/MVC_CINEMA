@@ -47,10 +47,10 @@ class CinemaController {
     public function addMovieForm(){
         $pdo = Connect:: seConnecter();
         $requestDirectors = $pdo->query(
-            "SELECT person_surname,person_name,id_director
+            "SELECT person_firstname,person_lastname,id_director
             FROM PERSON
             INNER JOIN DIRECTOR ON PERSON.id_person = DIRECTOR.id_person
-            ORDER BY person_surname"
+            ORDER BY person_firstname"
         );
 
         $requestTypes = $pdo->query(
@@ -158,7 +158,7 @@ class CinemaController {
         $pdo = Connect:: seConnecter();
       
         $details = $pdo->prepare("
-                SELECT movie.id_movie, movie.poster, movie.movie_title ,movie.releaseYear,synopsis,ROUND(duration/60,2),person_surname,person_name,movie.cover
+                SELECT movie.id_movie, movie.poster, movie.movie_title ,movie.releaseYear,synopsis,ROUND(duration/60,2),person_firstname,person_lastname,movie.cover
                 FROM movie
                 INNER JOIN director ON movie.id_director = director.id_director
                 INNER JOIN person ON director.id_person = person.id_person
@@ -170,7 +170,7 @@ class CinemaController {
         // CASTING 
 
         $casting = $pdo->prepare("
-            SELECT * ,CONCAT(person.person_surname,person.person_name) AS identity,role.id_role
+            SELECT * ,CONCAT(person.person_firstname,person.person_lastname) AS identity,role.id_role
             FROM casting
             INNER JOIN ACTOR ON casting.id_actor = actor.id_actor
             INNER JOIN person ON actor.id_person = person.id_person
@@ -206,7 +206,7 @@ class CinemaController {
        
         $pdo = Connect:: seConnecter();
         $requestActors = $pdo->query("
-            SELECT person_name,person_surname,actor.id_actor FROM ACTOR 
+            SELECT person_lastname,person_firstname,actor.id_actor FROM ACTOR 
             inner join person on actor.id_person = person.id_person
             order by person_surname
         ");
