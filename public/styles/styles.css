@@ -340,7 +340,7 @@ td{
     text-align: right;
 }
 
-/* **************** DIRECTORS LIST ************** */
+/* **************** PERSONS LIST ************** */
 
 .persons_grid{
     display: grid;
@@ -364,6 +364,38 @@ td{
 .persons_grid .persons_container p{
     text-align: center;
 }
+
+/* **************** PERSON DETAILS ************** */
+.personCard{
+    max-width: fit-content;
+    height:fit-content;
+    padding:40px;
+    border:rgb(50, 2, 2) solid 1px;
+    box-shadow:1px 1px 30px 1px rgb(190, 1, 1);
+    border-radius: 5px;
+    margin : 50px auto auto auto;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+
+    p{
+        margin:5px;
+    }
+}
+
+.personPortrait{
+    border-radius: 200px;
+    width:200px;
+    height:200px;
+    object-fit: cover;
+    margin: 0px auto 30px auto;
+    opacity:80%;
+}
+
+#personMovie{
+    text-align:center;
+}
+
 
 /* **************** CATEGORY LIST ************** */
 .category_wrapper{
@@ -486,33 +518,6 @@ td{
     }
 } */
 
-/* **************** PERSON DETAILS ************** */
-.person_container{
-    display:flex;
-    justify-content: center;
-}
-.personCard{
-    max-width: fit-content;
-    height:fit-content;
-    padding:40px;
-    border:rgb(50, 2, 2) solid 1px;
-    box-shadow:1px 1px 30px 1px rgb(190, 1, 1);
-    border-radius: 5px;
-    margin : 50px auto auto auto;
-}
-
-.personPortrait{
-    border-radius: 200px;
-    width:200px;
-    height:200px;
-    object-fit: cover;
-    margin-bottom:30px;
-    opacity:80%;
-}
-
-#personMovie{
-    text-align:center;
-}
 
 /* **************** FORMS ************** */
 

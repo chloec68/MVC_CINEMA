@@ -11,7 +11,6 @@
     foreach($directors as $director){ 
     ?>
         <div class="persons_container">
-
             <a href="index.php?action=detailDirector&id=<?= $director["id_director"] ?>">
             <img class="portrait" src=" <?=$director["portrait"]?>" alt="">
             </a>
