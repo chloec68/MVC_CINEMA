@@ -408,34 +408,6 @@ td{
     }
 }
 
-/* ADD OR DELETE OPTIONS */
-.options{
-    display: flex;
-    width:100%;
-    height: fit-content;
-}
-
-.delete-form{
-    width:30%;
-    text-align: center;
-    margin: auto;
-    display: flex;
-}
-
-.delete-form #type{
-    width:fit-content;
-    height:5%;
-    padding:2px 2px 2px 10px;
-    border-radius:10px;
-}
-
-#categoryDeleteOption_submitButton{
-    margin:none;
-    width:fit-content;
-    padding:5px;
-    border-radius:5px;
-}
-
 /* **************** ALL MOVIES GRID ************** */
 .movie_grid{
     display: grid;
@@ -543,7 +515,7 @@ td{
 }
 
 /* **************** FORMS ************** */
-/* ADD FORM */
+
 .add-form{
     text-align: center;
     color:var(--brown);
@@ -586,7 +558,7 @@ td{
 }
 
 /* **************** BUTTONS ************** */
-
+/* ADD, SUBMIT */
 .add-button,#submit{
     width:fit-content;
     background-color:#630101;
@@ -598,7 +570,7 @@ td{
     font-weight:600;
     text-decoration: none;
     display:block;
-    margin:50px auto 50px auto;
+    margin:10px auto 10px auto;
     padding-left:10px;
     padding-right:10px;
     border: none;
@@ -610,13 +582,36 @@ td{
 }
 
 #submit{
-    width:20%;
+    width:15%;
+    height:15%;
 }
 
 .fa-circle-plus{
     margin:5px;
     font-size:1em;
     display: block;
+}
+
+/* DELETE */
+.options{
+    display: flex;
+    width:100%;
+    height: fit-content;
+    margin:100px;
+}
+
+.delete-form{
+    width:50%;
+    text-align: center;
+    margin: auto;
+}
+
+.delete-form #type{
+    width:fit-content;
+    height:5%;
+    padding:2px 2px 2px 10px;
+    border-radius:10px;
+    margin:10px;
 }
 
 /* **************** FOOTER ************** */

@@ -22,15 +22,15 @@
         <label for="type">Delete a category: </label>
         <select name="typeName" id="type">
             <option value="select">Select</option>
-                        <?php    
-                        foreach($genres as $genre){
-                        ?>
+                    <?php    
+                    foreach($genres as $genre){
+                    ?>
                     <option value="<?= $genre["id_type"] ?>"><?= $genre["type_name"] ?></option>
                     <?php
-                            }       
+                    }       
                     ?>
         </select>
-        <input type="submit" name="submit" value="Submit" id="categoryDeleteOption_submitButton">
+        <input type="submit" name="submit" value="Submit" id="submit">
     </form>
 </div>
 
