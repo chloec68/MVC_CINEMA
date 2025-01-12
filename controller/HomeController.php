@@ -17,6 +17,22 @@ class HomeController {
         require "view/home/index.php";
     }
 
+    public function search(){
+        $pdo = Connect:: seConnecter();
+        $search = $_POST['search'];
+        $search = htmlspecialchars($search);
+        $search = trim($search);
+        $search = strip_tags($search);
+        $search = strtolower($search);
+        $search = "%".$search."%";
+        $search = $pdo->query("
+        SELECT movie.movie_title,movie.id_movie
+        FROM movie
+        WHERE movie.movie_title LIKE '$search'
+        ");
+        require "view/film/detailFilms.php";
+    }
+
    
 }
 

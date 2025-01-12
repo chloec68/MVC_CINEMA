@@ -347,6 +347,7 @@ td{
     grid-template-columns: 1fr 1fr 1fr;
     width:100%;
     justify-items: center;
+    margin:100px 0px 0px 0px;
 }
 
 .persons_grid .persons_container{
@@ -520,17 +521,17 @@ td{
 
 
 /* **************** FORMS ************** */
-
+.add-form{
+    text-align: center;
+}
 .add-form{
     text-align: center;
     color:var(--brown);
     margin:20px auto 20px auto;
-    /* background-color:rgb(50, 2, 2); */
     width:40%;
     border-radius: 10px;
     padding:20px;
     opacity: 0.8;
-    /* box-shadow:1px 1px 30px 1px rgb(190, 1, 1); */
     label{
         display: block;
         margin: 5px 0; 
