@@ -1,14 +1,16 @@
 <?php
 
 namespace Model;
-// la classe est abstraite car on n'instanciera jamais la classe Connect -> on a seulement besoin d'accéder à la méthode seConnecter()
+// la classe est abstraite => on n'a pas besoin d'une instance de la classe Connect pour utiliser sa méthode ; 
+// le but de la classe Connect est simplement de fournir une méthode statique pour établir une connexion à la BDD 
 abstract class Connect {
     const HOST = "localhost";
     const DB = "cinema"; 
     const USER = "root";
     const PASS ="root";
 
-    public static function seConnecter(){
+    public static function seConnecter(){ // So la connexion réussit, la méthode retourne un objet PDO connecté à la BDD : l'objet PDO permet de transmettre des instructions 
+        // à la BDD et de renvoyer des résultats
         try{
             return new \PDO(
                 "mysql:host=".self::HOST.";dbname=".self::DB.";charset=utf8", self::USER, self::PASS);
@@ -46,9 +48,9 @@ abstract class Connect {
 
 
 
-// définir fonction statique
+// définir méthode statique
 
-    // en PHP une fonction statique est une fonction qui peut être appelée sans avoir à créer une instance de la classe : elle est accessible
+    // en PHP une méthode statique est une fonction qui peut être appelée sans avoir à créer une instance de la classe : elle est accessible
     // directement via le nom de la classe. 
 
     // le fait de déclarer des propriétés ou méthodes comme statiques (fonction statique) permet d'y accéder sans avoir besoin d'instancier
@@ -66,7 +68,7 @@ abstract class Connect {
 
 // définir PDO 
 
-    // PDO = PHP Date Objects 
+    // PDO = PHP Data Objects 
     // => extension définissant l'interface pour accéder à une base de données en PHP
     // => c'est une couche d'abstraction qui intervient entre l'application PHP et le système de gestion de base de données (SGBD) tel que
     // MySql, MariaDB,etc 

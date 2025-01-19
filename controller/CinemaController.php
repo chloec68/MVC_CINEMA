@@ -1,7 +1,7 @@
 <?php
 namespace Controller;
 // déclaration "le fichier PHP fait partie du namespace Controller"
-// un namespace permet d'éviter les conflits de nom : on peut utiliser plusieurs classes avec un nom identique et les classer dans des namespaces différents !
+// un namespace permet d'éviter les conflits de noms de classe : on peut utiliser plusieurs classes avec un nom identique et les classer dans des namespaces différents !
 use Model\Connect;
 // accès à la classe/importation de la classe Connect située dans le namespace "Model"
 
@@ -26,9 +26,9 @@ class CinemaController {
 
         require "view/film/listFilms.php";
         //intégration de la Vue dans le flux d'exécution du code => mise en forme du résultat de la requête précédente
-        // la vue reçoit les données demandées et préparées par le contrôleur
-        // la vue ne peut pas accéder directemnet à l'objet PDOStatement, c'est pourquoi l'objet PDOStatement est stocké dans une variable 
-        // -> la variable est passée à la vue 
+        // la vue reçoit les données demandées et préparées par le contrôleur que l'on souhaite afficher
+        // la vue ne peut pas accéder directement à l'objet PDOStatement, c'est pourquoi l'objet PDOStatement est stocké dans une variable $requete
+        // -> la variable $requete est passée à la vue pour que les données puissent être affichées 
     }
 
 

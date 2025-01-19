@@ -1,4 +1,7 @@
 <?php ob_start();
+// var_dump($requete->fetchAll()); 
+// L'objet PDOStatement contenu dans $requete renvoie par défaut PDO:FETCH_ASSOC_BOTH un tableau associatif et un tableau indexé numériquement 
+// Pour poster on peut donc y accéder par l'utilisateur du nom de la clé : $film["poster"] ou par l'utilisation de l'index $film[1]
 ?>
 
 <p class="count">There are <?= $requete->rowCount() ?> films </p>
@@ -8,7 +11,7 @@
         foreach($requete->fetchAll() as $film){ 
 ?>
         <div class="container">
-                <img class="poster"  src="<?=$film["poster"]?>" alt="<?= $film["movie_title"]?>">
+                <img class="poster"  src="<?=$film[1]?>" alt="<?= $film["movie_title"]?>">
                 <div class="middle">
                 <div class="link"><a href="index.php?action=detailFilm&id=<?= $film['id_movie']?>"><i class="fa-regular fa-eye"></i></a></div>
                 </div>
