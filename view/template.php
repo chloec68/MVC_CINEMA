@@ -42,12 +42,6 @@
             </nav>
         </header>
 
-        <div class="searchBarContainer">
-        <input type="text" value="Find your movie" class="searchBar"></input>
-        <i class="fa-solid fa-magnifying-glass"></i>
-        </div>
-        
-
         <div id="wrapper">
             <div id="contenu">
                 <h2> <?= $titre_secondaire ?> </h2>

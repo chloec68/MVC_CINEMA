@@ -21,8 +21,9 @@
             <option value="">Select an option</option>
             <?php
             foreach($requestDirectors->fetchAll(PDO::FETCH_ASSOC) as $director) {
+                
             ?>
-            <option value=<?= $director['id_director'] ?>><?= $director['person_surname'] ?> <?=$director['person_name']?></option>
+            <option value=<?= $director['id_director'] ?>><?= $director['person_firstname'] ?> <?=$director['person_lastname']?></option>
             <?php
             }
             ?>

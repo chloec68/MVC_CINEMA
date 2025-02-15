@@ -1,12 +1,22 @@
 <?php ob_start();
 
 ?>
+	<!--
+<div class="searchBarContainer">
+	<form action="index.php?action=searchByName" method="POST">
+		<input type="text" name="movieTitle" class="searchBar" required>
+		<button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+	</form>
+</div> -->
+	
+
 <div class="fiveStars">
   <i class="fa-solid fa-star"></i>
   <i class="fa-solid fa-star"></i>
   <i class="fa-solid fa-star"></i>
   <i class="fa-solid fa-star"></i>
   <i class="fa-solid fa-star"></i>
+  <h3>Best Rated Movies</h3>
 </div>
 
 
@@ -36,7 +46,7 @@
 			<div class="swiper-slide">
 				<div class="emotions-slider__item emotions-slider-item">
 					<div class="emotions-slider-item__image">
-							<img src="<?=$best['poster']?>">
+							<a href="index.php?action=detailFilm&id=<?= $best['id_movie']?>"><img src="<?=$best['poster']?>"></a>
 					</div>
 		
 					<div class="emotions-slider-item__content">
@@ -58,7 +68,7 @@
 <?php
 
 $titre = "Home";
-$titre_secondaire = "Best Rated Movies";
+$titre_secondaire = "Home";
 $contenu = ob_get_clean();
 require "view/template.php";
 

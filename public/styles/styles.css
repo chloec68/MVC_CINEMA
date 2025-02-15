@@ -63,20 +63,21 @@ nav{
     gap:150px;
     font-weight: bolder;
     font-size:0.8em;
+    
 }
 
 nav .flexBoxNav{
     display: flex;
     align-items: baseline;
     justify-content: center;
-    width:8.5%;
+    width:fit-content;
     background-color: var(--beige);
     border-radius: 30px;
     color: var(--brown);
     cursor: pointer;
     font-weight: 600;
     font-size: 1em;
-    padding: 0 18px;
+    padding: 0 1rem;
     text-align: center;
 }
 
@@ -494,6 +495,30 @@ td{
 }
 
 /* **************** DETAILS FILM ************** */
+.wrapper_movieDetails {
+    position: relative;
+    height: 50%; 
+    background-size: cover;   
+    background-position: center center ;  /* Centrer l'image horizontalement et verticalement */
+    background-repeat: no-repeat;
+    }
+
+    .wrapper_movieDetails::after {
+    content: ""; /* Nécessaire pour le pseudo-élément */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('<?= htmlspecialchars($movieCover); ?>');
+    background-size: cover;
+    background-position: center center ;
+    opacity: 30%; 
+    z-index: -1;
+    height:100%;
+    background-attachment: fixed;
+    }
+
 .movieDetails{
     width : 20%;
     margin: 50px auto auto auto;

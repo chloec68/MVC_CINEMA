@@ -124,8 +124,8 @@ class CinemaController {
             "movieSynopsis"=>$movieSynopsis,
             "moviePoster"=>$moviePoster,
             "releaseYear"=>$releaseYear,
-            ":idDirector"=>$directorId,
-            ":rating"=>$rating
+            "idDirector"=>$directorId,
+            "rating"=>$rating
             ]);
 
             $idMovie = $pdo->lastInsertId();
