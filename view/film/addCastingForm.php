@@ -9,7 +9,7 @@ $id = $_GET['id'];
         if ($actors = $requestActors->fetchAll()) {
             foreach ($actors as $actor) {
         ?>
-                <option value=<?=($actor['id_actor'])?>><?= htmlspecialchars($actor['person_surname']) ?> <?= htmlspecialchars($actor['person_name'])?></option>
+                <option value=<?=($actor['id_actor'])?>><?= htmlspecialchars($actor['person_firstname']) ?> <?= htmlspecialchars($actor['person_lastname'])?></option>
         <?php
             }
         }

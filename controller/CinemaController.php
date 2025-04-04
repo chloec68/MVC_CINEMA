@@ -208,7 +208,7 @@ class CinemaController {
         $requestActors = $pdo->query("
             SELECT person_lastname,person_firstname,actor.id_actor FROM ACTOR 
             inner join person on actor.id_person = person.id_person
-            order by person_surname
+            order by person_lastname
         ");
 
         $requestRoles = $pdo->query("
